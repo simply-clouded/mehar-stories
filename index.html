@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Goodnight, Mehar</title>
+<meta name="description" content="A little picture story for bedtime, every night, in English, Deutsch and हिंदी.">
+<!-- A child's picture book: ask search engines not to list it. -->
+<meta name="robots" content="noindex, nofollow, noimageindex">
+<meta name="theme-color" content="#141743">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23141743'/%3E%3Cpath d='M40 12a22 22 0 1 0 12 36A18 18 0 1 1 40 12z' fill='%23ffe9a8'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* A picture book on a night sky: two-page spreads on wide screens, one page on phones */
+  --night: #141743;
+  --night2: #262a6b;
+  --paper: #fff8ea;
+  --ink: #2c2250;
+  --moon: #ffe9a8;
+  --glow: #fff3c4;
+  --rose: #ff8fb1;
+  --soft: rgba(44, 34, 80, 0.62);
+  --en: #3f7be8;
+  --de: #e0912a;
+  --hi: #d8343f;
+  --round: "Baloo 2", "Nunito", "Arial Rounded MT Bold", system-ui, sans-serif;
+  --hand: "Caveat", "Comic Sans MS", cursive;
+  --fs: 17px;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  background-color: var(--night);
+  background-image:
+    radial-gradient(circle at 88% 8%, rgba(255, 243, 196, 0.22) 0, rgba(255, 243, 196, 0) 22%),
+    radial-gradient(ellipse 90% 80% at 50% 40%, #2a2f78 0%, #141743 75%, #0d0f30 100%);
+  color: var(--paper);
+  font-family: var(--round);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+/* the sky behind everything */
+#sky { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+#sky .s { position: absolute; width: 3px; height: 3px; border-radius: 50%; background: #fff; opacity: 0.6; animation: twinkle var(--d, 4s) ease-in-out infinite; animation-delay: var(--delay, 0s); }
+#sky .bigmoon { position: absolute; right: 4vw; top: 3vh; width: clamp(56px, 9vw, 110px); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 38% 38%, #fffbe6, var(--moon) 60%, #f4d27a); box-shadow: 0 0 40px 12px rgba(255, 233, 168, 0.25); }
+#sky .bigmoon::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle at 66% 30%, rgba(230,190,100,0.55) 0 8%, transparent 9%), radial-gradient(circle at 30% 70%, rgba(230,190,100,0.5) 0 6%, transparent 7%); }
+@keyframes twinkle { 0%, 100% { opacity: 0.25; transform: scale(0.8); } 50% { opacity: 0.95; transform: scale(1.15); } }
+
+#app { position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 12px 12px 10px; }
+#stage { position: relative; }
+#stage::after { content: ""; position: absolute; left: 6%; right: 6%; bottom: -18px; height: 30px; background: radial-gradient(ellipse at center, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 70%); z-index: -1; pointer-events: none; }
+#stage[hidden], #shelf[hidden] { display: none; }
+#loading { font: 500 1.1rem var(--round); color: rgba(255, 248, 234, 0.7); }
+
+/* ---------------- pages ---------------- */
+.bookfont { font-size: var(--fs); }
+.page { background: var(--paper); color: var(--ink); overflow: hidden; display: flex; flex-direction: column; }
+.page.left { box-shadow: inset -14px 0 22px -14px rgba(60, 40, 20, 0.28); }
+.page.right { box-shadow: inset 14px 0 22px -14px rgba(60, 40, 20, 0.28); }
+.art { position: relative; width: 100%; aspect-ratio: 1; flex: 0 0 auto; background: #20245e; }
+.art img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.words { flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: center; gap: 0.55em; padding: 0.7em 1.1em 0.9em; }
+.line { margin: 0; font: 600 1.3em/1.3 var(--round); text-align: center; text-wrap: balance; }
+.say { align-self: center; display: inline-flex; align-items: baseline; gap: 0.45em; padding: 0.2em 0.8em; border-radius: 1em; background: #f1e9ff; font: 600 1em/1.3 var(--round); }
+.say .rom { font-weight: 500; font-size: 0.85em; color: var(--soft); }
+.chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.35em; }
+.chip { display: inline-flex; align-items: center; gap: 0.35em; padding: 0.15em 0.65em 0.15em 0.3em; border: 2px solid currentColor; border-radius: 999px; background: #fff; font: 700 0.92em/1.5 var(--round); cursor: pointer; color: var(--c); }
+.chip:hover { background: color-mix(in srgb, var(--c) 10%, #fff); }
+.chip:focus-visible { outline: 3px solid var(--rose); outline-offset: 2px; }
+.chip .tag { display: inline-grid; place-items: center; min-width: 1.9em; height: 1.5em; padding: 0 0.3em; border-radius: 999px; background: var(--c); color: #fff; font-size: 0.72em; letter-spacing: 0.04em; }
+.chip .rom { font-weight: 500; font-size: 0.82em; opacity: 0.75; }
+.chip.en, .tag.en { --c: var(--en); }
+.chip.de, .tag.de { --c: var(--de); }
+.chip.hi, .tag.hi { --c: var(--hi); }
+.say .tag { display: inline-grid; place-items: center; min-width: 1.9em; height: 1.4em; padding: 0 0.3em; border-radius: 999px; background: var(--c); color: #fff; font-size: 0.68em; }
+
+/* cover */
+.cover { position: relative; background: #1b1f5c; color: var(--paper); }
+.cover .art { position: absolute; inset: 0; aspect-ratio: auto; height: 100%; }
+.cover .band { position: absolute; left: 0; right: 0; top: 0; padding: 1.2em 1em 2.4em; text-align: center; background: linear-gradient(rgba(14, 16, 52, 0.85), rgba(14, 16, 52, 0)); }
+.cover .series { font: 700 0.78em/1 var(--round); letter-spacing: 0.22em; text-transform: uppercase; color: var(--moon); }
+.cover h1 { margin: 0.25em 0 0; font: 800 2.15em/1.05 var(--round); text-shadow: 0 3px 0 rgba(0,0,0,0.25); }
+.cover .sub { margin-top: 0.35em; font: 600 1em/1.35 var(--round); opacity: 0.9; }
+.cover .badge { position: absolute; right: 1em; bottom: 1em; display: grid; place-items: center; width: 4.4em; aspect-ratio: 1; border-radius: 50%; background: var(--moon); color: var(--ink); font: 800 0.9em/1 var(--round); text-align: center; transform: rotate(-8deg); box-shadow: 0 4px 0 rgba(0,0,0,0.2); }
+.cover .badge small { display: block; font-size: 0.62em; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+
+/* plain pages: title page, words page, the end */
+.plain { justify-content: center; align-items: center; text-align: center; gap: 0.8em; padding: 2em 1.6em; background-image: radial-gradient(circle at 20% 15%, rgba(255, 210, 63, 0.18) 0 2px, transparent 3px), radial-gradient(circle at 78% 30%, rgba(63, 123, 232, 0.15) 0 2px, transparent 3px), radial-gradient(circle at 60% 82%, rgba(255, 143, 177, 0.2) 0 2px, transparent 3px); background-size: 120px 120px, 150px 150px, 130px 130px; }
+.plain .moonie { width: 4.2em; height: 4.2em; }
+.plain .hand { font: 700 1.9em/1.1 var(--hand); color: var(--soft); }
+.plain h2 { margin: 0; font: 800 1.7em/1.15 var(--round); color: var(--ink); }
+.plain .tri { display: grid; gap: 0.25em; font: 600 1.05em/1.35 var(--round); }
+.plain .tri .r { color: var(--soft); font-weight: 500; font-size: 0.88em; }
+.pill { display: inline-block; padding: 0.25em 0.9em; border-radius: 999px; background: #ffe9a8; color: var(--ink); font: 700 0.9em/1.4 var(--round); }
+.themes { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.4em; }
+.themes span { padding: 0.1em 0.7em; border-radius: 999px; background: #efe7ff; font: 600 0.82em/1.5 var(--round); }
+.wordlist { width: 100%; margin-top: 0.4em; display: grid; gap: 0.35em; }
+.wordrow { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.3em; padding-bottom: 0.35em; border-bottom: 2px dotted rgba(44, 34, 80, 0.15); }
+.wordrow .chip { font-size: 0.8em; }
+.question { margin-top: 0.3em; padding: 0.7em 1em; border-radius: 1em; background: #fff1c9; font: 600 1em/1.35 var(--round); }
+.question .q { display: block; }
+.question .r { color: var(--soft); font-weight: 500; font-size: 0.88em; }
+
+/* ---------------- bookshelf (landing page) ---------------- */
+#shelf { width: 100%; flex: 1; min-height: 0; overflow-y: auto; display: flex; flex-direction: column; align-items: center; justify-content: safe center; gap: 26px; padding: 28px 16px 12px; }
+.shelf-head { display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; }
+.shelf-head .hi { font: 700 1.25rem/1.4 var(--round); color: var(--moon); }
+.shelf-head h1 { margin: 0; font: 800 clamp(2.2rem, 7vw, 3.4rem)/1.05 var(--round); color: var(--paper); text-shadow: 0 4px 0 rgba(0,0,0,0.25); }
+.shelf-head .de { font: 600 1.05rem/1.4 var(--round); color: rgba(255, 248, 234, 0.75); }
+.shelf-head .tag { margin-top: 6px; font: 600 1.6rem/1.2 var(--hand); color: rgba(255, 248, 234, 0.7); }
+.tonight { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 18px 28px; max-width: 760px; }
+.tonight .label { font: 800 0.8rem/1 var(--round); letter-spacing: 0.22em; text-transform: uppercase; color: var(--moon); }
+.tonight .info { display: flex; flex-direction: column; gap: 6px; max-width: 320px; }
+.tonight .info h2 { margin: 0; font: 800 1.9rem/1.1 var(--round); }
+.tonight .info .tri { font: 600 1rem/1.4 var(--round); color: rgba(255, 248, 234, 0.8); }
+.tonight .info .learn { font: 500 0.95rem/1.4 var(--round); color: rgba(255, 248, 234, 0.65); }
+.readbtn { align-self: flex-start; margin-top: 8px; display: inline-flex; align-items: center; gap: 0.5em; min-height: 46px; padding: 0 1.3em; border: 0; border-radius: 999px; background: var(--moon); color: var(--ink); font: 800 1.05rem/1 var(--round); cursor: pointer; text-decoration: none; box-shadow: 0 4px 0 #d3b35e; }
+.readbtn:hover { transform: translateY(-1px); }
+.readbtn:focus-visible { outline: 3px solid var(--rose); outline-offset: 3px; }
+.shelf-wrap { width: 100%; max-width: 980px; display: flex; flex-direction: column; gap: 6px; }
+.shelf-title { font: 700 0.85rem/1 var(--round); letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255, 248, 234, 0.6); text-align: center; }
+.shelf-row { position: relative; display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-end; gap: 26px; padding: 18px 12px 0; margin-bottom: 26px; }
+.shelf-row::after { content: ""; position: absolute; left: 0; right: 0; bottom: -14px; height: 16px; border-radius: 4px; background: linear-gradient(#a06d4b, #7a4e33); box-shadow: 0 6px 0 #5e3c27, 0 18px 24px rgba(0,0,0,0.35); }
+.book-card { display: flex; flex-direction: column; align-items: center; gap: 6px; padding-bottom: 10px; color: var(--paper); text-decoration: none; border-radius: 10px; }
+.book-card .mini { width: 128px; aspect-ratio: 0.72; border-radius: 4px 10px 10px 4px; overflow: hidden; position: relative; background: #1b1f5c; box-shadow: inset 6px 0 0 rgba(0,0,0,0.25), 0 10px 18px rgba(0,0,0,0.45); transform: rotate(var(--tilt)); transition: transform 0.3s ease; }
+.book-card .mini img { width: 100%; height: 100%; object-fit: cover; }
+.book-card .mini .t { position: absolute; left: 0; right: 0; top: 0; padding: 0.5em 0.5em 1.2em; font: 800 0.8rem/1.1 var(--round); text-align: center; background: linear-gradient(rgba(14,16,52,0.85), rgba(14,16,52,0)); }
+.book-card .meta { font: 600 0.85rem/1.2 var(--round); color: rgba(255, 248, 234, 0.7); }
+.book-card:hover .mini, .book-card:focus-visible .mini { transform: rotate(0) translateY(-6px); }
+.book-card:focus-visible { outline: 3px solid var(--moon); outline-offset: 6px; }
+.tonight .mini { width: 200px; }
+.shelf-foot { max-width: 560px; text-align: center; font: 500 0.85rem/1.5 var(--round); color: rgba(255, 248, 234, 0.5); }
+
+/* ---------------- controls ---------------- */
+#controls { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px 8px; font: 600 0.92rem/1 var(--round); color: rgba(255, 248, 234, 0.85); }
+.btn { display: inline-flex; align-items: center; gap: 0.45em; min-height: 40px; padding: 0 1em; border: 1px solid rgba(255, 248, 234, 0.25); border-radius: 999px; background: rgba(255, 255, 255, 0.05); color: inherit; font: inherit; cursor: pointer; transition: background 0.2s, border-color 0.2s; }
+.btn:hover { background: rgba(255, 248, 234, 0.1); border-color: rgba(255, 248, 234, 0.5); }
+.btn:focus-visible { outline: 3px solid var(--moon); outline-offset: 2px; }
+.btn svg { width: 1.1em; height: 1.1em; }
+.btn.icon { padding: 0; width: 40px; justify-content: center; }
+.btn[aria-pressed="true"] { border-color: var(--moon); color: var(--moon); background: rgba(255, 233, 168, 0.12); }
+#pageinfo { min-width: 6.5em; text-align: center; color: rgba(255, 248, 234, 0.6); }
+#controls [hidden] { display: none !important; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+#measure { position: fixed; left: -10000px; top: 0; visibility: hidden; }
+
+/* fallback when the page-turn script is unavailable */
+#stage.nolib { overflow-y: auto; height: calc(100vh - 90px); display: flex; flex-direction: column; gap: 16px; }
+#stage.nolib .page { position: relative; flex: 0 0 auto; }
+
+@media (max-width: 560px) {
+  #controls { font-size: 0.84rem; gap: 5px; }
+  .label-long { display: none; }
+  .tonight .info { align-items: center; text-align: center; }
+  .readbtn { align-self: center; }
+  .book-card .mini { width: 104px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #sky .s { animation: none; }
+  .book-card .mini, .btn { transition: none; }
+}
+</style>
+</head>
+<body>
+<div id="sky" aria-hidden="true"><div class="bigmoon"></div></div>
+<div id="app">
+  <div id="stage" aria-live="polite"><p id="loading">Opening the book…</p></div>
+  <section id="shelf" aria-label="All stories" hidden></section>
+  <nav id="controls" aria-label="Book controls">
+    <button class="btn" id="shelfbtn" type="button" data-book-only>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5M9 19V5M14 19l3-14 4 1-3 14z"/><path d="M3 19h18"/></svg>
+      <span>All<span class="label-long"> stories</span></span>
+    </button>
+    <button class="btn icon" id="prev" type="button" aria-label="Previous page" data-book-only>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+    <span id="pageinfo" data-book-only></span>
+    <button class="btn icon" id="next" type="button" aria-label="Next page" data-book-only>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+    <button class="btn" id="readaloud" type="button" data-book-only>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+      <span>Read<span class="label-long"> aloud</span></span>
+    </button>
+    <button class="btn" id="music" type="button" aria-pressed="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V6l11-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/></svg>
+      <span id="musiclabel">Lullaby</span>
+    </button>
+  </nav>
+</div>
+<div id="measure" aria-hidden="true"></div>
+
+<script src="lib/page-flip.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  /* ---------------- helpers ---------------- */
+  const LANGS = {
+    en: { tag: "EN", voice: "en-GB", name: "English" },
+    de: { tag: "DE", voice: "de-DE", name: "Deutsch" },
+    hi: { tag: "हिं", voice: "hi-IN", name: "हिंदी" }
+  };
+  const THEME_ICON = { moon: "🌙", animals: "🦉", painting: "🎨", nature: "🌳", colours: "🌈", stars: "⭐", sea: "🌊", numbers: "🔢", friends: "🤝", weather: "☁️", food: "🍎", music: "🎵" };
+  const reduced = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function h(tag, attrs, ...kids) {
+    const el = document.createElement(tag);
+    for (const [k, v] of Object.entries(attrs || {})) {
+      if (v == null || v === false) continue;
+      if (k === "class") el.className = v;
+      else if (k === "html") el.innerHTML = v;
+      else if (k.startsWith("on")) el.addEventListener(k.slice(2), v);
+      else el.setAttribute(k, v);
+    }
+    for (const kid of kids.flat()) if (kid != null && kid !== false) el.append(kid.nodeType ? kid : document.createTextNode(kid));
+    return el;
+  }
+  function niceDate(iso) {
+    const d = new Date(iso + "T12:00:00");
+    return d.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
+  }
+  const moonSvg = '<svg class="moonie" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28" fill="#ffe9a8"/><circle cx="44" cy="20" r="4" fill="#f5d27a"/><circle cx="20" cy="44" r="3" fill="#f5d27a"/><path d="M20 30q4 4 8 0M36 30q4 4 8 0" fill="none" stroke="#6b4b16" stroke-width="2.4" stroke-linecap="round"/><path d="M26 40q6 5 12 0" fill="none" stroke="#6b4b16" stroke-width="2.4" stroke-linecap="round"/></svg>';
+
+  /* ---------------- voices: tap a word to hear it ---------------- */
+  const speech = window.speechSynthesis;
+  function voiceFor(lang) {
+    if (!speech) return null;
+    const want = LANGS[lang] ? LANGS[lang].voice : lang;
+    const vs = speech.getVoices();
+    return vs.find(v => v.lang === want) || vs.find(v => v.lang && v.lang.toLowerCase().startsWith(want.slice(0, 2))) || null;
+  }
+  function say(text, lang, queue) {
+    if (!speech || !text) return;
+    if (!queue) speech.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = LANGS[lang] ? LANGS[lang].voice : lang;
+    const v = voiceFor(lang); if (v) u.voice = v;
+    u.rate = 0.82; u.pitch = 1.1;
+    speech.speak(u);
+  }
+  if (speech) speech.getVoices();
+
+  function chip(lang, text, roman) {
+    return h("button", { class: "chip " + lang, type: "button", lang: lang, title: "Say it in " + LANGS[lang].name, onclick: e => { e.stopPropagation(); say(text, lang); } },
+      h("span", { class: "tag " + lang, "aria-hidden": "true" }, LANGS[lang].tag),
+      text,
+      roman ? h("span", { class: "rom", lang: "hi-Latn" }, roman) : null);
+  }
+  function wordChips(w) {
+    return h("div", { class: "chips" }, chip("en", w.en), chip("de", w.de), chip("hi", w.hi, w.hi_roman));
+  }
+
+  /* ---------------- building one story into pages ---------------- */
+  function pageShell(cls, hard) {
+    const p = h("div", { class: "page " + (cls || "") });
+    if (hard) p.dataset.density = "hard";
+    return p;
+  }
+  function coverPage(st, base) {
+    const p = pageShell("cover", true);
+    p.append(
+      h("div", { class: "art" }, h("img", { src: base + st.cover, alt: "" })),
+      h("div", { class: "band" },
+        h("div", { class: "series" }, "Goodnight, Mehar"),
+        h("h1", null, st.title.en),
+        h("div", { class: "sub" }, h("span", { lang: "de" }, st.title.de), " · ", h("span", { lang: "hi" }, st.title.hi))),
+      h("div", { class: "badge" }, h("div", null, h("small", null, "Story"), "No. " + st.number)));
+    return p;
+  }
+  function titlePage(st) {
+    const p = pageShell("plain");
+    p.innerHTML = moonSvg;
+    p.append(
+      h("div", { class: "hand" }, "This story belongs to"),
+      h("h2", null, "Mehar"),
+      h("div", { class: "tri" },
+        h("span", { lang: "de" }, "Diese Geschichte gehört Mehar"),
+        h("span", { lang: "hi" }, "यह कहानी मेहर की है"),
+        h("span", { class: "r" }, "Yeh kahaani Mehar ki hai")),
+      st.learning ? h("div", { class: "pill" }, "Tonight we learn: " + st.learning) : null,
+      h("div", { class: "themes" }, (st.themes || []).map(t => h("span", null, (THEME_ICON[t] || "✨") + " " + t))),
+      h("div", { class: "meta", style: "color: var(--soft); font-weight: 600; font-size: 0.85em" }, niceDate(st.date)));
+    return p;
+  }
+  function storyPage(st, base, pg, n) {
+    const p = pageShell("story");
+    const words = h("div", { class: "words" },
+      h("p", { class: "line", lang: pg.lang || "en" }, pg.text));
+    if (pg.say) {
+      words.append(h("div", { class: "say", lang: pg.say.lang, style: `--c: var(--${pg.say.lang})` },
+        h("span", { class: "tag", "aria-hidden": "true" }, LANGS[pg.say.lang].tag),
+        h("span", null, pg.say.text),
+        pg.say.roman ? h("span", { class: "rom", lang: "hi-Latn" }, pg.say.roman) : null));
+      words.lastChild.addEventListener("click", () => say(pg.say.text, pg.say.lang));
+      words.lastChild.style.cursor = "pointer";
+    }
+    if (pg.word) words.append(wordChips(pg.word));
+    p.append(h("div", { class: "art" }, h("img", { src: base + pg.image, alt: pg.alt || pg.text, loading: "lazy" })), words);
+    p.dataset.read = JSON.stringify([[pg.text, pg.lang || "en"]].concat(pg.say ? [[pg.say.text, pg.say.lang]] : []));
+    return p;
+  }
+  function wordsPage(st) {
+    const p = pageShell("plain");
+    p.append(h("div", { class: "hand" }, "Words we learned tonight"));
+    const list = h("div", { class: "wordlist" });
+    st.pages.filter(pg => pg.word).forEach(pg => list.append(h("div", { class: "wordrow" }, chip("en", pg.word.en), chip("de", pg.word.de), chip("hi", pg.word.hi, pg.word.hi_roman))));
+    p.append(list);
+    if (st.question) p.append(h("div", { class: "question" },
+      h("span", { class: "q" }, st.question.en),
+      h("span", { class: "q", lang: "de" }, st.question.de),
+      h("span", { class: "q", lang: "hi" }, st.question.hi),
+      st.question.hi_roman ? h("span", { class: "r" }, st.question.hi_roman) : null));
+    return p;
+  }
+  function endPage() {
+    const p = pageShell("plain");
+    p.innerHTML = moonSvg;
+    p.append(h("h2", null, "Goodnight, Mehar"),
+      h("div", { class: "tri" }, h("span", { lang: "de" }, "Gute Nacht, Mehar"), h("span", { lang: "hi" }, "शुभ रात्रि, मेहर"), h("span", { class: "r" }, "Shubh raatri, Mehar")),
+      h("div", { class: "hand" }, "Sweet dreams. See you tomorrow night!"));
+    return p;
+  }
+  function backCover() {
+    const p = pageShell("cover plain", true);
+    p.style.background = "#1b1f5c";
+    p.innerHTML = moonSvg;
+    p.append(h("div", { class: "hand", style: "color: var(--moon)" }, "The End · Ende · समाप्त"));
+    return p;
+  }
+  function buildPages(st) {
+    const base = "stories/" + st.id + "/";
+    const pages = [coverPage(st, base), titlePage(st)];
+    st.pages.forEach((pg, i) => pages.push(storyPage(st, base, pg, i + 1)));
+    pages.push(wordsPage(st), endPage());
+    if ((pages.length + 1) % 2) pages.push(Object.assign(pageShell("plain"), { innerHTML: moonSvg }));
+    pages.push(backCover());
+    pages.forEach((p, i) => p.classList.add(i % 2 ? "left" : "right"));
+    return pages;
+  }
+
+  /* ---------------- lullaby: a music box, played live in the browser ---------------- */
+  class MusicBox {
+    constructor() { this.ctx = null; this.on = false; this.timer = null; this.i = 0; this.next = 0; }
+    setup() {
+      const AC = window.AudioContext || window.webkitAudioContext;
+      const ctx = this.ctx = new AC();
+      this.master = ctx.createGain(); this.master.gain.value = 0;
+      const lp = ctx.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = 3200;
+      const dly = ctx.createDelay(); dly.delayTime.value = 0.32;
+      const fb = ctx.createGain(); fb.gain.value = 0.28;
+      this.bus = ctx.createGain();
+      this.bus.connect(lp); lp.connect(this.master);
+      lp.connect(dly); dly.connect(fb); fb.connect(dly); dly.connect(this.master);
+      this.master.connect(ctx.destination);
+    }
+    ding(midi, t, vel) {
+      const ctx = this.ctx, f = 440 * Math.pow(2, (midi - 69) / 12);
+      for (const [k, a, d] of [[1, 1, 1.8], [3.01, 0.22, 0.5], [5.4, 0.07, 0.25]]) {
+        const o = ctx.createOscillator(), g = ctx.createGain();
+        o.type = "sine"; o.frequency.value = f * k;
+        g.gain.setValueAtTime(0.0001, t);
+        g.gain.exponentialRampToValueAtTime(0.12 * vel * a, t + 0.008);
+        g.gain.exponentialRampToValueAtTime(0.0001, t + d);
+        o.connect(g); g.connect(this.bus); o.start(t); o.stop(t + d + 0.05);
+      }
+    }
+    // a gentle traditional lullaby tune, slow, in a music-box register
+    get tune() {
+      return [[72,1],[72,1],[79,1],[79,1],[81,1],[81,1],[79,2],[77,1],[77,1],[76,1],[76,1],[74,1],[74,1],[72,2],
+              [79,1],[79,1],[77,1],[77,1],[76,1],[76,1],[74,2],[79,1],[79,1],[77,1],[77,1],[76,1],[76,1],[74,2]];
+    }
+    tick() {
+      const beat = 0.62, ctx = this.ctx, tune = this.tune;
+      while (this.next < ctx.currentTime + 1.2) {
+        const [m, len] = tune[this.i % tune.length];
+        this.ding(m, this.next, 0.9);
+        if (this.i % 2 === 0) this.ding(m - 12 - (this.i % 4 ? 5 : 0), this.next, 0.45);
+        this.next += beat * len;
+        this.i++;
+        if (this.i % tune.length === 0) this.next += beat * 2;
+      }
+    }
+    async start() {
+      if (!this.ctx) this.setup();
+      if (this.ctx.state === "suspended") await this.ctx.resume();
+      this.on = true; this.next = this.ctx.currentTime + 0.1;
+      this.master.gain.cancelScheduledValues(this.ctx.currentTime);
+      this.master.gain.linearRampToValueAtTime(0.55, this.ctx.currentTime + 1.5);
+      this.timer = setInterval(() => this.tick(), 250); this.tick();
+    }
+    stop() {
+      this.on = false; clearInterval(this.timer);
+      if (this.ctx) this.master.gain.linearRampToValueAtTime(0, this.ctx.currentTime + 0.8);
+    }
+  }
+  const musicbox = new MusicBox();
+
+  /* ---------------- app ---------------- */
+  const stage = document.getElementById("stage");
+  const shelf = document.getElementById("shelf");
+  let library = null, stories = [], current = null, flip = null, pages = [], pageIdx = 0;
+
+  const RATIO = 0.76; // page width / height: a square picture with the words underneath
+  function geometry() {
+    const vw = window.innerWidth, vh = window.innerHeight;
+    const availH = vh - (vw < 560 ? 118 : 90);
+    const spread = vw >= 820;
+    let w, hgt;
+    if (spread) {
+      hgt = Math.min(availH, 860);
+      w = Math.round(hgt * RATIO);
+      if (2 * w > vw - 48) { w = Math.floor((vw - 48) / 2); hgt = Math.round(w / RATIO); }
+    } else {
+      w = Math.min(vw - 24, 520);
+      hgt = Math.round(w / RATIO);
+      if (hgt > availH) { hgt = availH; w = Math.round(hgt * RATIO); }
+    }
+    const fs = Math.max(12, Math.min(20, w * 0.036));
+    return { w, h: hgt, spread, fs };
+  }
+
+  function setMode(mode) {
+    document.body.dataset.mode = mode;
+    shelf.hidden = mode !== "shelf";
+    stage.hidden = mode !== "book";
+    document.querySelectorAll("[data-book-only]").forEach(el => el.hidden = mode !== "book");
+  }
+
+  function miniCover(st, tilt) {
+    return h("div", { class: "mini", style: `--tilt: ${tilt}deg` },
+      h("img", { src: "stories/" + st.id + "/" + st.cover, alt: "", loading: "lazy" }),
+      h("div", { class: "t" }, st.title.en));
+  }
+  function renderShelf() {
+    destroyBook();
+    setMode("shelf");
+    shelf.innerHTML = "";
+    const b = library.book;
+    shelf.append(h("header", { class: "shelf-head" },
+      h("div", { class: "hi", lang: "hi" }, b.title_hi),
+      h("h1", null, b.title_en),
+      h("div", { class: "de", lang: "de" }, b.title_de),
+      h("div", { class: "tag" }, b.tagline)));
+    if (!stories.length) { shelf.append(h("p", { class: "shelf-foot" }, "The first story is on its way.")); return; }
+    const latest = stories[stories.length - 1];
+    shelf.append(h("section", { class: "tonight", "aria-label": "Tonight's story" },
+      h("a", { class: "book-card", href: "#" + latest.id, "aria-label": "Read " + latest.title.en }, miniCover(latest, -3)),
+      h("div", { class: "info" },
+        h("div", { class: "label" }, "Tonight's story · No. " + latest.number),
+        h("h2", null, latest.title.en),
+        h("div", { class: "tri" }, h("span", { lang: "de" }, latest.title.de), " · ", h("span", { lang: "hi" }, latest.title.hi)),
+        latest.learning ? h("div", { class: "learn" }, "Tonight we learn: " + latest.learning) : null,
+        h("a", { class: "readbtn", href: "#" + latest.id }, "🌙 Read tonight's story"))));
+    const row = h("div", { class: "shelf-row" });
+    stories.slice().reverse().forEach((st, i) => row.append(
+      h("a", { class: "book-card", href: "#" + st.id, "aria-label": st.title.en + ", story " + st.number },
+        miniCover(st, [-3, 2, -1.5, 3, -2.5][i % 5]),
+        h("div", { class: "meta" }, "No. " + st.number + " · " + niceDate(st.date)))));
+    shelf.append(h("div", { class: "shelf-wrap" }, h("div", { class: "shelf-title" }, "All our stories · " + stories.length), row));
+    shelf.append(h("p", { class: "shelf-foot" }, "Tap a coloured word to hear it in English, Deutsch or हिंदी."));
+  }
+
+  function destroyBook() {
+    if (flip) { try { flip.destroy(); } catch (e) {} flip = null; }
+    if (speech) speech.cancel();
+    stage.innerHTML = ""; stage.className = ""; stage.style.height = ""; stage.style.width = "";
+    current = null;
+  }
+  function onPage(i) {
+    pageIdx = i;
+    const total = pages.length, geo = geometry();
+    let label;
+    if (i === 0) label = "Cover";
+    else if (i >= total - 1) label = "The end";
+    else label = geo.spread ? `${i}–${Math.min(i + 1, total - 2)} of ${total - 2}` : `${i} of ${total - 2}`;
+    document.getElementById("pageinfo").textContent = label;
+    const want = "#" + current.id + (i ? "/" + i : "");
+    if (location.hash !== want) history.replaceState(null, "", want);
+  }
+  function openStory(st, start) {
+    destroyBook();
+    setMode("book");
+    current = st;
+    const geo = geometry();
+    pages = buildPages(st);
+    const block = h("div", { class: "bookfont", style: `--fs: ${geo.fs}px` });
+    stage.style.width = (geo.spread ? 2 * geo.w : geo.w) + "px";
+    stage.append(block);
+    pages.forEach(p => block.append(p));
+    start = Math.max(0, Math.min(pages.length - 1, start || 0));
+    if (!window.St || !St.PageFlip) {
+      stage.classList.add("nolib");
+      pages.forEach(p => { p.style.width = geo.w + "px"; p.style.height = geo.h + "px"; });
+      onPage(start);
+      return;
+    }
+    flip = new St.PageFlip(block, {
+      width: geo.w, height: geo.h, size: "fixed",
+      showCover: true, usePortrait: true, autoSize: true,
+      drawShadow: true, maxShadowOpacity: 0.3,
+      flippingTime: reduced ? 250 : 900,
+      mobileScrollSupport: false, startPage: start, showPageCorners: true
+    });
+    flip.loadFromHTML(pages);
+    flip.on("flip", e => onPage(e.data));
+    onPage(flip.getCurrentPageIndex ? flip.getCurrentPageIndex() : start);
+  }
+
+  function route() {
+    const raw = decodeURIComponent(location.hash.replace(/^#/, ""));
+    if (!raw || raw === "shelf") return {};
+    const [id, pg] = raw.split("/");
+    const st = stories.find(s => s.id === id);
+    return st ? { story: st, page: parseInt(pg || "0", 10) || 0 } : {};
+  }
+  function follow() {
+    const r = route();
+    if (!r.story) { renderShelf(); return; }
+    if (current !== r.story) openStory(r.story, r.page);
+  }
+
+  function readAloud() {
+    if (!speech) return;
+    speech.cancel();
+    const geo = geometry();
+    const show = geo.spread && pageIdx > 0 ? [pageIdx, pageIdx + 1] : [pageIdx];
+    show.forEach(i => {
+      const p = pages[i];
+      if (p && p.dataset.read) JSON.parse(p.dataset.read).forEach(([t, l]) => say(t, l, true));
+    });
+  }
+
+  function wire() {
+    document.getElementById("prev").addEventListener("click", () => flip && flip.flipPrev());
+    document.getElementById("next").addEventListener("click", () => flip && flip.flipNext());
+    document.getElementById("shelfbtn").addEventListener("click", () => { location.hash = "shelf"; });
+    document.getElementById("readaloud").addEventListener("click", readAloud);
+    if (!speech) document.getElementById("readaloud").remove();
+    document.addEventListener("keydown", e => {
+      if (!flip) return;
+      if (e.key === "ArrowRight") { flip.flipNext(); e.preventDefault(); }
+      if (e.key === "ArrowLeft") { flip.flipPrev(); e.preventDefault(); }
+      if (e.key === "Escape") location.hash = "shelf";
+    });
+    const mbtn = document.getElementById("music"), mlabel = document.getElementById("musiclabel");
+    mbtn.addEventListener("click", async () => {
+      try {
+        if (musicbox.on) { musicbox.stop(); mbtn.setAttribute("aria-pressed", "false"); mlabel.textContent = "Lullaby"; }
+        else { await musicbox.start(); mbtn.setAttribute("aria-pressed", "true"); mlabel.textContent = "Lullaby on"; }
+      } catch (e) { mbtn.disabled = true; }
+    });
+    window.addEventListener("hashchange", follow);
+    let rt;
+    window.addEventListener("resize", () => {
+      clearTimeout(rt);
+      rt = setTimeout(() => { if (current) { const st = current, at = pageIdx; current = null; openStory(st, at); } }, 250);
+    });
+  }
+
+  function makeSky() {
+    const sky = document.getElementById("sky");
+    for (let i = 0; i < 70; i++) {
+      const s = h("i", { class: "s" });
+      s.style.left = (Math.random() * 100).toFixed(2) + "%";
+      s.style.top = (Math.random() * 100).toFixed(2) + "%";
+      s.style.setProperty("--d", (3 + Math.random() * 4).toFixed(1) + "s");
+      s.style.setProperty("--delay", (-Math.random() * 6).toFixed(1) + "s");
+      if (Math.random() < 0.15) { s.style.width = s.style.height = "4px"; }
+      sky.append(s);
+    }
+  }
+
+  async function boot() {
+    makeSky();
+    wire();
+    try {
+      library = await (await fetch("stories/index.json", { cache: "no-cache" })).json();
+      stories = await Promise.all(library.stories.map(id =>
+        fetch("stories/" + id + "/story.json", { cache: "no-cache" }).then(r => r.json()).then(st => Object.assign({ id }, st))));
+      stories.sort((a, b) => (a.number || 0) - (b.number || 0));
+      follow();
+    } catch (e) {
+      stage.innerHTML = '<p id="loading">The storybook could not be opened. If you opened this file directly, serve the folder instead (see README).</p>';
+    }
+  }
+  boot();
+})();
+</script>
+</body>
+</html>

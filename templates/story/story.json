@@ -1,0 +1,38 @@
+{
+  "number": 0,
+  "date": "YYYY-MM-DD",
+  "title": {
+    "en": "English title",
+    "de": "Deutscher Titel",
+    "hi": "हिंदी शीर्षक",
+    "hi_roman": "Hindi title in Roman letters"
+  },
+  "themes": ["moon", "animals", "painting", "nature"],
+  "learning": "What Mehar learns tonight, in a few words",
+  "cover": "cover.svg",
+  "pages": [
+    {
+      "image": "01.svg",
+      "text": "One or two short sentences. Less text, more picture.",
+      "word": { "en": "word", "de": "das Wort", "hi": "शब्द", "hi_roman": "shabd" }
+    },
+    {
+      "image": "02.svg",
+      "text": "A page can also carry a short line in German or Hindi.",
+      "say": { "lang": "de", "text": "Ein kurzer Satz auf Deutsch." },
+      "word": { "en": "word", "de": "das Wort", "hi": "शब्द", "hi_roman": "shabd" }
+    },
+    {
+      "image": "03.svg",
+      "text": "For Hindi lines add the Roman spelling too.",
+      "say": { "lang": "hi", "text": "एक छोटा वाक्य।", "roman": "Ek chhota vaakya." },
+      "word": { "en": "word", "de": "das Wort", "hi": "शब्द", "hi_roman": "shabd" }
+    }
+  ],
+  "question": {
+    "en": "A question to ask Mehar before sleep",
+    "de": "Eine Frage auf Deutsch",
+    "hi": "एक सवाल हिंदी में",
+    "hi_roman": "Ek sawaal Hindi mein"
+  }
+}
