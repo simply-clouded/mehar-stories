@@ -1,0 +1,85 @@
+{
+  "id": "2026-11-26-mehar-and-the-missing-moon",
+  "number": 1,
+  "date": "2026-11-26",
+  "title": {
+    "en": "Mehar and the Missing Moon",
+    "de": "Mehar und der verschwundene Mond",
+    "hi": "मेहर और खोया हुआ चाँद",
+    "hi_roman": "Mehar aur khoya hua chaand"
+  },
+  "themes": ["moon", "animals", "painting", "nature", "friends"],
+  "learning": "Counting to three, animal names, and being kind",
+  "characters": [
+    { "name": "Uhu", "who": "a wise little owl who says everything in German" },
+    { "name": "Moti", "who": "a big gentle elephant who greets everyone in Hindi" },
+    { "name": "Hasi", "who": "a small bunny who is scared of the dark" },
+    { "name": "Badal", "who": "a grey cloud who feels nobody likes him" },
+    { "name": "Chanda Mama", "who": "the moon" }
+  ],
+  "cover": "cover.svg",
+  "pages": [
+    {
+      "image": "01.svg",
+      "text": "It was bedtime, but the sky was dark. No moon, not even a tiny slice. \"Where is Chanda Mama?\" whispered Mehar.",
+      "word": { "en": "moon", "de": "der Mond", "hi": "चाँद", "hi_roman": "chaand" }
+    },
+    {
+      "image": "02.svg",
+      "text": "Tap, tap! A little owl was at the window. \"Guten Abend, Mehar! I am Uhu. The moon is lost, and only a brave painter can help!\"",
+      "say": { "lang": "de", "text": "Guten Abend!" },
+      "word": { "en": "owl", "de": "die Eule", "hi": "उल्लू", "hi_roman": "ullu" }
+    },
+    {
+      "image": "03.svg",
+      "text": "In the garden waited Moti the elephant. \"Namaste! Climb up!\" he trumpeted. Mehar grabbed her paintbox, and off they went into the night.",
+      "say": { "lang": "hi", "text": "नमस्ते, मोती!", "roman": "Namaste, Moti!" },
+      "word": { "en": "elephant", "de": "der Elefant", "hi": "हाथी", "hi_roman": "haathi" }
+    },
+    {
+      "image": "04.svg",
+      "text": "Deep in the dark forest, a bunny was shaking. \"I'm Hasi, and I'm scared!\" Mehar held her paw. \"Come with us. Friends make the dark smaller.\"",
+      "word": { "en": "friend", "de": "die Freundin", "hi": "दोस्त", "hi_roman": "dost" }
+    },
+    {
+      "image": "05.svg",
+      "text": "Blink, blink, blink! Three fireflies lit up the path. \"Eins, zwei, drei!\" counted Uhu. \"Ek, do, teen!\" counted Moti. Mehar counted both ways!",
+      "say": { "lang": "hi", "text": "एक, दो, तीन!", "roman": "Ek, do, teen!" },
+      "word": { "en": "three", "de": "drei", "hi": "तीन", "hi_roman": "teen" }
+    },
+    {
+      "image": "06.svg",
+      "text": "On top of the hill sat a big grey cloud, dripping sad raindrops. The moon was stuck behind him! \"Nobody likes me,\" sniffed Badal. \"I'm too grey.\"",
+      "word": { "en": "cloud", "de": "die Wolke", "hi": "बादल", "hi_roman": "baadal" }
+    },
+    {
+      "image": "07.svg",
+      "text": "Mehar opened her paintbox. \"Let's give you some colours!\" Swish, red. Swoosh, yellow. Splash, blue! \"Hee hee, that tickles!\" giggled Badal.",
+      "word": { "en": "rainbow", "de": "der Regenbogen", "hi": "इंद्रधनुष", "hi_roman": "indradhanush" }
+    },
+    {
+      "image": "08.svg",
+      "text": "Badal felt so proud that he floated up into the sky. And out came Chanda Mama, round and shining!",
+      "say": { "lang": "de", "text": "Hurra! Der Mond ist da!" },
+      "word": { "en": "happy", "de": "froh", "hi": "खुश", "hi_roman": "khush" }
+    },
+    {
+      "image": "09.svg",
+      "text": "\"Thank you, Mehar!\" smiled the moon. \"You were kind to Badal, and kindness makes everyone shine.\"",
+      "say": { "lang": "hi", "text": "धन्यवाद, मेहर!", "roman": "Dhanyavaad, Mehar!" },
+      "word": { "en": "thank you", "de": "danke", "hi": "धन्यवाद", "hi_roman": "dhanyavaad" }
+    },
+    {
+      "image": "10.svg",
+      "text": "Moti carried everyone home along a silver moonbeam. Hasi curled up on Mehar's blanket. \"Shubh raatri, Chanda Mama,\" yawned Mehar.",
+      "say": { "lang": "hi", "text": "शुभ रात्रि, चंदा मामा।", "roman": "Shubh raatri, Chanda Mama." },
+      "word": { "en": "good night", "de": "gute Nacht", "hi": "शुभ रात्रि", "hi_roman": "shubh raatri" }
+    }
+  ],
+  "question": {
+    "en": "Who could you share your colours with tomorrow?",
+    "de": "Mit wem teilst du morgen deine Farben?",
+    "hi": "कल तुम अपने रंग किसके साथ बाँटोगी?",
+    "hi_roman": "Kal tum apne rang kiske saath baantogi?"
+  }
+}

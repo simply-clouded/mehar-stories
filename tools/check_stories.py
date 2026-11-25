@@ -26,8 +26,8 @@ for sid in index["stories"]:
     for i, p in enumerate(st.get("pages", []), 1):
         if not p.get("text"):
             problems.append(f"{sid}: page {i} has no text")
-        if len(p.get("text", "").split()) > 25:
-            problems.append(f"{sid}: page {i} has more than 25 words; keep it short")
+        if len(p.get("text", "").split()) > 40:
+            problems.append(f"{sid}: page {i} has more than 40 words; keep it short")
         w = p.get("word")
         if w and not all(w.get(l) for l in LANGS):
             problems.append(f"{sid}: page {i} word needs en, de and hi")

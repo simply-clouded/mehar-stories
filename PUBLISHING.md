@@ -20,14 +20,19 @@ This creates `stories/<today>-mehar-and-the-sleepy-snail/` with a `story.json`, 
 | `learning` | what she learns tonight, in a few words, e.g. "Counting to five" |
 | `pages` | 5 to 8 pages. Each has an `image`, one or two short English sentences in `text`, and usually one `word` to learn in all three languages |
 | `say` | optional: one short line on a page in German (`"lang": "de"`) or Hindi (`"lang": "hi"`, add `roman`) |
+| `characters` | optional: who appears, `[{ "name": "Uhu", "who": "a wise little owl" }]` |
 | `question` | one question to ask Mehar before sleep, in all three languages |
 
 Story guide:
 
-- Mehar is always the hero. Fantasy is welcome: talking animals, a moon with a face,
-  paint that comes alive.
+- Mehar is always the hero, and every story is a small adventure with a real problem
+  to solve: something is lost, someone needs help, a mystery to follow.
+- Bring in friends. The regulars are Uhu the owl (speaks German), Moti the elephant
+  (greets in Hindi), Hasi the bunny (a little scared, very loyal), Badal the cloud and
+  Chanda Mama the moon. New characters are welcome; list them under `characters`.
+- Use dialogue and sound words (tap, tap! swoosh!) so it is fun to read aloud.
 - Each story teaches one small thing: colours, numbers, animal names, kindness, nature.
-- Few words, big pictures: at most two short sentences a page (the checker warns above 25 words).
+- Few words, big pictures: two or three short sentences a page (the checker warns above 40 words).
 - Mix the languages gently: English carries the story; German and Hindi come in as one
   word per page and an occasional short line.
 - End calm and sleepy, with goodnight in the three languages.
@@ -37,9 +42,9 @@ Story guide:
 Pictures are SVG drawings built from `tools/storyart.py`, so Mehar looks the same every
 night. The kit has:
 
-- `mehar(x, y, s, arms="down|wave|up|brush", eyes="open|closed", mouth="smile|open|oh|yawn", outfit="dress|pyjama", brush=colour)`
-- `mehar_in_bed(...)`, `moon(..., mood="happy|sad|sleepy", grey=False)`, `owl`, `bunny`, `tree`, `flower`, `star`
-- backgrounds: `sky("night|grey|dusk|day|painted")`, `hill`, `bedroom`, `window_frame`, paint `stroke`s, `zzz`
+- `mehar(x, y, s, arms="down|wave|up|brush|hold", eyes="open|happy|closed", mouth="smile|open|oh|soft|yawn", outfit="dress|pyjama", hair="bob|bun|sprout", legs=True, brush=colour)`
+- `mehar_in_bed(...)`, `moon(..., mood="happy|sad|sleepy", grey=False)`, `owl`, `bunny`, `elephant(rider=...)`, `cloud(mood, rainbow)`, `firefly`, `paintbox`, `tree`, `flower`, `star`
+- backgrounds: `sky("night|grey|dusk|day|painted")`, `hill`, `forest`, `bedroom`, `window_frame`, `moonbeam`, paint `stroke`s, `zzz`
 
 Run `python3 make_art.py` inside the story folder to redraw. Finished PNG, JPG or WebP
 pictures from another tool also work: drop them in the folder and name them in `story.json`.

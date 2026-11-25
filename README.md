@@ -22,7 +22,7 @@ browser, and every coloured word can be tapped to hear it in English, Deutsch or
 - `tools/check_stories.py`: checks every story before it goes live.
 - `lib/page-flip.js`: page-turn library ([StPageFlip](https://github.com/Nodlik/StPageFlip), MIT licence).
 
-Each story has its own link, for example `…/#2026-11-26-mehar-paints-the-moon`.
+Each story has its own link, for example `…/#2026-11-26-mehar-and-the-missing-moon`.
 
 To publish a new story every day, see [PUBLISHING.md](PUBLISHING.md).
 
@@ -32,7 +32,7 @@ This is a public site about a young child, so it is careful by design:
 
 - **No photos of Mehar are stored here or published.** Her family's reference photos
   were used only to decide how the illustrated Mehar looks (her bob and fringe, the hair
-  clip, her red kurta-style dress). Only the drawings are public.
+  clip, her red pinafore and white collar). Only the drawings are public.
 - `.gitignore` blocks common photo formats and a `private/` folder, and
   `tools/check_stories.py` fails if a photo file appears in the repository.
 - Only her first name appears. No surname, birthday, school, city or other identifying
