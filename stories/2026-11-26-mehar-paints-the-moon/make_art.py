@@ -31,7 +31,7 @@ pics["cover"] = scene(
         tree(70, 470, 0.9), tree(560, 450, 0.7),
         flower(200, 520, 1, PAINT["pink"]), flower(470, 545, 0.9, PAINT["purple"]), flower(520, 520, 0.8, PAINT["orange"]),
         owl(150, 330, 0.9, wings="up"),
-        mehar(320, 555, 1.35, arms="brush", brush=PAINT["blue"]),
+        mehar(320, 555, 1.35, arms="brush", brush=PAINT["blue"], eyes="happy"),
         bunny(470, 560, 0.9),
     ])
 
@@ -42,7 +42,7 @@ pics["01"] = scene([
     window_frame(70, 60, 260, 300, outside),
     '<rect x="360" y="300" width="170" height="170" rx="10" fill="#6c4b33"/><rect x="372" y="316" width="146" height="60" rx="6" fill="#7d5a40"/>',
     '<rect x="380" y="270" width="70" height="40" rx="4" fill="#ffffff"/><circle cx="398" cy="290" r="7" fill="#3f7be8"/><circle cx="416" cy="285" r="7" fill="#ffd23f"/><circle cx="433" cy="292" r="7" fill="#4cbf6b"/>',
-    mehar(250, 560, 1.45, arms="down", mouth="oh", look=-4, outfit="pyjama"),
+    mehar(250, 560, 1.45, arms="down", mouth="oh", look=-3, outfit="pyjama"),
 ])
 
 # 2. An owl brings a paintbrush.
@@ -95,7 +95,7 @@ pics["06"] = scene(coloured_night("sky-6") + [
     flower(160, 540, 1, PAINT["pink"]), flower(420, 555, 0.9, PAINT["orange"]),
     owl(120, 380, 0.75, wings="up"),
     bunny(480, 560, 0.9),
-    mehar(300, 565, 1.25, arms="wave", mouth="open"),
+    mehar(300, 565, 1.25, arms="wave", mouth="open", eyes="happy"),
 ])
 
 # 7. Goodnight.

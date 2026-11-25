@@ -16,13 +16,14 @@ import math
 W, H = 600, 600  # every picture is a square; the page puts the words underneath
 
 # Mehar's look, drawn from her family's reference photos (the photos themselves are
-# never stored in this repository): a dark chin-length bob with a soft fringe and a
-# tiny top sprout, a hair clip, big dark eyes, round cheeks, a red kurta-style dress.
+# never stored in this repository): a round chubby face and full cheeks, a big grin,
+# dark straight hair in a short bob with a side-swept fringe, her "palm tree" sprout
+# tied on top, big dark eyes, and a red kurta-style dress with gold dots.
 MEHAR = {
-    "skin": "#e8b994",
-    "skin_shade": "#d39f7a",
-    "hair": "#23160f",
-    "tie": "#ff8fb1",       # hair clip
+    "skin": "#f0c3a0",
+    "skin_shade": "#dea783",
+    "hair": "#2e1c13",
+    "tie": "#ff8fb1",       # band on her top sprout
     "dress": "#d8343f",     # red kurta-style dress
     "dress_dots": "#ffd36b", # gold trim dots
     "pyjama": "#9fb8ff",
@@ -154,40 +155,59 @@ def moon(cx, cy, r=70, mood="happy", glow=True, grey=False):
 # ---------------------------------------------------------------- Mehar
 
 def mehar_head(eyes="open", mouth="smile", look=0):
+    """Mehar's head, centred at (0, -148). Drawn from her family's photos:
+    a round, chubby face with full cheeks, a big grin, dark straight hair in a short
+    bob with a side-swept fringe, and her little "palm tree" sprout tied on top."""
     c = MEHAR
-    ex = 13 + look
+    hair, skin = c["hair"], c["skin"]
+    ex = 14 + look
     parts = [
-        # chin-length bob behind the face
-        f'<path d="M-44,-150 Q-46,-196 0,-196 Q46,-196 44,-150 L46,-116 Q36,-108 26,-114 L-26,-114 Q-36,-108 -46,-116 Z" fill="{c["hair"]}"/>',
-        # ears and face
-        f'<circle cx="-35" cy="-142" r="6" fill="{c["skin_shade"]}"/>',
-        f'<circle cx="35" cy="-142" r="6" fill="{c["skin_shade"]}"/>',
-        f'<ellipse cx="0" cy="-146" rx="35" ry="36" fill="{c["skin"]}"/>',
-        # side locks over the ears and a soft straight fringe
-        f'<path d="M-44,-154 Q-40,-128 -42,-114 Q-34,-112 -30,-118 Q-34,-134 -30,-156 Z" fill="{c["hair"]}"/>',
-        f'<path d="M44,-154 Q40,-128 42,-114 Q34,-112 30,-118 Q34,-134 30,-156 Z" fill="{c["hair"]}"/>',
-        f'<path d="M-38,-150 Q-38,-190 0,-190 Q38,-190 38,-150 Q30,-158 20,-157 Q12,-162 4,-158 Q-6,-163 -14,-157 Q-26,-160 -38,-150 Z" fill="{c["hair"]}"/>',
-        # little top sprout and a hair clip, like hers
-        f'<path d="M-2,-190 Q-10,-212 -4,-220 M2,-190 Q8,-210 14,-214" fill="none" stroke="{c["hair"]}" stroke-width="4" stroke-linecap="round"/>',
-        f'<rect x="-30" y="-180" width="20" height="8" rx="4" fill="{c["tie"]}" transform="rotate(-20 -20 -176)"/>',
-        f'<circle cx="-20" cy="-132" r="7" fill="{c["cheek"]}" opacity="0.45"/>',
-        f'<circle cx="20" cy="-132" r="7" fill="{c["cheek"]}" opacity="0.45"/>',
+        # palm-tree sprout on top, tied with a band
+        f'<path d="M0,-186 C-3,-196 -10,-201 -16,-206 M0,-186 C-1,-198 -1,-206 2,-214 M0,-186 C3,-197 9,-202 16,-204 M0,-186 C5,-194 13,-194 19,-195" '
+        f'fill="none" stroke="{hair}" stroke-width="4.5" stroke-linecap="round"/>',
+        f'<ellipse cx="0" cy="-187" rx="7" ry="4.5" fill="{c["tie"]}"/>',
+        # short bob behind the face, ending just below the ears
+        f'<path d="M-44,-146 Q-48,-192 0,-192 Q48,-192 44,-146 Q46,-128 40,-118 Q34,-116 32,-124 L-32,-124 Q-34,-116 -40,-118 Q-46,-128 -44,-146 Z" fill="{hair}"/>',
+        # ears peeking out
+        f'<ellipse cx="-38" cy="-142" rx="7" ry="9" fill="{c["skin_shade"]}"/>',
+        f'<ellipse cx="38" cy="-142" rx="7" ry="9" fill="{c["skin_shade"]}"/>',
+        # round, chubby face (a little wider than tall)
+        f'<path d="M-36,-152 Q-38,-184 0,-184 Q38,-184 36,-152 Q38,-122 20,-113 Q0,-106 -20,-113 Q-38,-122 -36,-152 Z" fill="{skin}"/>',
+        # side-swept fringe from a parting on her right
+        f'<path d="M-38,-150 Q-42,-190 -4,-190 Q36,-192 40,-152 Q34,-170 18,-172 Q4,-166 -12,-174 Q-14,-162 -26,-158 Q-32,-156 -38,-150 Z" fill="{hair}"/>',
+        f'<path d="M-12,-188 Q-16,-178 -12,-174" fill="none" stroke="{skin}" stroke-width="1.6" opacity="0.5"/>',
+        # full cheeks
+        f'<ellipse cx="-22" cy="-130" rx="9" ry="7" fill="{c["cheek"]}" opacity="0.42"/>',
+        f'<ellipse cx="22" cy="-130" rx="9" ry="7" fill="{c["cheek"]}" opacity="0.42"/>',
+        # eyebrows and a button nose
+        f'<path d="M{-ex-6},-160 Q{-ex},-164 {-ex+6},-160" fill="none" stroke="{hair}" stroke-width="2.2" stroke-linecap="round" opacity="0.8"/>',
+        f'<path d="M{ex-6},-160 Q{ex},-164 {ex+6},-160" fill="none" stroke="{hair}" stroke-width="2.2" stroke-linecap="round" opacity="0.8"/>',
+        f'<path d="M-3,-137 Q0,-134 3,-137" fill="none" stroke="{c["skin_shade"]}" stroke-width="2.4" stroke-linecap="round"/>',
     ]
     if eyes == "closed":
         for sx in (-1, 1):
-            parts.append(f'<path d="M{sx*ex-6},-147 Q{sx*ex},-141 {sx*ex+6},-147" fill="none" stroke="{c["hair"]}" stroke-width="2.6" stroke-linecap="round"/>')
+            parts.append(f'<path d="M{sx*ex-6},-148 Q{sx*ex},-142 {sx*ex+6},-148" fill="none" stroke="{hair}" stroke-width="2.8" stroke-linecap="round"/>')
+    elif eyes == "happy":
+        for sx in (-1, 1):
+            parts.append(f'<path d="M{sx*ex-6.5},-146 Q{sx*ex},-154 {sx*ex+6.5},-146" fill="none" stroke="{hair}" stroke-width="3" stroke-linecap="round"/>')
     else:
         for sx in (-1, 1):
-            parts.append(f'<ellipse cx="{sx*ex}" cy="-148" rx="5" ry="6.5" fill="{c["hair"]}"/>'
-                         f'<circle cx="{sx*ex+1.6}" cy="-150.5" r="1.8" fill="#fff"/>')
-    if mouth == "smile":
-        parts.append('<path d="M-8,-130 Q0,-121 8,-130" fill="none" stroke="#5a2a1c" stroke-width="2.6" stroke-linecap="round"/>')
+            parts.append(f'<ellipse cx="{sx*ex}" cy="-148" rx="5.6" ry="7" fill="{hair}"/>'
+                         f'<circle cx="{sx*ex+1.8}" cy="-150.8" r="2.1" fill="#fff"/>'
+                         f'<circle cx="{sx*ex-1.6}" cy="-145.5" r="0.9" fill="#fff" opacity="0.8"/>')
+    if mouth == "smile":   # her big grin
+        parts.append('<path d="M-11,-128 Q0,-112 11,-128 Q0,-124 -11,-128 Z" fill="#7a2f2a"/>'
+                     '<path d="M-7,-126.6 Q0,-124.6 7,-126.6 L6,-124 Q0,-122.6 -6,-124 Z" fill="#fff"/>'
+                     '<path d="M-5,-118.5 Q0,-116.5 5,-118.5" fill="none" stroke="#ff8d8d" stroke-width="2.4" stroke-linecap="round"/>')
+    elif mouth == "soft":
+        parts.append('<path d="M-8,-127 Q0,-119 8,-127" fill="none" stroke="#5a2a1c" stroke-width="2.6" stroke-linecap="round"/>')
     elif mouth == "open":
-        parts.append('<path d="M-8,-131 Q0,-118 8,-131 Z" fill="#7a2f2a"/>')
+        parts.append('<path d="M-10,-129 Q0,-110 10,-129 Z" fill="#7a2f2a"/>'
+                     '<ellipse cx="0" cy="-117" rx="5" ry="3" fill="#ff8d8d"/>')
     elif mouth == "yawn":
-        parts.append('<ellipse cx="0" cy="-127" rx="5" ry="6.5" fill="#7a2f2a"/>')
+        parts.append('<ellipse cx="0" cy="-123" rx="5.5" ry="7" fill="#7a2f2a"/>')
     elif mouth == "oh":
-        parts.append('<circle cx="0" cy="-128" r="3.6" fill="#7a2f2a"/>')
+        parts.append('<circle cx="0" cy="-124" r="4" fill="#7a2f2a"/>')
     return "".join(parts)
 
 
@@ -247,7 +267,7 @@ def mehar_in_bed(x, y, s=1, blanket="#7f8cff", eyes="closed"):
         f'<rect x="-200" y="-130" width="26" height="200" rx="10" fill="#8a5a3c"/>'
         f'<rect x="-182" y="-24" width="364" height="34" rx="14" fill="#f3efe6"/>'
         f'<ellipse cx="-110" cy="-30" rx="70" ry="30" fill="#ffffff"/>'
-        + g(mehar_head(eyes, "smile"), -110, 92, 0.95)
+        + g(mehar_head(eyes, "soft"), -110, 92, 0.95)
         + f'<path d="M-150,-14 Q-40,-60 180,-24 L180,30 L-150,30 Z" fill="{blanket}"/>'
         + "".join(f'<path d="{star_path(-60 + i*55, 0 - (i % 2) * 14, 7)}" fill="#ffe680"/>' for i in range(5))
     )
