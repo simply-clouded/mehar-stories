@@ -1,0 +1,16 @@
+# Never commit real photos of Mehar. Keep reference photos outside the repo
+# (for example a private Google Drive folder) or in private/, which is ignored.
+private/
+reference-photos/
+*.heic
+*.HEIC
+*.jpeg
+*.JPEG
+*.jpg
+*.JPG
+*.dng
+*.mov
+*.MOV
+*.mp4
+.DS_Store
+__pycache__/

@@ -1,0 +1,62 @@
+{
+  "id": "2026-11-26-mehar-paints-the-moon",
+  "number": 1,
+  "date": "2026-11-26",
+  "title": {
+    "en": "Mehar Paints the Moon",
+    "de": "Mehar malt den Mond",
+    "hi": "मेहर ने चाँद रंगा",
+    "hi_roman": "Mehar ne chaand ranga"
+  },
+  "themes": ["moon", "painting", "animals", "colours"],
+  "learning": "Colours in English, German and Hindi",
+  "cover": "cover.svg",
+  "colour": "#3f7be8",
+  "pages": [
+    {
+      "image": "01.svg",
+      "text": "Mehar looks out of her window. The moon is grey. The moon is sad.",
+      "word": { "en": "moon", "de": "der Mond", "hi": "चाँद", "hi_roman": "chaand" }
+    },
+    {
+      "image": "02.svg",
+      "text": "Hoo-hoo! A little owl flies down with a paintbrush.",
+      "word": { "en": "owl", "de": "die Eule", "hi": "उल्लू", "hi_roman": "ullu" }
+    },
+    {
+      "image": "03.svg",
+      "text": "Swish, swish! Mehar paints the sky blue.",
+      "say": { "lang": "de", "text": "Der Himmel ist blau." },
+      "word": { "en": "blue", "de": "blau", "hi": "नीला", "hi_roman": "neela" }
+    },
+    {
+      "image": "04.svg",
+      "text": "Dab, dab, dab! The stars turn yellow and twinkle.",
+      "say": { "lang": "hi", "text": "तारे पीले हैं।", "roman": "Taare peele hain." },
+      "word": { "en": "yellow", "de": "gelb", "hi": "पीला", "hi_roman": "peela" }
+    },
+    {
+      "image": "05.svg",
+      "text": "\"Trees, please!\" asks Bunny. Mehar paints them green.",
+      "word": { "en": "green", "de": "grün", "hi": "हरा", "hi_roman": "hara" }
+    },
+    {
+      "image": "06.svg",
+      "text": "The moon smiles a big, bright smile. \"Thank you, Mehar!\"",
+      "say": { "lang": "de", "text": "Danke, Mehar!" },
+      "word": { "en": "thank you", "de": "danke", "hi": "धन्यवाद", "hi_roman": "dhanyavaad" }
+    },
+    {
+      "image": "07.svg",
+      "text": "Mehar yawns. The moon yawns too. Time to sleep.",
+      "say": { "lang": "hi", "text": "शुभ रात्रि, चाँद।", "roman": "Shubh raatri, chaand." },
+      "word": { "en": "good night", "de": "gute Nacht", "hi": "शुभ रात्रि", "hi_roman": "shubh raatri" }
+    }
+  ],
+  "question": {
+    "en": "What colour would you paint the moon?",
+    "de": "Welche Farbe hat der Mond?",
+    "hi": "चाँद किस रंग का है?",
+    "hi_roman": "Chaand kis rang ka hai?"
+  }
+}
