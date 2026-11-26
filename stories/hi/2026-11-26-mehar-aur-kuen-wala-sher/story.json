@@ -1,0 +1,110 @@
+{
+  "id": "2026-11-26-mehar-aur-kuen-wala-sher",
+  "book": "hi",
+  "number": 1,
+  "date": "2026-11-26",
+  "title": {
+    "hi": "मेहर और कुएँ वाला शेर",
+    "hi_roman": "Mehar aur kuen wala sher",
+    "en": "Mehar and the Lion in the Well",
+    "de": "Mehar und der Löwe im Brunnen"
+  },
+  "inspired_by": "पंचतंत्र की कहानी: शेर और चतुर खरगोश",
+  "themes": ["animals", "moon", "nature", "friends"],
+  "learning": "चतुराई से सोचना, और उस पर भी दया करना जिसने बुरा किया",
+  "characters": [
+    { "name": "राजा सिंह", "who": "एक घमंडी शेर, जो ख़ुद को जंगल का राजा कहता है" },
+    { "name": "हासी", "who": "लंबे-लंबे कानों और बड़े दिल वाली छोटी खरगोश" },
+    { "name": "मोती", "who": "लंबी सूँड वाला प्यारा हाथी" },
+    { "name": "उहू", "who": "एक समझदार उल्लू" }
+  ],
+  "cover": "cover.svg",
+  "pages": [
+    {
+      "image": "01.svg",
+      "text": "मेहर को अपने पलंग के नीचे एक पुरानी किताब मिली। उस पर सुनहरे अक्षरों में लिखा था: पंचतंत्र। जैसे ही उसने किताब खोली, सर्र! सुनहरी रोशनी उसे अंदर खींच ले गई।",
+      "roman": "Mehar ko apne palang ke neeche ek puraani kitaab mili. Us par sunehre aksharon mein likha tha: Panchatantra. Jaise hi usne kitaab kholi, sarr! Sunehri roshni use andar kheench le gayi.",
+      "word": { "hi": "किताब", "hi_roman": "kitaab", "en": "book", "de": "das Buch" }
+    },
+    {
+      "image": "02.svg",
+      "text": "वह एक ऐसे जंगल में पहुँची जहाँ जानवर बात करते थे। पर कोई हँस नहीं रहा था। \"हर शाम शेर हम में से एक को खाना चाहता है,\" उहू ने धीरे से कहा। \"और आज हासी की बारी है।\"",
+      "roman": "Woh ek aise jangal mein pahunchi jahaan jaanwar baat karte the. Par koi hans nahin raha tha. \"Har shaam sher hum mein se ek ko khaana chaahta hai,\" Uhu ne dheere se kaha. \"Aur aaj Hasi ki baari hai.\"",
+      "word": { "hi": "शेर", "hi_roman": "sher", "en": "lion", "de": "der Löwe" }
+    },
+    {
+      "image": "03.svg",
+      "text": "अपनी बड़ी चट्टान से शेर इतनी ज़ोर से दहाड़ा कि पत्ते काँप गए। \"दहाड़! मैं राजा हूँ! चाँद निकलने से पहले मेरा खाना लाओ!\"",
+      "roman": "Apni badi chattaan se sher itni zor se dahaada ki patte kaanp gaye. \"Dahaad! Main raaja hoon! Chaand nikalne se pehle mera khaana laao!\"",
+      "word": { "hi": "राजा", "hi_roman": "raaja", "en": "king", "de": "der König" }
+    },
+    {
+      "image": "04.svg",
+      "text": "हासी के कान लटक गए। पर मेहर सोच रही थी। \"शेर के पास ताक़त है,\" उसने कहा, \"पर हमारे पास दिमाग़ है।\" और उसने हासी के लंबे कान में एक गुप्त योजना फुसफुसाई।",
+      "roman": "Hasi ke kaan latak gaye. Par Mehar soch rahi thi. \"Sher ke paas taakat hai,\" usne kaha, \"par hamaare paas dimaag hai.\" Aur usne Hasi ke lambe kaan mein ek gupt yojana phusphusaayi.",
+      "word": { "hi": "चतुर", "hi_roman": "chatur", "en": "clever", "de": "klug" }
+    },
+    {
+      "image": "05.svg",
+      "text": "तो हासी चली... बहुत... धीरे-धीरे। उसने हर फूल सूँघा, हर बादल गिना, और एक झपकी भी ले ली। जब वे शेर के पास पहुँचे, तो चाँद निकल चुका था।",
+      "roman": "To Hasi chali... bahut... dheere-dheere. Usne har phool soongha, har baadal gina, aur ek jhapki bhi le li. Jab ve sher ke paas pahunche, to chaand nikal chuka tha.",
+      "word": { "hi": "धीरे", "hi_roman": "dheere", "en": "slowly", "de": "langsam" }
+    },
+    {
+      "image": "06.svg",
+      "text": "\"तुम देर से आई!\" शेर गरजा। हासी ने झुककर कहा, \"माफ़ कीजिए, महाराज! रास्ते में एक दूसरे शेर ने हमें रोक लिया। वह कहता है कि असली राजा वही है!\"",
+      "roman": "\"Tum der se aayi!\" sher garja. Hasi ne jhukkar kaha, \"Maaf keejiye, Mahaaraaj! Raaste mein ek doosre sher ne humein rok liya. Woh kehta hai ki asli raaja wahi hai!\"",
+      "word": { "hi": "देर", "hi_roman": "der", "en": "late", "de": "spät" }
+    },
+    {
+      "image": "07.svg",
+      "text": "\"दूसरा राजा?\" शेर के बाल झाड़ी जैसे खड़े हो गए। \"राजा सिर्फ़ मैं हूँ! मुझे अभी उसके पास ले चलो!\" तो मेहर और हासी उसे एक पुराने कुएँ तक ले गईं।",
+      "roman": "\"Doosra raaja?\" Sher ke baal jhaadi jaise khade ho gaye. \"Raaja sirf main hoon! Mujhe abhi uske paas le chalo!\" To Mehar aur Hasi use ek puraane kuen tak le gayin.",
+      "say": { "lang": "hi", "text": "चलो, जल्दी!", "roman": "Chalo, jaldi!" },
+      "word": { "hi": "कुआँ", "hi_roman": "kuaan", "en": "well", "de": "der Brunnen" }
+    },
+    {
+      "image": "08.svg",
+      "text": "\"वह यहाँ नीचे रहता है,\" मेहर बोली। शेर ने कुएँ में झाँका। मुकुट वाला एक ग़ुस्सैल शेर उसे घूर रहा था! वह दहाड़ा, तो कुएँ वाला शेर भी दहाड़ा। (बताओ, वह असल में कौन था?)",
+      "roman": "\"Woh yahaan neeche rehta hai,\" Mehar boli. Sher ne kuen mein jhaanka. Mukut wala ek gussail sher use ghoor raha tha! Woh dahaada, to kuen wala sher bhi dahaada. (Batao, woh asal mein kaun tha?)",
+      "word": { "hi": "पानी", "hi_roman": "paani", "en": "water", "de": "das Wasser" }
+    },
+    {
+      "image": "09.svg",
+      "text": "छपाक! शेर कूद पड़ा, और ठंडे पानी में अकेला जा गिरा। वह तो उसकी अपनी परछाईं थी! \"बचाओ!\" वह चिल्लाया। \"दीवारें बहुत फिसलन वाली हैं!\"",
+      "roman": "Chhapaak! Sher kood pada, aur thande paani mein akela ja gira. Woh to uski apni parchhaain thi! \"Bachaao!\" woh chillaaya. \"Deewaarein bahut phislan waali hain!\"",
+      "say": { "lang": "hi", "text": "बचाओ! बचाओ!", "roman": "Bachaao! Bachaao!" },
+      "word": { "hi": "मदद", "hi_roman": "madad", "en": "help", "de": "die Hilfe" }
+    },
+    {
+      "image": "10.svg",
+      "text": "सब जानवर ख़ुश हुए। पर मेहर नहीं। \"वह बुरा था,\" उसने कहा, \"पर हम किसी को मुसीबत में अकेला नहीं छोड़ते।\" तब मोती आगे आया और अपनी लंबी सूँड कुएँ में डाल दी।",
+      "roman": "Sab jaanwar khush hue. Par Mehar nahin. \"Woh bura tha,\" usne kaha, \"par hum kisi ko museebat mein akela nahin chhodte.\" Tab Moti aage aaya aur apni lambi soond kuen mein daal di.",
+      "say": { "lang": "hi", "text": "पकड़ो, राजा जी!", "roman": "Pakdo, Raja ji!" },
+      "word": { "hi": "दयालु", "hi_roman": "dayaalu", "en": "kind", "de": "freundlich" }
+    },
+    {
+      "image": "11.svg",
+      "text": "भीगा हुआ राजा सिंह बाहर निकला, और उसका मुकुट खो गया था। \"तुमने मुझे चकमा दिया, फिर बचाया भी। मुझे माफ़ करना।\" उस दिन से वह आम और केले खाने लगा, और जंगल की रखवाली करने लगा।",
+      "roman": "Bheega hua Raja Singh baahar nikla, aur uska mukut kho gaya tha. \"Tumne mujhe chakma diya, phir bachaaya bhi. Mujhe maaf karna.\" Us din se woh aam aur kele khaane laga, aur jangal ki rakhwaali karne laga.",
+      "word": { "hi": "माफ़ करना", "hi_roman": "maaf karna", "en": "sorry", "de": "Entschuldigung" }
+    },
+    {
+      "image": "12.svg",
+      "text": "सर्र! सुनहरी रोशनी फिर घूमी, और मेहर अपने पलंग पर थी। किताब के आख़िरी पन्ने पर एक नई तस्वीर थी: एक लड़की, एक खरगोश, और बिना मुकुट का मुस्कुराता शेर।",
+      "roman": "Sarr! Sunehri roshni phir ghoomi, aur Mehar apne palang par thi. Kitaab ke aakhiri panne par ek nayi tasveer thi: ek ladki, ek khargosh, aur bina mukut ka muskuraata sher.",
+      "word": { "hi": "शुभ रात्रि", "hi_roman": "shubh raatri", "en": "good night", "de": "gute Nacht" }
+    }
+  ],
+  "moral": {
+    "hi": "बुद्धि बल से बड़ी होती है। और जिसने बुरा किया, उस पर भी दया करना, सबसे बड़ी ताक़त है।",
+    "hi_roman": "Buddhi bal se badi hoti hai. Aur jisne bura kiya, us par bhi daya karna, sabse badi taakat hai.",
+    "en": "A clever mind is stronger than big muscles. And being kind, even to someone who was unkind to you, is the strongest thing of all.",
+    "de": "Ein kluger Kopf ist stärker als große Muskeln. Und Freundlichkeit ist das Stärkste von allem."
+  },
+  "questions": [
+    { "hi": "हासी इतना धीरे क्यों चली?", "hi_roman": "Hasi itna dheere kyun chali?", "en": "Why did Hasi walk so slowly?" },
+    { "hi": "कुएँ में असल में कौन था?", "hi_roman": "Kuen mein asal mein kaun tha?", "en": "Who was the lion in the well, really?" },
+    { "hi": "क्या तुम शेर की मदद करतीं? क्यों?", "hi_roman": "Kya tum sher ki madad kartin? Kyun?", "en": "Would you have helped the lion out? Why?" }
+  ]
+}

@@ -2,46 +2,44 @@
   "number": 0,
   "date": "YYYY-MM-DD",
   "title": {
-    "en": "English title",
+    "en": "English title (always fill in, parents see it)",
     "de": "Deutscher Titel",
     "hi": "हिंदी शीर्षक",
     "hi_roman": "Hindi title in Roman letters"
   },
-  "inspired_by": "Which Panchatantra (or other folk) tale this grows from",
+  "inspired_by": "Which Panchatantra (or other folk) tale this grows from, in the book's language",
   "themes": ["animals", "moon", "nature", "friends"],
-  "learning": "The lesson in a few words",
+  "learning": "The lesson in a few words, in the book's language",
   "characters": [
-    { "name": "Name", "who": "one line about who they are" }
+    { "name": "Name", "who": "one line about who they are, in the book's language" }
   ],
   "cover": "cover.svg",
   "pages": [
     {
       "image": "01.svg",
-      "text": "Two to four sentences. Start with something surprising that pulls Mehar into the story.",
+      "text": "Page text in the BOOK'S language only. Two or three short sentences. Start with something surprising.",
+      "roman": "Hindi book only: the same text in Roman letters. Delete this line in the en and de books.",
       "word": { "en": "word", "de": "das Wort", "hi": "शब्द", "hi_roman": "shabd" }
     },
     {
       "image": "02.svg",
       "text": "The problem: someone is in trouble, or something is not fair.",
-      "say": { "lang": "de", "text": "Ein kurzer Satz auf Deutsch." },
       "word": { "en": "word", "de": "das Wort", "hi": "शब्द", "hi_roman": "shabd" }
     },
     {
       "image": "03.svg",
-      "text": "The twist, the clever idea, and how it ends. For Hindi lines add the Roman spelling too.",
-      "say": { "lang": "hi", "text": "एक छोटा वाक्य।", "roman": "Ek chhota vaakya." },
+      "text": "The twist, the clever idea, and how it ends.",
+      "say": { "lang": "hi", "text": "Optional short line to tap and hear.", "roman": "For Hindi lines" },
       "word": { "en": "word", "de": "das Wort", "hi": "शब्द", "hi_roman": "shabd" }
     }
   ],
   "moral": {
-    "en": "The moral in one or two simple sentences.",
-    "de": "Die Moral auf Deutsch.",
-    "hi": "कहानी की सीख हिंदी में।",
-    "hi_roman": "Kahaani ki seekh Hindi mein."
+    "en": "The moral in the book's language (key = book: en, de or hi). Other languages are optional.",
+    "hi_roman": "Hindi book only: the moral in Roman letters."
   },
   "questions": [
-    { "en": "A question about what happened", "de": "Eine Frage", "hi": "एक सवाल", "hi_roman": "Ek sawaal" },
-    { "en": "A question about the twist", "de": "Eine Frage", "hi": "एक सवाल", "hi_roman": "Ek sawaal" },
-    { "en": "What would you have done?", "de": "Was hättest du getan?", "hi": "तुम क्या करतीं?", "hi_roman": "Tum kya kartin?" }
+    { "en": "A question about what happened (key = book language; hi book also hi_roman)" },
+    { "en": "A question about the twist" },
+    { "en": "What would you have done?" }
   ]
 }
