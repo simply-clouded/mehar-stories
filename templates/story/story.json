@@ -7,32 +7,41 @@
     "hi": "हिंदी शीर्षक",
     "hi_roman": "Hindi title in Roman letters"
   },
-  "themes": ["moon", "animals", "painting", "nature"],
-  "learning": "What Mehar learns tonight, in a few words",
+  "inspired_by": "Which Panchatantra (or other folk) tale this grows from",
+  "themes": ["animals", "moon", "nature", "friends"],
+  "learning": "The lesson in a few words",
+  "characters": [
+    { "name": "Name", "who": "one line about who they are" }
+  ],
   "cover": "cover.svg",
   "pages": [
     {
       "image": "01.svg",
-      "text": "One or two short sentences. Less text, more picture.",
+      "text": "Two to four sentences. Start with something surprising that pulls Mehar into the story.",
       "word": { "en": "word", "de": "das Wort", "hi": "शब्द", "hi_roman": "shabd" }
     },
     {
       "image": "02.svg",
-      "text": "A page can also carry a short line in German or Hindi.",
+      "text": "The problem: someone is in trouble, or something is not fair.",
       "say": { "lang": "de", "text": "Ein kurzer Satz auf Deutsch." },
       "word": { "en": "word", "de": "das Wort", "hi": "शब्द", "hi_roman": "shabd" }
     },
     {
       "image": "03.svg",
-      "text": "For Hindi lines add the Roman spelling too.",
+      "text": "The twist, the clever idea, and how it ends. For Hindi lines add the Roman spelling too.",
       "say": { "lang": "hi", "text": "एक छोटा वाक्य।", "roman": "Ek chhota vaakya." },
       "word": { "en": "word", "de": "das Wort", "hi": "शब्द", "hi_roman": "shabd" }
     }
   ],
-  "question": {
-    "en": "A question to ask Mehar before sleep",
-    "de": "Eine Frage auf Deutsch",
-    "hi": "एक सवाल हिंदी में",
-    "hi_roman": "Ek sawaal Hindi mein"
-  }
+  "moral": {
+    "en": "The moral in one or two simple sentences.",
+    "de": "Die Moral auf Deutsch.",
+    "hi": "कहानी की सीख हिंदी में।",
+    "hi_roman": "Kahaani ki seekh Hindi mein."
+  },
+  "questions": [
+    { "en": "A question about what happened", "de": "Eine Frage", "hi": "एक सवाल", "hi_roman": "Ek sawaal" },
+    { "en": "A question about the twist", "de": "Eine Frage", "hi": "एक सवाल", "hi_roman": "Ek sawaal" },
+    { "en": "What would you have done?", "de": "Was hättest du getan?", "hi": "तुम क्या करतीं?", "hi_roman": "Tum kya kartin?" }
+  ]
 }

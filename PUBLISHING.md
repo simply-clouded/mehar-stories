@@ -16,26 +16,37 @@ This creates `stories/<today>-mehar-and-the-sleepy-snail/` with a `story.json`, 
 | field | what goes in it |
 | --- | --- |
 | `title` | the title in `en`, `de`, `hi`, plus `hi_roman` (Hindi in Roman letters) |
+| `inspired_by` | the Panchatantra (or other folk) tale it grows from |
 | `themes` | any of `moon`, `animals`, `painting`, `nature`, `colours`, `stars`, `sea`, `numbers`, `friends`, `weather`, `food`, `music` |
-| `learning` | what she learns tonight, in a few words, e.g. "Counting to five" |
-| `pages` | 5 to 8 pages. Each has an `image`, one or two short English sentences in `text`, and usually one `word` to learn in all three languages |
+| `learning` | the lesson in a few words, e.g. "Thinking before you trust a flatterer" |
+| `characters` | who appears: `[{ "name": "Raja Singh", "who": "a proud, bossy lion" }]` |
+| `pages` | 10 to 12 pages. Each has an `image`, two to four sentences in `text`, and one `word` to learn in all three languages |
 | `say` | optional: one short line on a page in German (`"lang": "de"`) or Hindi (`"lang": "hi"`, add `roman`) |
-| `characters` | optional: who appears, `[{ "name": "Uhu", "who": "a wise little owl" }]` |
-| `question` | one question to ask Mehar before sleep, in all three languages |
+| `moral` | the moral in all three languages; it gets its own page at the end |
+| `questions` | two or three questions to talk about before sleep, in all three languages |
 
-Story guide:
+Story guide (written for a 6-year-old listener):
 
-- Mehar is always the hero, and every story is a small adventure with a real problem
-  to solve: something is lost, someone needs help, a mystery to follow.
-- Bring in friends. The regulars are Uhu the owl (speaks German), Moti the elephant
-  (greets in Hindi), Hasi the bunny (a little scared, very loyal), Badal the cloud and
-  Chanda Mama the moon. New characters are welcome; list them under `characters`.
-- Use dialogue and sound words (tap, tap! swoosh!) so it is fun to read aloud.
-- Each story teaches one small thing: colours, numbers, animal names, kindness, nature.
-- Few words, big pictures: two or three short sentences a page (the checker warns above 40 words).
-- Mix the languages gently: English carries the story; German and Hindi come in as one
-  word per page and an occasional short line.
-- End calm and sleepy, with goodnight in the three languages.
+- **Panchatantra at heart.** Take a classic fable (the clever hare and the lion, the
+  monkey and the crocodile, the talkative tortoise, the crows and the snake, the blue
+  jackal, the brahmin and the goat...) and retell it with Mehar inside the story.
+  She doesn't just watch: she notices things, asks questions and helps decide.
+- **A moral that is earned.** The lesson must come out of what happens, then be said
+  plainly on the moral page. Good themes: cleverness over strength, honesty, not
+  trusting flatterers, thinking before acting, sharing, standing up for friends,
+  kindness even to someone unkind.
+- **Twists and turns.** At least one surprise the listener can guess at (ask "Can you
+  guess?" in the text), and one moment where it could go wrong.
+- **Gentle endings.** Old fables can end harshly. Keep the lesson but soften the
+  ending: the bully is humbled and changes, nobody gets eaten.
+- **Fun to read aloud.** Dialogue, sound words (SPLASH! ROAAAR!), and a repeated line.
+- **Regular friends:** Hasi the bunny, Moti the elephant (greets in Hindi), Uhu the owl
+  (speaks German), Chanda Mama the moon, and Raja Singh the lion, now reformed. New
+  characters are welcome.
+- **Languages:** English carries the story; German and Hindi come in through one word per
+  page, a short line now and then, the moral and the questions.
+- Keep pages to about 30 to 45 words (the checker stops at 60), and always end with
+  Mehar back home and sleepy.
 
 ## 3. Draw it (`make_art.py`)
 

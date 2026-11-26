@@ -520,3 +520,120 @@ def forest(dark=True):
 
 def eyes_in_dark(points):
     return "".join(f'<ellipse cx="{x-6}" cy="{y}" rx="3.5" ry="5" fill="#ffe680"/><ellipse cx="{x+6}" cy="{y}" rx="3.5" ry="5" fill="#ffe680"/>' for x, y in points)
+
+
+# ---------------------------------------------------------------- Panchatantra jungle
+
+def lion(x, y, s=1, mood="proud", crown=True, wet=False, mouth=None, eyes="open"):
+    """Raja Singh the lion, sitting and facing us, base at (x, y). About 230*s tall.
+    mood: proud | roar | angry | sorry | happy"""
+    fur, mane, mane2, belly = "#f2b24c", "#c9651f", "#a94f15", "#fbd79a"
+    if wet:
+        mane, mane2, fur = "#a5622a", "#8a4c1b", "#d9a14a"
+    p = [
+        f'<path d="M60,-20 C110,-20 110,-80 90,-90" fill="none" stroke="{fur}" stroke-width="10" stroke-linecap="round"/>'
+        f'<circle cx="90" cy="-92" r="10" fill="{mane2}"/>',
+        f'<ellipse cx="0" cy="-60" rx="62" ry="64" fill="{fur}"/>',
+        f'<ellipse cx="0" cy="-48" rx="36" ry="46" fill="{belly}"/>',
+        f'<ellipse cx="-34" cy="-6" rx="22" ry="12" fill="{fur}"/><ellipse cx="34" cy="-6" rx="22" ry="12" fill="{fur}"/>',
+        f'<path d="M-42,-4 v-6 M-34,-2 v-7 M-26,-4 v-6 M26,-4 v-6 M34,-2 v-7 M42,-4 v-6" stroke="{mane2}" stroke-width="2" stroke-linecap="round"/>',
+    ]
+    # mane: a ring of soft spikes
+    import math as _m
+    spikes = []
+    for i in range(18):
+        a = i / 18 * 2 * _m.pi
+        r1 = 62 if not wet else 52
+        spikes.append(f'<ellipse cx="{r1*_m.cos(a):.1f}" cy="{-150 + r1*_m.sin(a):.1f}" rx="{24 if not wet else 16}" ry="{16 if not wet else 22}" '
+                      f'transform="rotate({a*180/_m.pi:.0f} {r1*_m.cos(a):.1f} {-150 + r1*_m.sin(a):.1f})" fill="{mane if i % 2 else mane2}"/>')
+    p.append("".join(spikes))
+    p.append(f'<circle cx="0" cy="-150" r="56" fill="{mane}"/>')
+    p.append(f'<circle cx="-34" cy="-186" r="12" fill="{fur}"/><circle cx="34" cy="-186" r="12" fill="{fur}"/>'
+             f'<circle cx="-34" cy="-186" r="6" fill="#e58a6a"/><circle cx="34" cy="-186" r="6" fill="#e58a6a"/>')
+    p.append(f'<ellipse cx="0" cy="-146" rx="42" ry="40" fill="{fur}"/>')
+    p.append(f'<ellipse cx="0" cy="-128" rx="22" ry="15" fill="{belly}"/>')
+    ink = "#3a2410"
+    # brows & eyes
+    if mood in ("angry", "roar"):
+        p.append(f'<path d="M-26,-168 L-8,-160 M26,-168 L8,-160" stroke="{ink}" stroke-width="4" stroke-linecap="round"/>')
+    elif mood == "sorry":
+        p.append(f'<path d="M-24,-162 L-8,-168 M24,-162 L8,-168" stroke="{ink}" stroke-width="3.5" stroke-linecap="round"/>')
+    if eyes == "closed" or mood == "happy":
+        p.append(f'<path d="M-24,-152 q8,-8 16,0 M8,-152 q8,-8 16,0" fill="none" stroke="{ink}" stroke-width="3.5" stroke-linecap="round"/>')
+    else:
+        p.append(f'<ellipse cx="-16" cy="-152" rx="6" ry="7.5" fill="{ink}"/><ellipse cx="16" cy="-152" rx="6" ry="7.5" fill="{ink}"/>'
+                 f'<circle cx="-14" cy="-155" r="2" fill="#fff"/><circle cx="18" cy="-155" r="2" fill="#fff"/>')
+    p.append(f'<path d="M-9,-138 Q0,-130 9,-138 Q0,-142 -9,-138 Z" fill="#5a2f1c"/>')
+    m = mouth or {"roar": "roar", "angry": "frown", "sorry": "frown", "happy": "smile", "proud": "smirk"}[mood]
+    if m == "roar":
+        p.append(f'<path d="M-20,-126 Q0,-88 20,-126 Q0,-120 -20,-126 Z" fill="#6a1f1a"/>'
+                 f'<path d="M-15,-124 l4,9 l4,-8 M15,-124 l-4,9 l-4,-8" fill="#fff"/>'
+                 f'<ellipse cx="0" cy="-104" rx="8" ry="5" fill="#ff8d8d"/>')
+    elif m == "frown":
+        p.append(f'<path d="M-12,-118 Q0,-126 12,-118" fill="none" stroke="{ink}" stroke-width="3" stroke-linecap="round"/>')
+    elif m == "smile":
+        p.append(f'<path d="M-14,-124 Q0,-108 14,-124" fill="none" stroke="{ink}" stroke-width="3" stroke-linecap="round"/>')
+    else:
+        p.append(f'<path d="M-12,-122 Q0,-116 14,-126" fill="none" stroke="{ink}" stroke-width="3" stroke-linecap="round"/>')
+    p.append(f'<path d="M-30,-128 l-18,-4 M-30,-122 l-18,2 M30,-128 l18,-4 M30,-122 l18,2" stroke="{ink}" stroke-width="1.5" opacity="0.5"/>')
+    if crown:
+        p.append('<path d="M-26,-196 L-26,-222 L-13,-208 L0,-228 L13,-208 L26,-222 L26,-196 Z" fill="#ffd23f" stroke="#d49a12" stroke-width="2"/>'
+                 '<circle cx="0" cy="-206" r="4" fill="#ef5350"/>')
+    if wet:
+        p.append("".join(f'<path d="M{dx},{dy} q-5,8 0,11 q5,-3 0,-11 Z" fill="#7fb3ff"/>' for dx, dy in ((-50, -170), (52, -150), (-40, -110), (44, -96), (0, -88))))
+    return g("".join(p), x, y, s)
+
+
+def well(x, y, s=1, inside=None, roof=True):
+    """An old stone well, base centre at (x, y). About 240*s wide.
+    inside: svg drawn in the water opening, in well space centred on (0, -150)."""
+    stone, dark, rim = "#9c8f84", "#7c6f65", "#b8aca1"
+    p = [f'<rect x="-110" y="-150" width="220" height="150" fill="{stone}"/>']
+    for row in range(5):
+        off = 0 if row % 2 else 27
+        for col in range(-5, 5):
+            p.append(f'<rect x="{-110 + off + col*55 + 55}" y="{-148 + row*30}" width="51" height="26" rx="5" fill="{dark if (row+col) % 3 == 0 else stone}" stroke="{dark}" stroke-width="2"/>')
+    p.append(f'<defs><clipPath id="wellclip"><rect x="-110" y="-160" width="220" height="160"/></clipPath></defs>')
+    p = [f'<g clip-path="url(#wellclip)">' + "".join(p) + '</g>']
+    p.append(f'<ellipse cx="0" cy="-150" rx="122" ry="34" fill="{rim}"/>')
+    p.append(f'<ellipse cx="0" cy="-150" rx="100" ry="24" fill="#1c2a4a"/>')
+    if inside:
+        p.append(f'<defs><clipPath id="wellwater"><ellipse cx="0" cy="-150" rx="100" ry="24"/></clipPath></defs><g clip-path="url(#wellwater)">{inside}</g>')
+    if roof:
+        p.append('<path d="M-120,-150 V-290 M120,-150 V-290" stroke="#7a5236" stroke-width="12" stroke-linecap="round"/>'
+             '<path d="M-130,-290 L0,-330 L130,-290 Z" fill="#a0522d"/>'
+             '<path d="M-110,-270 H110" stroke="#7a5236" stroke-width="8"/>'
+             '<path d="M0,-270 V-200" stroke="#c8b48a" stroke-width="3"/><rect x="-14" y="-200" width="28" height="22" rx="4" fill="#8a5a3c"/>')
+    return g("".join(p), x, y, s)
+
+
+def magic_book(x, y, s=1, glow=True, title="पंचतंत्र"):
+    p = []
+    if glow:
+        p.append('<circle cx="0" cy="-40" r="120" fill="#ffe680" opacity="0.15"/><circle cx="0" cy="-40" r="70" fill="#ffe680" opacity="0.25"/>')
+        p.append("".join(f'<path d="{star_path(dx, dy, r)}" fill="#ffe680"/>' for dx, dy, r in ((-70, -120, 9), (60, -140, 11), (0, -170, 8), (-100, -60, 6), (100, -80, 7))))
+        p.append('<path d="M-40,-40 C-60,-90 -20,-120 -30,-160 M40,-40 C70,-80 30,-120 50,-170" fill="none" stroke="#ffe680" stroke-width="5" stroke-linecap="round" opacity="0.6"/>')
+    p.append('<path d="M0,-30 C-30,-44 -70,-44 -100,-34 L-100,20 C-70,10 -30,10 0,24 Z" fill="#fff8e6" stroke="#c9b48a" stroke-width="2"/>'
+             '<path d="M0,-30 C30,-44 70,-44 100,-34 L100,20 C70,10 30,10 0,24 Z" fill="#fff3d6" stroke="#c9b48a" stroke-width="2"/>'
+             '<path d="M-100,20 C-70,10 -30,10 0,24 C30,10 70,10 100,20 L100,28 C70,18 30,18 0,32 C-30,18 -70,18 -100,28 Z" fill="#8b2c2c"/>')
+    p.append('<path d="M-80,-20 h60 M-80,-8 h55 M-80,4 h60 M20,-20 h60 M25,-8 h55 M20,4 h50" stroke="#c9b48a" stroke-width="3" stroke-linecap="round"/>')
+    if title:
+        p.append(f'<text x="-50" y="-22" text-anchor="middle" font-family="Baloo 2, sans-serif" font-weight="800" font-size="18" fill="#8b2c2c">{title}</text>')
+    return g("".join(p), x, y, s)
+
+
+def jungle(time="dusk", gid="jg"):
+    """A Panchatantra jungle: banana leaves, a rock, warm sky."""
+    out = [sky(time, gid)]
+    out.append({"dusk": '<circle cx="480" cy="150" r="55" fill="#ffb35c"/>', "day": '<circle cx="480" cy="120" r="50" fill="#ffe38a"/>'}.get(time, ""))
+    out.append(tree(60, 470, 1.25, "#2f8a4c") + tree(560, 470, 1.15, "#3f9a55"))
+    for bx, flip_ in ((120, 1), (500, -1)):
+        out.append(f'<g transform="translate({bx} 470) scale({flip_} 1)"><path d="M0,0 C-10,-80 -30,-140 -80,-180 C-30,-170 10,-120 10,0 Z" fill="#4cbf6b"/>'
+                   f'<path d="M0,0 C20,-90 60,-130 110,-150 C60,-120 30,-70 14,0 Z" fill="#3fa45e"/></g>')
+    out.append('<rect y="460" width="600" height="140" fill="#6aa84f"/><path d="M0,470 Q300,440 600,470 V480 H0 Z" fill="#5a9a42"/>')
+    return out
+
+
+def rock(x, y, s=1):
+    return g('<path d="M-120,0 C-120,-80 -60,-120 0,-120 C70,-120 120,-70 120,0 Z" fill="#8d8b9a"/>'
+             '<path d="M-90,-20 C-80,-70 -40,-95 10,-95" fill="none" stroke="#a9a7b6" stroke-width="10" stroke-linecap="round"/>', x, y, s)
