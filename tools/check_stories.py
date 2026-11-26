@@ -23,11 +23,13 @@ for sid in index["stories"]:
     for img in images:
         if not img or not os.path.exists(os.path.join(folder, img)):
             problems.append(f"{sid}: picture {img!r} not found")
+    if not all(st.get("moral", {}).get(l) for l in LANGS):
+        problems.append(f"{sid}: moral needs en, de and hi")
     for i, p in enumerate(st.get("pages", []), 1):
         if not p.get("text"):
             problems.append(f"{sid}: page {i} has no text")
-        if len(p.get("text", "").split()) > 25:
-            problems.append(f"{sid}: page {i} has more than 25 words; keep it short")
+        if len(p.get("text", "").split()) > 60:
+            problems.append(f"{sid}: page {i} has more than 60 words; keep it short")
         w = p.get("word")
         if w and not all(w.get(l) for l in LANGS):
             problems.append(f"{sid}: page {i} word needs en, de and hi")

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Goodnight, Mehar</title>
-<meta name="description" content="A little picture story for bedtime, every night, in English, Deutsch and हिंदी.">
+<meta name="description" content="A bedtime story every night, with twists and a moral, in English, Deutsch and हिंदी.">
 <!-- A child's picture book: ask search engines not to list it. -->
 <meta name="robots" content="noindex, nofollow, noimageindex">
 <meta name="theme-color" content="#141743">
@@ -61,10 +61,10 @@ body {
 .page { background: var(--paper); color: var(--ink); overflow: hidden; display: flex; flex-direction: column; }
 .page.left { box-shadow: inset -14px 0 22px -14px rgba(60, 40, 20, 0.28); }
 .page.right { box-shadow: inset 14px 0 22px -14px rgba(60, 40, 20, 0.28); }
-.art { position: relative; width: 100%; aspect-ratio: 1; flex: 0 0 auto; background: #20245e; }
-.art img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.words { flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: center; gap: 0.55em; padding: 0.7em 1.1em 0.9em; }
-.line { margin: 0; font: 600 1.3em/1.3 var(--round); text-align: center; text-wrap: balance; }
+.art { position: relative; width: 100%; aspect-ratio: 1 / 0.88; flex: 0 0 auto; background: #20245e; }
+.art img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 70%; }
+.words { flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: center; gap: 0.5em; padding: 0.6em 1.2em 0.8em; }
+.line { margin: 0; font: 600 1.16em/1.4 var(--round); text-align: center; text-wrap: balance; }
 .say { align-self: center; display: inline-flex; align-items: baseline; gap: 0.45em; padding: 0.2em 0.8em; border-radius: 1em; background: #f1e9ff; font: 600 1em/1.3 var(--round); }
 .say .rom { font-weight: 500; font-size: 0.85em; color: var(--soft); }
 .chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.35em; }
@@ -96,6 +96,23 @@ body {
 .plain .tri { display: grid; gap: 0.25em; font: 600 1.05em/1.35 var(--round); }
 .plain .tri .r { color: var(--soft); font-weight: 500; font-size: 0.88em; }
 .pill { display: inline-block; padding: 0.25em 0.9em; border-radius: 999px; background: #ffe9a8; color: var(--ink); font: 700 0.9em/1.4 var(--round); }
+.line.long { font-size: 1.04em; }
+.moral-page { gap: 0.6em; }
+.moral-sub { margin-top: -0.4em; font: 600 0.85em/1.3 var(--round); color: var(--soft); }
+.moral { width: 100%; padding: 0.9em 1em; border-radius: 1em; background: #fff1c9; box-shadow: inset 0 0 0 2px #f4d27a; }
+.moral p { margin: 0 0 0.35em; }
+.moral .m-en { font: 700 1.12em/1.35 var(--round); color: var(--ink); }
+.moral .m-de, .moral .m-hi { font: 600 0.92em/1.35 var(--round); }
+.moral .r { font: 500 0.82em/1.3 var(--round); color: var(--soft); margin: 0; }
+.questions { width: 100%; text-align: left; display: grid; gap: 0.4em; }
+.q-head { font: 700 1.35em/1.1 var(--hand); color: var(--ink); text-align: center; }
+.qrow { display: flex; gap: 0.6em; align-items: flex-start; font: 500 0.82em/1.3 var(--round); color: var(--soft); cursor: pointer; }
+.qrow b { color: var(--ink); font-size: 1.12em; }
+.qn { flex: 0 0 1.7em; height: 1.7em; display: grid; place-items: center; border-radius: 50%; background: var(--en); color: #fff; font-weight: 800; }
+.inspired { font: italic 500 0.75em/1.3 var(--round); color: var(--soft); }
+.cast { display: grid; gap: 0.15em; font: 500 0.82em/1.35 var(--round); color: var(--soft); }
+.cast-head { font: 700 1.5em/1.1 var(--hand); color: var(--ink); }
+.cast b { color: var(--ink); }
 .themes { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.4em; }
 .themes span { padding: 0.1em 0.7em; border-radius: 999px; background: #efe7ff; font: 600 0.82em/1.5 var(--round); }
 .wordlist { width: 100%; margin-top: 0.4em; display: grid; gap: 0.35em; }
@@ -274,7 +291,6 @@ body {
   }
   function titlePage(st) {
     const p = pageShell("plain");
-    p.innerHTML = moonSvg;
     p.append(
       h("div", { class: "hand" }, "This story belongs to"),
       h("h2", null, "Mehar"),
@@ -283,6 +299,8 @@ body {
         h("span", { lang: "hi" }, "यह कहानी मेहर की है"),
         h("span", { class: "r" }, "Yeh kahaani Mehar ki hai")),
       st.learning ? h("div", { class: "pill" }, "Tonight we learn: " + st.learning) : null,
+      st.characters ? h("div", { class: "cast" }, h("div", { class: "cast-head" }, "Tonight's friends"),
+        st.characters.map(c => h("div", { class: "cast-row" }, h("b", null, c.name), " · " + c.who))) : null,
       h("div", { class: "themes" }, (st.themes || []).map(t => h("span", null, (THEME_ICON[t] || "✨") + " " + t))),
       h("div", { class: "meta", style: "color: var(--soft); font-weight: 600; font-size: 0.85em" }, niceDate(st.date)));
     return p;
@@ -290,7 +308,7 @@ body {
   function storyPage(st, base, pg, n) {
     const p = pageShell("story");
     const words = h("div", { class: "words" },
-      h("p", { class: "line", lang: pg.lang || "en" }, pg.text));
+      h("p", { class: "line" + (pg.text.split(/\s+/).length > 38 ? " long" : ""), lang: pg.lang || "en" }, pg.text));
     if (pg.say) {
       words.append(h("div", { class: "say", lang: pg.say.lang, style: `--c: var(--${pg.say.lang})` },
         h("span", { class: "tag", "aria-hidden": "true" }, LANGS[pg.say.lang].tag),
@@ -310,11 +328,31 @@ body {
     const list = h("div", { class: "wordlist" });
     st.pages.filter(pg => pg.word).forEach(pg => list.append(h("div", { class: "wordrow" }, chip("en", pg.word.en), chip("de", pg.word.de), chip("hi", pg.word.hi, pg.word.hi_roman))));
     p.append(list);
-    if (st.question) p.append(h("div", { class: "question" },
+    if (st.question && !st.questions) p.append(h("div", { class: "question" },
       h("span", { class: "q" }, st.question.en),
       h("span", { class: "q", lang: "de" }, st.question.de),
       h("span", { class: "q", lang: "hi" }, st.question.hi),
       st.question.hi_roman ? h("span", { class: "r" }, st.question.hi_roman) : null));
+    return p;
+  }
+  function moralPage(st) {
+    const p = pageShell("plain moral-page");
+    const m = st.moral;
+    p.append(h("div", { class: "hand" }, "The moral of the story"),
+      h("div", { class: "moral-sub" }, h("span", { lang: "de" }, "Die Moral"), " · ", h("span", { lang: "hi" }, "कहानी की सीख")),
+      h("div", { class: "moral" },
+        h("p", { class: "m-en" }, m.en),
+        h("p", { class: "m-de", lang: "de" }, m.de),
+        h("p", { class: "m-hi", lang: "hi" }, m.hi),
+        m.hi_roman ? h("p", { class: "r" }, m.hi_roman) : null));
+    if (st.questions && st.questions.length) {
+      p.append(h("div", { class: "questions" },
+        h("div", { class: "q-head" }, "Let's talk about it"),
+        st.questions.map((q, i) => h("div", { class: "qrow", onclick: () => say(q.en, "en") },
+          h("span", { class: "qn" }, String(i + 1)),
+          h("span", null, h("b", null, q.en), h("br"), h("span", { lang: "de" }, q.de), " · ", h("span", { lang: "hi" }, q.hi))))));
+    }
+    if (st.inspired_by) p.append(h("div", { class: "inspired" }, "Inspired by " + st.inspired_by));
     return p;
   }
   function endPage() {
@@ -336,7 +374,9 @@ body {
     const base = "stories/" + st.id + "/";
     const pages = [coverPage(st, base), titlePage(st)];
     st.pages.forEach((pg, i) => pages.push(storyPage(st, base, pg, i + 1)));
-    pages.push(wordsPage(st), endPage());
+    pages.push(wordsPage(st));
+    if (st.moral) pages.push(moralPage(st));
+    pages.push(endPage());
     if ((pages.length + 1) % 2) pages.push(Object.assign(pageShell("plain"), { innerHTML: moonSvg }));
     pages.push(backCover());
     pages.forEach((p, i) => p.classList.add(i % 2 ? "left" : "right"));
@@ -405,7 +445,7 @@ body {
   const shelf = document.getElementById("shelf");
   let library = null, stories = [], current = null, flip = null, pages = [], pageIdx = 0;
 
-  const RATIO = 0.76; // page width / height: a square picture with the words underneath
+  const RATIO = 0.68; // page width / height: a square picture with the words underneath
   function geometry() {
     const vw = window.innerWidth, vh = window.innerHeight;
     const availH = vh - (vw < 560 ? 118 : 90);
@@ -455,6 +495,7 @@ body {
         h("h2", null, latest.title.en),
         h("div", { class: "tri" }, h("span", { lang: "de" }, latest.title.de), " · ", h("span", { lang: "hi" }, latest.title.hi)),
         latest.learning ? h("div", { class: "learn" }, "Tonight we learn: " + latest.learning) : null,
+        latest.inspired_by ? h("div", { class: "learn" }, "Inspired by " + latest.inspired_by) : null,
         h("a", { class: "readbtn", href: "#" + latest.id }, "🌙 Read tonight's story"))));
     const row = h("div", { class: "shelf-row" });
     stories.slice().reverse().forEach((st, i) => row.append(

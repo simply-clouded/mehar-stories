@@ -16,30 +16,46 @@ This creates `stories/<today>-mehar-and-the-sleepy-snail/` with a `story.json`, 
 | field | what goes in it |
 | --- | --- |
 | `title` | the title in `en`, `de`, `hi`, plus `hi_roman` (Hindi in Roman letters) |
+| `inspired_by` | the Panchatantra (or other folk) tale it grows from |
 | `themes` | any of `moon`, `animals`, `painting`, `nature`, `colours`, `stars`, `sea`, `numbers`, `friends`, `weather`, `food`, `music` |
-| `learning` | what she learns tonight, in a few words, e.g. "Counting to five" |
-| `pages` | 5 to 8 pages. Each has an `image`, one or two short English sentences in `text`, and usually one `word` to learn in all three languages |
+| `learning` | the lesson in a few words, e.g. "Thinking before you trust a flatterer" |
+| `characters` | who appears: `[{ "name": "Raja Singh", "who": "a proud, bossy lion" }]` |
+| `pages` | 10 to 12 pages. Each has an `image`, two to four sentences in `text`, and one `word` to learn in all three languages |
 | `say` | optional: one short line on a page in German (`"lang": "de"`) or Hindi (`"lang": "hi"`, add `roman`) |
-| `question` | one question to ask Mehar before sleep, in all three languages |
+| `moral` | the moral in all three languages; it gets its own page at the end |
+| `questions` | two or three questions to talk about before sleep, in all three languages |
 
-Story guide:
+Story guide (written for a 6-year-old listener):
 
-- Mehar is always the hero. Fantasy is welcome: talking animals, a moon with a face,
-  paint that comes alive.
-- Each story teaches one small thing: colours, numbers, animal names, kindness, nature.
-- Few words, big pictures: at most two short sentences a page (the checker warns above 25 words).
-- Mix the languages gently: English carries the story; German and Hindi come in as one
-  word per page and an occasional short line.
-- End calm and sleepy, with goodnight in the three languages.
+- **Panchatantra at heart.** Take a classic fable (the clever hare and the lion, the
+  monkey and the crocodile, the talkative tortoise, the crows and the snake, the blue
+  jackal, the brahmin and the goat...) and retell it with Mehar inside the story.
+  She doesn't just watch: she notices things, asks questions and helps decide.
+- **A moral that is earned.** The lesson must come out of what happens, then be said
+  plainly on the moral page. Good themes: cleverness over strength, honesty, not
+  trusting flatterers, thinking before acting, sharing, standing up for friends,
+  kindness even to someone unkind.
+- **Twists and turns.** At least one surprise the listener can guess at (ask "Can you
+  guess?" in the text), and one moment where it could go wrong.
+- **Gentle endings.** Old fables can end harshly. Keep the lesson but soften the
+  ending: the bully is humbled and changes, nobody gets eaten.
+- **Fun to read aloud.** Dialogue, sound words (SPLASH! ROAAAR!), and a repeated line.
+- **Regular friends:** Hasi the bunny, Moti the elephant (greets in Hindi), Uhu the owl
+  (speaks German), Chanda Mama the moon, and Raja Singh the lion, now reformed. New
+  characters are welcome.
+- **Languages:** English carries the story; German and Hindi come in through one word per
+  page, a short line now and then, the moral and the questions.
+- Keep pages to about 30 to 45 words (the checker stops at 60), and always end with
+  Mehar back home and sleepy.
 
 ## 3. Draw it (`make_art.py`)
 
 Pictures are SVG drawings built from `tools/storyart.py`, so Mehar looks the same every
 night. The kit has:
 
-- `mehar(x, y, s, arms="down|wave|up|brush", eyes="open|closed", mouth="smile|open|oh|yawn", outfit="dress|pyjama", brush=colour)`
-- `mehar_in_bed(...)`, `moon(..., mood="happy|sad|sleepy", grey=False)`, `owl`, `bunny`, `tree`, `flower`, `star`
-- backgrounds: `sky("night|grey|dusk|day|painted")`, `hill`, `bedroom`, `window_frame`, paint `stroke`s, `zzz`
+- `mehar(x, y, s, arms="down|wave|up|brush|hold", eyes="open|happy|closed", mouth="smile|open|oh|soft|yawn", outfit="dress|pyjama", hair="bob|bun|sprout", legs=True, brush=colour)`
+- `mehar_in_bed(...)`, `moon(..., mood="happy|sad|sleepy", grey=False)`, `owl`, `bunny`, `elephant(rider=...)`, `cloud(mood, rainbow)`, `firefly`, `paintbox`, `tree`, `flower`, `star`
+- backgrounds: `sky("night|grey|dusk|day|painted")`, `hill`, `forest`, `bedroom`, `window_frame`, `moonbeam`, paint `stroke`s, `zzz`
 
 Run `python3 make_art.py` inside the story folder to redraw. Finished PNG, JPG or WebP
 pictures from another tool also work: drop them in the folder and name them in `story.json`.
