@@ -1,12 +1,41 @@
 {
-  "book": {
+  "site": {
     "title_en": "Goodnight, Mehar",
     "title_de": "Gute Nacht, Mehar",
     "title_hi": "शुभ रात्रि, मेहर",
-    "tagline": "a new story every night, with a twist and a lesson",
-    "by": "made with love, one night at a time"
+    "tagline": "three books, a new story in each every night"
   },
-  "stories": [
-    "2026-11-26-mehar-and-the-lion-in-the-well"
+  "books": [
+    {
+      "id": "en",
+      "lang": "en",
+      "title": "Goodnight, Mehar",
+      "subtitle": "Stories in English",
+      "color": "#3f7be8",
+      "stories": [
+        "2026-11-26-mehar-and-the-lion-in-the-well"
+      ]
+    },
+    {
+      "id": "de",
+      "lang": "de",
+      "title": "Gute Nacht, Mehar",
+      "subtitle": "Geschichten auf Deutsch",
+      "color": "#e0912a",
+      "stories": [
+        "2026-11-26-mehar-und-der-loewe-im-brunnen"
+      ]
+    },
+    {
+      "id": "hi",
+      "lang": "hi",
+      "title": "शुभ रात्रि, मेहर",
+      "title_roman": "Shubh raatri, Mehar",
+      "subtitle": "हिंदी कहानियाँ",
+      "color": "#d8343f",
+      "stories": [
+        "2026-11-26-mehar-aur-kuen-wala-sher"
+      ]
+    }
   ]
 }

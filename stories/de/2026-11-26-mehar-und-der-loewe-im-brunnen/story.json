@@ -1,0 +1,97 @@
+{
+  "id": "2026-11-26-mehar-und-der-loewe-im-brunnen",
+  "book": "de",
+  "number": 1,
+  "date": "2026-11-26",
+  "title": {
+    "de": "Mehar und der Löwe im Brunnen",
+    "en": "Mehar and the Lion in the Well",
+    "hi": "मेहर और कुएँ वाला शेर",
+    "hi_roman": "Mehar aur kuen wala sher"
+  },
+  "inspired_by": "Der Löwe und der kluge Hase, aus dem Panchatantra",
+  "themes": ["animals", "moon", "nature", "friends"],
+  "learning": "Klug denken, und freundlich sein, auch zu jemandem, der gemein war",
+  "characters": [
+    { "name": "Raja Singh", "who": "ein stolzer, herrischer Löwe, der sich König nennt" },
+    { "name": "Hasi", "who": "ein kleiner Hase mit sehr langen Ohren und einem großen Herzen" },
+    { "name": "Moti", "who": "ein sanfter Elefant mit einem langen Rüssel" },
+    { "name": "Uhu", "who": "eine weise Eule" }
+  ],
+  "cover": "cover.svg",
+  "pages": [
+    {
+      "image": "01.svg",
+      "text": "Unter ihrem Bett fand Mehar ein altes, staubiges Buch. Darauf stand in Gold: Panchatantra. Sie schlug es auf, und wusch! Goldenes Licht wirbelte heraus und zog sie hinein.",
+      "word": { "de": "das Buch", "en": "book", "hi": "किताब", "hi_roman": "kitaab" }
+    },
+    {
+      "image": "02.svg",
+      "text": "Sie landete in einem Dschungel, in dem die Tiere sprechen konnten. Aber niemand lachte. „Jeden Abend will der Löwe einen von uns fressen“, flüsterte Uhu. „Und heute ist Hasi dran.“",
+      "say": { "lang": "de", "text": "Oh nein!" },
+      "word": { "de": "der Löwe", "en": "lion", "hi": "शेर", "hi_roman": "sher" }
+    },
+    {
+      "image": "03.svg",
+      "text": "Von seinem großen grauen Felsen brüllte der Löwe so laut, dass die Blätter zitterten. „ROAAAR! Ich bin der König! Bringt mir mein Abendessen, bevor der Mond aufgeht!“",
+      "word": { "de": "der König", "en": "king", "hi": "राजा", "hi_roman": "raaja" }
+    },
+    {
+      "image": "04.svg",
+      "text": "Hasis Ohren hingen herab. Aber Mehar hatte nachgedacht. „Der Löwe hat große Muskeln“, sagte sie, „aber wir haben kluge Köpfe.“ Und sie flüsterte Hasi einen geheimen Plan ins lange, lange Ohr.",
+      "word": { "de": "klug", "en": "clever", "hi": "चतुर", "hi_roman": "chatur" }
+    },
+    {
+      "image": "05.svg",
+      "text": "Also ging Hasi... ganz... langsam. Sie schnupperte an jeder Blume, zählte jede Wolke und machte sogar ein Nickerchen. Als sie beim Löwen ankamen, stand der Mond schon am Himmel.",
+      "word": { "de": "langsam", "en": "slowly", "hi": "धीरे", "hi_roman": "dheere" }
+    },
+    {
+      "image": "06.svg",
+      "text": "„DU BIST ZU SPÄT!“, donnerte Raja Singh. Hasi verbeugte sich tief. „Verzeihung, Majestät! Ein anderer Löwe hat uns aufgehalten. Er sagt, ER ist der echte König, und du bist niemand!“",
+      "word": { "de": "spät", "en": "late", "hi": "देर", "hi_roman": "der" }
+    },
+    {
+      "image": "07.svg",
+      "text": "„Noch ein König?“ Die Mähne des Löwen stand hoch wie ein Busch. „Niemand ist König außer MIR! Bringt mich sofort zu ihm!“ Also führten Mehar und Hasi ihn zu einem alten Brunnen.",
+      "word": { "de": "der Brunnen", "en": "well", "hi": "कुआँ", "hi_roman": "kuaan" }
+    },
+    {
+      "image": "08.svg",
+      "text": "„Da unten wohnt er“, sagte Mehar. Der Löwe schaute in den Brunnen. Ein wütender Löwe mit Krone starrte zurück! Er brüllte, und der Löwe im Brunnen brüllte zurück. (Wer war das wohl wirklich?)",
+      "word": { "de": "das Wasser", "en": "water", "hi": "पानी", "hi_roman": "paani" }
+    },
+    {
+      "image": "09.svg",
+      "text": "PLATSCH! Der Löwe sprang hinein und landete in kaltem Wasser, ganz allein. Es war nur sein eigenes Spiegelbild! „Hilfe!“, prustete er. „Die Wände sind zu glatt!“",
+      "say": { "lang": "de", "text": "Hilfe! Hilfe!" },
+      "word": { "de": "die Hilfe", "en": "help", "hi": "मदद", "hi_roman": "madad" }
+    },
+    {
+      "image": "10.svg",
+      "text": "Die Tiere jubelten. Mehar nicht. „Er war gemein“, sagte sie, „aber wir lassen niemanden in Not allein.“ Da trat Moti vor und ließ seinen langen Rüssel tief in den Brunnen hinab.",
+      "word": { "de": "freundlich", "en": "kind", "hi": "दयालु", "hi_roman": "dayaalu" }
+    },
+    {
+      "image": "11.svg",
+      "text": "Tropfnass kletterte Raja Singh heraus, und seine Krone war weg. „Ihr habt mich reingelegt, und dann gerettet. Es tut mir leid.“ Von da an aß er Mangos und Bananen und beschützte den Dschungel.",
+      "word": { "de": "Entschuldigung", "en": "sorry", "hi": "माफ़ करना", "hi_roman": "maaf karna" }
+    },
+    {
+      "image": "12.svg",
+      "text": "Wusch! Das goldene Licht wirbelte wieder, und Mehar lag in ihrem Bett. Auf der letzten Seite des Buches war ein neues Bild: ein Mädchen, ein Hase und ein lächelnder Löwe ohne Krone.",
+      "word": { "de": "gute Nacht", "en": "good night", "hi": "शुभ रात्रि", "hi_roman": "shubh raatri" }
+    }
+  ],
+  "moral": {
+    "de": "Ein kluger Kopf ist stärker als große Muskeln. Und freundlich sein, auch zu jemandem, der gemein war, ist das Stärkste von allem.",
+    "en": "A clever mind is stronger than big muscles. And being kind, even to someone who was unkind to you, is the strongest thing of all.",
+    "hi": "बुद्धि बल से बड़ी होती है, और दया सबसे बड़ी ताक़त है।",
+    "hi_roman": "Buddhi bal se badi hoti hai, aur daya sabse badi taakat hai."
+  },
+  "questions": [
+    { "de": "Warum ging Hasi so langsam?", "en": "Why did Hasi walk so slowly?" },
+    { "de": "Wer war der Löwe im Brunnen wirklich?", "en": "Who was the lion in the well, really?" },
+    { "de": "Hättest du dem Löwen geholfen? Warum?", "en": "Would you have helped the lion out? Why?" }
+  ]
+}

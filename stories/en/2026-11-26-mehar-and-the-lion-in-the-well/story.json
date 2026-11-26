@@ -1,5 +1,6 @@
 {
   "id": "2026-11-26-mehar-and-the-lion-in-the-well",
+  "book": "en",
   "number": 1,
   "date": "2026-11-26",
   "title": {
@@ -9,79 +10,170 @@
     "hi_roman": "Mehar aur kuen wala sher"
   },
   "inspired_by": "The Lion and the Clever Hare, from the Panchatantra",
-  "themes": ["animals", "moon", "nature", "friends"],
+  "themes": [
+    "animals",
+    "moon",
+    "nature",
+    "friends"
+  ],
   "learning": "Thinking cleverly, and being kind even to someone who was unkind",
   "characters": [
-    { "name": "Raja Singh", "who": "a proud, bossy lion who calls himself king of the jungle" },
-    { "name": "Hasi", "who": "a small bunny with very long ears and a very big heart" },
-    { "name": "Moti", "who": "a gentle elephant who greets everyone in Hindi" },
-    { "name": "Uhu", "who": "a wise owl who speaks German" }
+    {
+      "name": "Raja Singh",
+      "who": "a proud, bossy lion who calls himself king of the jungle"
+    },
+    {
+      "name": "Hasi",
+      "who": "a small bunny with very long ears and a very big heart"
+    },
+    {
+      "name": "Moti",
+      "who": "a gentle elephant who greets everyone in Hindi"
+    },
+    {
+      "name": "Uhu",
+      "who": "a wise owl who speaks German"
+    }
   ],
   "cover": "cover.svg",
   "pages": [
     {
       "image": "01.svg",
       "text": "Mehar found a dusty old book under her bed. On the cover, in gold letters, it said: Panchatantra. The moment she opened it, whoosh! Golden light swirled out and pulled her inside.",
-      "word": { "en": "book", "de": "das Buch", "hi": "किताब", "hi_roman": "kitaab" }
+      "word": {
+        "en": "book",
+        "de": "das Buch",
+        "hi": "किताब",
+        "hi_roman": "kitaab"
+      }
     },
     {
       "image": "02.svg",
       "text": "She landed in a jungle where the animals could talk. But nobody was smiling. \"Every evening Raja Singh the lion demands one of us for dinner,\" whispered Uhu the owl. \"And tonight... it is Hasi's turn.\"",
-      "say": { "lang": "de", "text": "Oh nein!" },
-      "word": { "en": "lion", "de": "der Löwe", "hi": "शेर", "hi_roman": "sher" }
+      "say": {
+        "lang": "de",
+        "text": "Oh nein!"
+      },
+      "word": {
+        "en": "lion",
+        "de": "der Löwe",
+        "hi": "शेर",
+        "hi_roman": "sher"
+      }
     },
     {
       "image": "03.svg",
       "text": "From his big grey rock, the lion roared so loudly that the leaves shook. \"ROAAAR! I am the king! Bring me my dinner before the moon comes up!\"",
-      "word": { "en": "king", "de": "der König", "hi": "राजा", "hi_roman": "raaja" }
+      "word": {
+        "en": "king",
+        "de": "der König",
+        "hi": "राजा",
+        "hi_roman": "raaja"
+      }
     },
     {
       "image": "04.svg",
       "text": "Hasi's ears drooped. But Mehar had been thinking. \"A lion has big muscles,\" she said, \"but we have clever minds.\" She cupped her hands and whispered a secret plan into Hasi's long, long ear.",
-      "word": { "en": "clever", "de": "klug", "hi": "चतुर", "hi_roman": "chatur" }
+      "word": {
+        "en": "clever",
+        "de": "klug",
+        "hi": "चतुर",
+        "hi_roman": "chatur"
+      }
     },
     {
       "image": "05.svg",
       "text": "So Hasi did something very strange. She walked... very... slowly. She sniffed every flower and counted every cloud, and she even took a little nap. By the time they reached the lion, the moon was already up.",
-      "word": { "en": "slowly", "de": "langsam", "hi": "धीरे", "hi_roman": "dheere" }
+      "word": {
+        "en": "slowly",
+        "de": "langsam",
+        "hi": "धीरे",
+        "hi_roman": "dheere"
+      }
     },
     {
       "image": "06.svg",
       "text": "\"YOU ARE LATE!\" thundered Raja Singh. Hasi bowed low. \"Forgive me, Your Majesty! Another lion stopped us on the way. He says HE is the real king of this jungle, and you are nobody!\"",
-      "word": { "en": "late", "de": "spät", "hi": "देर", "hi_roman": "der" }
+      "word": {
+        "en": "late",
+        "de": "spät",
+        "hi": "देर",
+        "hi_roman": "der"
+      }
     },
     {
       "image": "07.svg",
       "text": "\"ANOTHER king?\" The lion's mane stood up like a bush. \"Nobody is king but ME! Take me to him, right now!\" So Mehar and Hasi led him through the dark to an old stone well.",
-      "say": { "lang": "hi", "text": "चलो, जल्दी!", "roman": "Chalo, jaldi!" },
-      "word": { "en": "well", "de": "der Brunnen", "hi": "कुआँ", "hi_roman": "kuaan" }
+      "say": {
+        "lang": "hi",
+        "text": "चलो, जल्दी!",
+        "roman": "Chalo, jaldi!"
+      },
+      "word": {
+        "en": "well",
+        "de": "der Brunnen",
+        "hi": "कुआँ",
+        "hi_roman": "kuaan"
+      }
     },
     {
       "image": "08.svg",
       "text": "\"He lives down there,\" said Mehar. Raja Singh peered into the well. An angry lion with a crown glared back up at him! He roared, and the lion in the well roared right back. (Can you guess who it really was?)",
-      "word": { "en": "water", "de": "das Wasser", "hi": "पानी", "hi_roman": "paani" }
+      "word": {
+        "en": "water",
+        "de": "das Wasser",
+        "hi": "पानी",
+        "hi_roman": "paani"
+      }
     },
     {
       "image": "09.svg",
       "text": "SPLASH! The lion leapt in to fight his rival, and landed in cold, cold water, all alone. It had only been his own reflection! \"Help!\" he spluttered. \"The walls are too slippery. I can't climb out!\"",
-      "say": { "lang": "de", "text": "Hilfe! Hilfe!" },
-      "word": { "en": "help", "de": "die Hilfe", "hi": "मदद", "hi_roman": "madad" }
+      "say": {
+        "lang": "de",
+        "text": "Hilfe! Hilfe!"
+      },
+      "word": {
+        "en": "help",
+        "de": "die Hilfe",
+        "hi": "मदद",
+        "hi_roman": "madad"
+      }
     },
     {
       "image": "10.svg",
       "text": "The animals cheered. But Mehar did not. \"He was mean,\" she said, \"but we don't leave anyone in trouble.\" Everyone went quiet. Then Moti stepped forward and lowered his long trunk deep into the well.",
-      "say": { "lang": "hi", "text": "पकड़ो, राजा जी!", "roman": "Pakdo, Raja ji!" },
-      "word": { "en": "kind", "de": "freundlich", "hi": "दयालु", "hi_roman": "dayaalu" }
+      "say": {
+        "lang": "hi",
+        "text": "पकड़ो, राजा जी!",
+        "roman": "Pakdo, Raja ji!"
+      },
+      "word": {
+        "en": "kind",
+        "de": "freundlich",
+        "hi": "दयालु",
+        "hi_roman": "dayaalu"
+      }
     },
     {
       "image": "11.svg",
       "text": "Raja Singh climbed out, dripping and shivering, and his crown was gone. He looked at the little bunny and the girl. \"You tricked me, and then you saved me. I am sorry.\" From that day on he ate mangoes and bananas, and he guarded the jungle instead of scaring it.",
-      "word": { "en": "sorry", "de": "Entschuldigung", "hi": "माफ़ करना", "hi_roman": "maaf karna" }
+      "word": {
+        "en": "sorry",
+        "de": "Entschuldigung",
+        "hi": "माफ़ करना",
+        "hi_roman": "maaf karna"
+      }
     },
     {
       "image": "12.svg",
       "text": "Whoosh! The golden light swirled again, and Mehar was back in bed. She peeked into the book. On the very last page was a brand-new picture of a girl, a bunny, and a smiling lion with no crown.",
-      "word": { "en": "good night", "de": "gute Nacht", "hi": "शुभ रात्रि", "hi_roman": "shubh raatri" }
+      "word": {
+        "en": "good night",
+        "de": "gute Nacht",
+        "hi": "शुभ रात्रि",
+        "hi_roman": "shubh raatri"
+      }
     }
   ],
   "moral": {
@@ -91,8 +183,23 @@
     "hi_roman": "Buddhi bal se badi hoti hai, aur daya sabse badi taakat hai."
   },
   "questions": [
-    { "en": "Why did Hasi walk so slowly?", "de": "Warum ging Hasi so langsam?", "hi": "हासी इतना धीरे क्यों चली?", "hi_roman": "Hasi itna dheere kyun chali?" },
-    { "en": "Who was the lion in the well, really?", "de": "Wer war der Löwe im Brunnen wirklich?", "hi": "कुएँ में असली में कौन था?", "hi_roman": "Kuen mein asli mein kaun tha?" },
-    { "en": "Would you have helped the lion out? Why?", "de": "Hättest du dem Löwen geholfen? Warum?", "hi": "क्या तुम शेर की मदद करतीं? क्यों?", "hi_roman": "Kya tum sher ki madad kartin? Kyun?" }
+    {
+      "en": "Why did Hasi walk so slowly?",
+      "de": "Warum ging Hasi so langsam?",
+      "hi": "हासी इतना धीरे क्यों चली?",
+      "hi_roman": "Hasi itna dheere kyun chali?"
+    },
+    {
+      "en": "Who was the lion in the well, really?",
+      "de": "Wer war der Löwe im Brunnen wirklich?",
+      "hi": "कुएँ में असली में कौन था?",
+      "hi_roman": "Kuen mein asli mein kaun tha?"
+    },
+    {
+      "en": "Would you have helped the lion out? Why?",
+      "de": "Hättest du dem Löwen geholfen? Warum?",
+      "hi": "क्या तुम शेर की मदद करतीं? क्यों?",
+      "hi_roman": "Kya tum sher ki madad kartin? Kyun?"
+    }
   ]
 }

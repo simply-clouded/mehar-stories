@@ -150,6 +150,25 @@ body {
 .book-card:hover .mini, .book-card:focus-visible .mini { transform: rotate(0) translateY(-6px); }
 .book-card:focus-visible { outline: 3px solid var(--moon); outline-offset: 6px; }
 .tonight .mini { width: 200px; }
+/* the three big books on the landing shelf */
+.books-row { gap: 34px; padding-top: 26px; }
+.book-card.big { gap: 4px; }
+.bigbook { position: relative; width: 210px; aspect-ratio: 0.7; display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 16px 14px 14px 22px; border-radius: 6px 14px 14px 6px; background: linear-gradient(135deg, color-mix(in srgb, var(--bc) 88%, #fff), var(--bc) 55%, color-mix(in srgb, var(--bc) 70%, #000)); color: #fff; text-align: center; box-shadow: inset 10px 0 0 rgba(0,0,0,0.22), inset 12px 0 0 rgba(255,255,255,0.12), 0 14px 22px rgba(0,0,0,0.45); transform: rotate(var(--tilt)); transition: transform 0.3s ease; }
+.bigbook .bb-lang { font: 800 0.72rem/1 var(--round); letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.85; }
+.bigbook .bb-title { font: 800 1.35rem/1.1 var(--round); text-shadow: 0 2px 0 rgba(0,0,0,0.2); }
+.bigbook .bb-roman { margin-top: -4px; font: 600 0.8rem/1.2 var(--round); opacity: 0.85; }
+.bigbook .bb-pic { flex: 1; min-height: 0; width: 100%; border-radius: 10px; overflow: hidden; border: 3px solid rgba(255,255,255,0.85); background: #1b1f5c; display: grid; place-items: center; }
+.bigbook .bb-pic img { width: 100%; height: 100%; object-fit: cover; }
+.bigbook .bb-pic .moonie { width: 60px; height: 60px; }
+.bigbook .bb-sub { font: 700 0.95rem/1.2 var(--round); }
+.book-card.big:hover .bigbook, .book-card.big:focus-visible .bigbook { transform: rotate(0) translateY(-6px); }
+.book-card .tonight-t { max-width: 210px; text-align: center; color: var(--moon); }
+.crumbs { width: 100%; max-width: 980px; }
+.crumbs .back { display: inline-flex; align-items: center; min-height: 40px; padding: 0 1em; border: 1px solid rgba(255, 248, 234, 0.25); border-radius: 999px; color: var(--paper); font: 700 0.95rem/1 var(--round); text-decoration: none; }
+.crumbs .back:hover { background: rgba(255, 248, 234, 0.1); }
+.shelf-head.bookhead h1 { text-decoration: underline; text-decoration-color: var(--bc, transparent); text-decoration-thickness: 5px; text-underline-offset: 8px; }
+.roman { margin: -0.2em 0 0; font: 500 0.86em/1.35 var(--round); color: var(--soft); text-align: center; text-wrap: balance; }
+.moral { cursor: pointer; }
 .shelf-foot { max-width: 560px; text-align: center; font: 500 0.85rem/1.5 var(--round); color: rgba(255, 248, 234, 0.5); }
 
 /* ---------------- controls ---------------- */
@@ -175,6 +194,16 @@ body {
   .tonight .info { align-items: center; text-align: center; }
   .readbtn { align-self: center; }
   .book-card .mini { width: 104px; }
+  .books-row { gap: 10px; flex-wrap: nowrap; padding: 18px 0 0; }
+  .book-card.big { width: calc((100vw - 52px) / 3); }
+  .bigbook { width: 100%; padding: 8px 6px 8px 12px; gap: 4px; border-radius: 4px 10px 10px 4px; }
+  .bigbook .bb-lang { font-size: 0.55rem; letter-spacing: 0.12em; }
+  .bigbook .bb-title { font-size: 0.85rem; }
+  .bigbook .bb-roman { font-size: 0.6rem; }
+  .bigbook .bb-sub { font-size: 0.68rem; }
+  .bigbook .bb-pic { border-width: 2px; border-radius: 6px; }
+  .book-card .tonight-t { font-size: 0.72rem; }
+  .book-card.big .meta { font-size: 0.72rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   #sky .s { animation: none; }
@@ -190,7 +219,7 @@ body {
   <nav id="controls" aria-label="Book controls">
     <button class="btn" id="shelfbtn" type="button" data-book-only>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5M9 19V5M14 19l3-14 4 1-3 14z"/><path d="M3 19h18"/></svg>
-      <span>All<span class="label-long"> stories</span></span>
+      <span id="shelflabel">All<span class="label-long"> stories</span></span>
     </button>
     <button class="btn icon" id="prev" type="button" aria-label="Previous page" data-book-only>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
@@ -237,9 +266,9 @@ body {
     for (const kid of kids.flat()) if (kid != null && kid !== false) el.append(kid.nodeType ? kid : document.createTextNode(kid));
     return el;
   }
-  function niceDate(iso) {
+  function niceDate(iso, lang) {
     const d = new Date(iso + "T12:00:00");
-    return d.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
+    return d.toLocaleDateString({ de: "de-DE", hi: "hi-IN" }[lang] || "en-GB", { day: "numeric", month: "short", year: "numeric" });
   }
   const moonSvg = '<svg class="moonie" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28" fill="#ffe9a8"/><circle cx="44" cy="20" r="4" fill="#f5d27a"/><circle cx="20" cy="44" r="3" fill="#f5d27a"/><path d="M20 30q4 4 8 0M36 30q4 4 8 0" fill="none" stroke="#6b4b16" stroke-width="2.4" stroke-linecap="round"/><path d="M26 40q6 5 12 0" fill="none" stroke="#6b4b16" stroke-width="2.4" stroke-linecap="round"/></svg>';
 
@@ -268,117 +297,140 @@ body {
       text,
       roman ? h("span", { class: "rom", lang: "hi-Latn" }, roman) : null);
   }
-  function wordChips(w) {
-    return h("div", { class: "chips" }, chip("en", w.en), chip("de", w.de), chip("hi", w.hi, w.hi_roman));
-  }
+
+  /* ---------------- words on the page, per book ---------------- */
+  const T = {
+    en: { series: "Goodnight, Mehar", story: "Story", belongs: "This story belongs to", name: "Mehar", learn: "Tonight we learn: ",
+          friends: "Tonight's friends", words: "Words we learned tonight", moral: "The moral of the story", talk: "Let's talk about it",
+          inspired: "Inspired by ", end: "Goodnight, Mehar", endsub: "Sweet dreams. See you tomorrow night!", theend: "The End",
+          tonight: "Tonight's story", read: "🌙 Read tonight's story", all: "All our stories", empty: "The first story is on its way.",
+          tap: "Tap a coloured word to hear it in English, Deutsch or हिंदी.", count: n => n + (n === 1 ? " story" : " stories"), allbooks: "All books" },
+    de: { series: "Gute Nacht, Mehar", story: "Geschichte", belongs: "Diese Geschichte gehört", name: "Mehar", learn: "Heute lernen wir: ",
+          friends: "Heute dabei", words: "Unsere Wörter von heute", moral: "Die Moral von der Geschichte", talk: "Lass uns darüber reden",
+          inspired: "Nach: ", end: "Gute Nacht, Mehar", endsub: "Süße Träume. Bis morgen Abend!", theend: "Ende",
+          tonight: "Heute Abend", read: "🌙 Jetzt vorlesen", all: "Alle unsere Geschichten", empty: "Die erste Geschichte ist unterwegs.",
+          tap: "Tippe auf ein buntes Wort, dann hörst du es.", count: n => n + (n === 1 ? " Geschichte" : " Geschichten"), allbooks: "Alle Bücher" },
+    hi: { series: "शुभ रात्रि, मेहर", story: "कहानी", belongs: "यह कहानी है", name: "मेहर की", learn: "आज की सीख: ",
+          friends: "आज के दोस्त", words: "आज के शब्द", moral: "कहानी की सीख", talk: "आओ बात करें",
+          inspired: "प्रेरणा: ", end: "शुभ रात्रि, मेहर", endsub: "मीठे सपने। कल रात फिर मिलेंगे!", theend: "समाप्त",
+          tonight: "आज रात की कहानी", read: "🌙 आज की कहानी पढ़ें", all: "हमारी सारी कहानियाँ", empty: "पहली कहानी आ रही है।",
+          tap: "रंगीन शब्द को छुओ और सुनो।", count: n => n + " कहानी" + (n === 1 ? "" : "याँ"), allbooks: "सारी किताबें" }
+  };
+  const ROMAN = { endsub: "Meethe sapne. Kal raat phir milenge!", end: "Shubh raatri, Mehar", belongs: "Yeh kahaani Mehar ki hai" };
+  function langOf(st) { return st.book || "en"; }
+  function txt(obj, lang) { return obj ? (typeof obj === "string" ? obj : obj[lang] || obj.en) : ""; }
+  function romanLine(text, cls) { return text ? h("p", { class: cls || "roman", lang: "hi-Latn" }, text) : null; }
 
   /* ---------------- building one story into pages ---------------- */
+  function add(p, ...kids) { for (const k of kids.flat()) if (k != null && k !== false) p.append(k); }
   function pageShell(cls, hard) {
     const p = h("div", { class: "page " + (cls || "") });
     if (hard) p.dataset.density = "hard";
     return p;
   }
   function coverPage(st, base) {
+    const L = langOf(st), t = T[L];
     const p = pageShell("cover", true);
-    p.append(
+    add(p, 
       h("div", { class: "art" }, h("img", { src: base + st.cover, alt: "" })),
       h("div", { class: "band" },
-        h("div", { class: "series" }, "Goodnight, Mehar"),
-        h("h1", null, st.title.en),
-        h("div", { class: "sub" }, h("span", { lang: "de" }, st.title.de), " · ", h("span", { lang: "hi" }, st.title.hi))),
-      h("div", { class: "badge" }, h("div", null, h("small", null, "Story"), "No. " + st.number)));
+        h("div", { class: "series", lang: L }, t.series),
+        h("h1", { lang: L }, txt(st.title, L)),
+        L === "hi" && st.title.hi_roman ? h("div", { class: "sub", lang: "hi-Latn" }, st.title.hi_roman) : null),
+      h("div", { class: "badge" }, h("div", null, h("small", null, t.story), "No. " + st.number)));
     return p;
   }
   function titlePage(st) {
+    const L = langOf(st), t = T[L];
     const p = pageShell("plain");
-    p.append(
-      h("div", { class: "hand" }, "This story belongs to"),
-      h("h2", null, "Mehar"),
-      h("div", { class: "tri" },
-        h("span", { lang: "de" }, "Diese Geschichte gehört Mehar"),
-        h("span", { lang: "hi" }, "यह कहानी मेहर की है"),
-        h("span", { class: "r" }, "Yeh kahaani Mehar ki hai")),
-      st.learning ? h("div", { class: "pill" }, "Tonight we learn: " + st.learning) : null,
-      st.characters ? h("div", { class: "cast" }, h("div", { class: "cast-head" }, "Tonight's friends"),
+    p.lang = L;
+    add(p, 
+      h("div", { class: "hand" }, t.belongs),
+      h("h2", null, t.name),
+      L === "hi" ? h("div", { class: "tri" }, h("span", { class: "r" }, ROMAN.belongs)) : null,
+      st.learning ? h("div", { class: "pill" }, t.learn + st.learning) : null,
+      st.characters ? h("div", { class: "cast" }, h("div", { class: "cast-head" }, t.friends),
         st.characters.map(c => h("div", { class: "cast-row" }, h("b", null, c.name), " · " + c.who))) : null,
-      h("div", { class: "themes" }, (st.themes || []).map(t => h("span", null, (THEME_ICON[t] || "✨") + " " + t))),
-      h("div", { class: "meta", style: "color: var(--soft); font-weight: 600; font-size: 0.85em" }, niceDate(st.date)));
+      h("div", { class: "themes" }, (st.themes || []).map(t => h("span", null, THEME_ICON[t] || "✨"))),
+      h("div", { class: "meta", style: "color: var(--soft); font-weight: 600; font-size: 0.85em" }, niceDate(st.date, L)));
     return p;
   }
+  function wordChips(w, L) {
+    const order = [L].concat(["en", "de", "hi"].filter(x => x !== L));
+    return h("div", { class: "chips" }, order.map(l => chip(l, w[l], l === "hi" ? w.hi_roman : null)));
+  }
   function storyPage(st, base, pg, n) {
+    const L = langOf(st);
     const p = pageShell("story");
     const words = h("div", { class: "words" },
-      h("p", { class: "line" + (pg.text.split(/\s+/).length > 38 ? " long" : ""), lang: pg.lang || "en" }, pg.text));
+      h("p", { class: "line" + (pg.text.split(/\s+/).length > 38 ? " long" : ""), lang: L }, pg.text),
+      romanLine(pg.roman));
     if (pg.say) {
       words.append(h("div", { class: "say", lang: pg.say.lang, style: `--c: var(--${pg.say.lang})` },
         h("span", { class: "tag", "aria-hidden": "true" }, LANGS[pg.say.lang].tag),
         h("span", null, pg.say.text),
-        pg.say.roman ? h("span", { class: "rom", lang: "hi-Latn" }, pg.say.roman) : null));
+        pg.say.roman && L !== "hi" ? h("span", { class: "rom", lang: "hi-Latn" }, pg.say.roman) : null));
       words.lastChild.addEventListener("click", () => say(pg.say.text, pg.say.lang));
       words.lastChild.style.cursor = "pointer";
     }
-    if (pg.word) words.append(wordChips(pg.word));
-    p.append(h("div", { class: "art" }, h("img", { src: base + pg.image, alt: pg.alt || pg.text, loading: "lazy" })), words);
-    p.dataset.read = JSON.stringify([[pg.text, pg.lang || "en"]].concat(pg.say ? [[pg.say.text, pg.say.lang]] : []));
+    if (pg.word) words.append(wordChips(pg.word, L));
+    add(p, h("div", { class: "art" }, h("img", { src: base + pg.image, alt: pg.alt || pg.text, loading: "lazy" })), words);
+    p.dataset.read = JSON.stringify([[pg.text, L]]);
     return p;
   }
   function wordsPage(st) {
+    const L = langOf(st);
     const p = pageShell("plain");
-    p.append(h("div", { class: "hand" }, "Words we learned tonight"));
+    add(p, h("div", { class: "hand", lang: L }, T[L].words));
     const list = h("div", { class: "wordlist" });
-    st.pages.filter(pg => pg.word).forEach(pg => list.append(h("div", { class: "wordrow" }, chip("en", pg.word.en), chip("de", pg.word.de), chip("hi", pg.word.hi, pg.word.hi_roman))));
-    p.append(list);
-    if (st.question && !st.questions) p.append(h("div", { class: "question" },
-      h("span", { class: "q" }, st.question.en),
-      h("span", { class: "q", lang: "de" }, st.question.de),
-      h("span", { class: "q", lang: "hi" }, st.question.hi),
-      st.question.hi_roman ? h("span", { class: "r" }, st.question.hi_roman) : null));
+    st.pages.filter(pg => pg.word).forEach(pg => list.append(h("div", { class: "wordrow" }, wordChips(pg.word, L).childNodes)));
+    add(p, list);
     return p;
   }
   function moralPage(st) {
+    const L = langOf(st), t = T[L], m = st.moral;
     const p = pageShell("plain moral-page");
-    const m = st.moral;
-    p.append(h("div", { class: "hand" }, "The moral of the story"),
-      h("div", { class: "moral-sub" }, h("span", { lang: "de" }, "Die Moral"), " · ", h("span", { lang: "hi" }, "कहानी की सीख")),
-      h("div", { class: "moral" },
-        h("p", { class: "m-en" }, m.en),
-        h("p", { class: "m-de", lang: "de" }, m.de),
-        h("p", { class: "m-hi", lang: "hi" }, m.hi),
-        m.hi_roman ? h("p", { class: "r" }, m.hi_roman) : null));
+    p.lang = L;
+    add(p, h("div", { class: "hand" }, t.moral),
+      h("div", { class: "moral", onclick: () => say(m[L], L) },
+        h("p", { class: "m-en" }, m[L]),
+        L === "hi" && m.hi_roman ? h("p", { class: "r" }, m.hi_roman) : null));
     if (st.questions && st.questions.length) {
-      p.append(h("div", { class: "questions" },
-        h("div", { class: "q-head" }, "Let's talk about it"),
-        st.questions.map((q, i) => h("div", { class: "qrow", onclick: () => say(q.en, "en") },
+      add(p, h("div", { class: "questions" },
+        h("div", { class: "q-head" }, t.talk),
+        st.questions.map((q, i) => h("div", { class: "qrow", onclick: () => say(q[L], L) },
           h("span", { class: "qn" }, String(i + 1)),
-          h("span", null, h("b", null, q.en), h("br"), h("span", { lang: "de" }, q.de), " · ", h("span", { lang: "hi" }, q.hi))))));
+          h("span", null, h("b", null, q[L]), L === "hi" && q.hi_roman ? [h("br"), h("span", { lang: "hi-Latn" }, q.hi_roman)] : null)))));
     }
-    if (st.inspired_by) p.append(h("div", { class: "inspired" }, "Inspired by " + st.inspired_by));
+    if (st.inspired_by) p.append(h("div", { class: "inspired" }, t.inspired + st.inspired_by));
     return p;
   }
-  function endPage() {
+  function endPage(L) {
+    const t = T[L];
     const p = pageShell("plain");
     p.innerHTML = moonSvg;
-    p.append(h("h2", null, "Goodnight, Mehar"),
-      h("div", { class: "tri" }, h("span", { lang: "de" }, "Gute Nacht, Mehar"), h("span", { lang: "hi" }, "शुभ रात्रि, मेहर"), h("span", { class: "r" }, "Shubh raatri, Mehar")),
-      h("div", { class: "hand" }, "Sweet dreams. See you tomorrow night!"));
+    add(p, h("h2", { lang: L }, t.end),
+      L === "hi" ? h("div", { class: "tri" }, h("span", { class: "r" }, ROMAN.end)) : null,
+      h("div", { class: "hand", lang: L }, t.endsub));
     return p;
   }
-  function backCover() {
+  function backCover(L) {
     const p = pageShell("cover plain", true);
     p.style.background = "#1b1f5c";
     p.innerHTML = moonSvg;
-    p.append(h("div", { class: "hand", style: "color: var(--moon)" }, "The End · Ende · समाप्त"));
+    add(p, h("div", { class: "hand", style: "color: var(--moon)", lang: L }, T[L].theend));
     return p;
   }
   function buildPages(st) {
-    const base = "stories/" + st.id + "/";
+    const L = langOf(st);
+    const base = "stories/" + L + "/" + st.id + "/";
     const pages = [coverPage(st, base), titlePage(st)];
     st.pages.forEach((pg, i) => pages.push(storyPage(st, base, pg, i + 1)));
-    pages.push(wordsPage(st));
+    if (st.pages.some(pg => pg.word)) pages.push(wordsPage(st));
     if (st.moral) pages.push(moralPage(st));
-    pages.push(endPage());
+    pages.push(endPage(L));
     if ((pages.length + 1) % 2) pages.push(Object.assign(pageShell("plain"), { innerHTML: moonSvg }));
-    pages.push(backCover());
+    pages.push(backCover(L));
     pages.forEach((p, i) => p.classList.add(i % 2 ? "left" : "right"));
     return pages;
   }
@@ -443,7 +495,7 @@ body {
   /* ---------------- app ---------------- */
   const stage = document.getElementById("stage");
   const shelf = document.getElementById("shelf");
-  let library = null, stories = [], current = null, flip = null, pages = [], pageIdx = 0;
+  let library = null, byBook = {}, allStories = [], current = null, flip = null, pages = [], pageIdx = 0;
 
   const RATIO = 0.68; // page width / height: a square picture with the words underneath
   function geometry() {
@@ -472,38 +524,72 @@ body {
   }
 
   function miniCover(st, tilt) {
+    const L = langOf(st);
     return h("div", { class: "mini", style: `--tilt: ${tilt}deg` },
-      h("img", { src: "stories/" + st.id + "/" + st.cover, alt: "", loading: "lazy" }),
-      h("div", { class: "t" }, st.title.en));
+      h("img", { src: "stories/" + L + "/" + st.id + "/" + st.cover, alt: "", loading: "lazy" }),
+      h("div", { class: "t", lang: L }, txt(st.title, L)));
   }
-  function renderShelf() {
+  function shelfHead() {
+    const s = library.site;
+    return h("header", { class: "shelf-head" },
+      h("div", { class: "hi", lang: "hi" }, s.title_hi),
+      h("h1", null, s.title_en),
+      h("div", { class: "de", lang: "de" }, s.title_de),
+      h("div", { class: "tag" }, s.tagline));
+  }
+  // the landing page: three big books standing on one shelf
+  function renderLibrary() {
     destroyBook();
     setMode("shelf");
     shelf.innerHTML = "";
-    const b = library.book;
-    shelf.append(h("header", { class: "shelf-head" },
-      h("div", { class: "hi", lang: "hi" }, b.title_hi),
-      h("h1", null, b.title_en),
-      h("div", { class: "de", lang: "de" }, b.title_de),
-      h("div", { class: "tag" }, b.tagline)));
-    if (!stories.length) { shelf.append(h("p", { class: "shelf-foot" }, "The first story is on its way.")); return; }
-    const latest = stories[stories.length - 1];
-    shelf.append(h("section", { class: "tonight", "aria-label": "Tonight's story" },
-      h("a", { class: "book-card", href: "#" + latest.id, "aria-label": "Read " + latest.title.en }, miniCover(latest, -3)),
+    shelf.append(shelfHead());
+    const row = h("div", { class: "shelf-row books-row" });
+    library.books.forEach((b, i) => {
+      const list = byBook[b.id] || [], latest = list[list.length - 1];
+      row.append(h("a", { class: "book-card big", href: "#" + b.id, "aria-label": b.title + ", " + b.subtitle, lang: b.lang },
+        h("div", { class: "bigbook", style: `--bc: ${b.color}; --tilt: ${[-2, 1.5, -1][i % 3]}deg` },
+          h("div", { class: "bb-lang" }, LANGS[b.lang].name),
+          h("div", { class: "bb-title" }, b.title),
+          b.title_roman ? h("div", { class: "bb-roman", lang: "hi-Latn" }, b.title_roman) : null,
+          latest ? h("div", { class: "bb-pic" }, h("img", { src: "stories/" + b.id + "/" + latest.id + "/" + latest.cover, alt: "", loading: "lazy" })) : h("div", { class: "bb-pic empty" }, h("span", { html: moonSvg })),
+          h("div", { class: "bb-sub" }, b.subtitle)),
+        h("div", { class: "meta" }, T[b.lang].count(list.length)),
+        latest ? h("div", { class: "meta tonight-t" }, "🌙 " + txt(latest.title, b.lang)) : null));
+    });
+    shelf.append(h("div", { class: "shelf-wrap" }, row));
+    shelf.append(h("p", { class: "shelf-foot" }, "English · Deutsch · हिंदी: a new story in every book, every night."));
+  }
+  // one book: tonight's story and all the others on its own shelf
+  function renderBook(b) {
+    destroyBook();
+    setMode("shelf");
+    shelf.innerHTML = "";
+    const t = T[b.lang], list = byBook[b.id] || [];
+    shelf.lang = b.lang;
+    shelf.append(h("nav", { class: "crumbs" }, h("a", { href: "#shelf", class: "back" }, "← " + t.allbooks)));
+    shelf.append(h("header", { class: "shelf-head bookhead", style: `--bc: ${b.color}` },
+      h("div", { class: "hi" }, b.subtitle),
+      h("h1", null, b.title),
+      b.title_roman ? h("div", { class: "de", lang: "hi-Latn" }, b.title_roman) : null));
+    if (!list.length) { shelf.append(h("p", { class: "shelf-foot" }, t.empty)); return; }
+    const latest = list[list.length - 1], L = b.lang;
+    const href = st => "#" + L + "/" + st.id;
+    shelf.append(h("section", { class: "tonight", "aria-label": t.tonight },
+      h("a", { class: "book-card", href: href(latest), "aria-label": txt(latest.title, L) }, miniCover(latest, -3)),
       h("div", { class: "info" },
-        h("div", { class: "label" }, "Tonight's story · No. " + latest.number),
-        h("h2", null, latest.title.en),
-        h("div", { class: "tri" }, h("span", { lang: "de" }, latest.title.de), " · ", h("span", { lang: "hi" }, latest.title.hi)),
-        latest.learning ? h("div", { class: "learn" }, "Tonight we learn: " + latest.learning) : null,
-        latest.inspired_by ? h("div", { class: "learn" }, "Inspired by " + latest.inspired_by) : null,
-        h("a", { class: "readbtn", href: "#" + latest.id }, "🌙 Read tonight's story"))));
+        h("div", { class: "label" }, t.tonight + " · No. " + latest.number),
+        h("h2", null, txt(latest.title, L)),
+        L === "hi" && latest.title.hi_roman ? h("div", { class: "tri", lang: "hi-Latn" }, latest.title.hi_roman) : null,
+        L !== "en" && latest.title.en ? h("div", { class: "tri", lang: "en" }, latest.title.en) : null,
+        latest.learning ? h("div", { class: "learn" }, t.learn + latest.learning) : null,
+        h("a", { class: "readbtn", href: href(latest) }, t.read))));
     const row = h("div", { class: "shelf-row" });
-    stories.slice().reverse().forEach((st, i) => row.append(
-      h("a", { class: "book-card", href: "#" + st.id, "aria-label": st.title.en + ", story " + st.number },
+    list.slice().reverse().forEach((st, i) => row.append(
+      h("a", { class: "book-card", href: href(st), "aria-label": txt(st.title, L) + ", " + st.number },
         miniCover(st, [-3, 2, -1.5, 3, -2.5][i % 5]),
-        h("div", { class: "meta" }, "No. " + st.number + " · " + niceDate(st.date)))));
-    shelf.append(h("div", { class: "shelf-wrap" }, h("div", { class: "shelf-title" }, "All our stories · " + stories.length), row));
-    shelf.append(h("p", { class: "shelf-foot" }, "Tap a coloured word to hear it in English, Deutsch or हिंदी."));
+        h("div", { class: "meta" }, "No. " + st.number + " · " + niceDate(st.date, L)))));
+    shelf.append(h("div", { class: "shelf-wrap" }, h("div", { class: "shelf-title" }, t.all + " · " + list.length), row));
+    shelf.append(h("p", { class: "shelf-foot" }, t.tap));
   }
 
   function destroyBook() {
@@ -520,7 +606,7 @@ body {
     else if (i >= total - 1) label = "The end";
     else label = geo.spread ? `${i}–${Math.min(i + 1, total - 2)} of ${total - 2}` : `${i} of ${total - 2}`;
     document.getElementById("pageinfo").textContent = label;
-    const want = "#" + current.id + (i ? "/" + i : "");
+    const want = "#" + langOf(current) + "/" + current.id + (i ? "/" + i : "");
     if (location.hash !== want) history.replaceState(null, "", want);
   }
   function openStory(st, start) {
@@ -531,6 +617,8 @@ body {
     pages = buildPages(st);
     const block = h("div", { class: "bookfont", style: `--fs: ${geo.fs}px` });
     stage.style.width = (geo.spread ? 2 * geo.w : geo.w) + "px";
+    block.lang = langOf(st);
+    document.getElementById("shelflabel").textContent = { en: "All stories", de: "Alle Geschichten", hi: "सारी कहानियाँ" }[langOf(st)];
     stage.append(block);
     pages.forEach(p => block.append(p));
     start = Math.max(0, Math.min(pages.length - 1, start || 0));
@@ -552,17 +640,26 @@ body {
     onPage(flip.getCurrentPageIndex ? flip.getCurrentPageIndex() : start);
   }
 
+  // #shelf, #de (a book), #de/<story>, #de/<story>/<page>; old links #<story> still work
   function route() {
     const raw = decodeURIComponent(location.hash.replace(/^#/, ""));
     if (!raw || raw === "shelf") return {};
-    const [id, pg] = raw.split("/");
-    const st = stories.find(s => s.id === id);
-    return st ? { story: st, page: parseInt(pg || "0", 10) || 0 } : {};
+    const parts = raw.split("/");
+    let book = library.books.find(b => b.id === parts[0]);
+    if (book) {
+      if (!parts[1]) return { book };
+      const st = (byBook[book.id] || []).find(s => s.id === parts[1]);
+      return st ? { story: st, page: parseInt(parts[2] || "0", 10) || 0 } : { book };
+    }
+    const st = allStories.find(s => s.id === parts[0]);
+    return st ? { story: st, page: parseInt(parts[1] || "0", 10) || 0 } : {};
   }
+  let shownBook = null;
   function follow() {
     const r = route();
-    if (!r.story) { renderShelf(); return; }
-    if (current !== r.story) openStory(r.story, r.page);
+    if (r.story) { shownBook = library.books.find(b => b.id === langOf(r.story)); if (current !== r.story) openStory(r.story, r.page); return; }
+    shownBook = r.book || null;
+    if (r.book) renderBook(r.book); else renderLibrary();
   }
 
   function readAloud() {
@@ -579,14 +676,14 @@ body {
   function wire() {
     document.getElementById("prev").addEventListener("click", () => flip && flip.flipPrev());
     document.getElementById("next").addEventListener("click", () => flip && flip.flipNext());
-    document.getElementById("shelfbtn").addEventListener("click", () => { location.hash = "shelf"; });
+    document.getElementById("shelfbtn").addEventListener("click", () => { location.hash = current ? langOf(current) : "shelf"; });
     document.getElementById("readaloud").addEventListener("click", readAloud);
     if (!speech) document.getElementById("readaloud").remove();
     document.addEventListener("keydown", e => {
       if (!flip) return;
       if (e.key === "ArrowRight") { flip.flipNext(); e.preventDefault(); }
       if (e.key === "ArrowLeft") { flip.flipPrev(); e.preventDefault(); }
-      if (e.key === "Escape") location.hash = "shelf";
+      if (e.key === "Escape" && current) location.hash = langOf(current);
     });
     const mbtn = document.getElementById("music"), mlabel = document.getElementById("musiclabel");
     mbtn.addEventListener("click", async () => {
@@ -621,9 +718,13 @@ body {
     wire();
     try {
       library = await (await fetch("stories/index.json", { cache: "no-cache" })).json();
-      stories = await Promise.all(library.stories.map(id =>
-        fetch("stories/" + id + "/story.json", { cache: "no-cache" }).then(r => r.json()).then(st => Object.assign({ id }, st))));
-      stories.sort((a, b) => (a.number || 0) - (b.number || 0));
+      await Promise.all(library.books.map(async b => {
+        const list = await Promise.all((b.stories || []).map(id =>
+          fetch("stories/" + b.id + "/" + id + "/story.json", { cache: "no-cache" }).then(r => r.json()).then(st => Object.assign({ id, book: b.id }, st))));
+        list.sort((x, y) => (x.number || 0) - (y.number || 0));
+        byBook[b.id] = list;
+      }));
+      allStories = [].concat(...library.books.map(b => byBook[b.id]));
       follow();
     } catch (e) {
       stage.innerHTML = '<p id="loading">The storybook could not be opened. If you opened this file directly, serve the folder instead (see README).</p>';

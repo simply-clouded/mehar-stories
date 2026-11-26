@@ -7,7 +7,7 @@ PNG/JPG/WebP pictures instead: just point "image" in story.json at them.
 """
 import os, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.join(HERE, "..", "..", "tools"))
+sys.path.insert(0, os.path.join(HERE, "..", "..", "..", "tools"))
 from storyart import *  # noqa
 
 pics = {

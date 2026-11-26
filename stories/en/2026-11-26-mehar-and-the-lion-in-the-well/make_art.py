@@ -1,7 +1,7 @@
 """Draws the pictures for "Mehar and the Lion in the Well". Run: python3 make_art.py"""
 import os, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.join(HERE, "..", "..", "tools"))
+sys.path.insert(0, os.path.join(HERE, "..", "..", "..", "tools"))
 from storyart import *  # noqa
 
 DOTS = [(40, 40), (150, 100), (240, 30), (350, 120), (430, 40), (520, 180), (60, 180), (330, 260), (210, 210), (560, 60)]
