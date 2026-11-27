@@ -1,0 +1,87 @@
+{
+  "id": "2026-11-27-mehar-and-the-blue-jackal",
+  "book": "en",
+  "number": 3,
+  "date": "2026-11-27",
+  "title": {
+    "en": "Mehar and the Blue Jackal",
+    "de": "Mehar und der blaue Schakal",
+    "hi": "मेहर और नीला सियार",
+    "hi_roman": "Mehar aur neela siyaar"
+  },
+  "inspired_by": "The Blue Jackal, from the Panchatantra",
+  "themes": ["animals", "painting", "moon", "friends"],
+  "learning": "Being yourself, and owning up when you have told a fib",
+  "characters": [
+    { "name": "Neelu", "who": "a hungry little jackal who falls into a tub of blue dye" },
+    { "name": "Raja Singh", "who": "the lion, now a kind friend of the jungle" },
+    { "name": "Uhu", "who": "a wise owl who notices everything" },
+    { "name": "Hasi", "who": "a small bunny with long ears" }
+  ],
+  "cover": "cover.svg",
+  "pages": [
+    {
+      "image": "01.svg",
+      "text": "The Panchatantra book glowed once more. Whoosh! Mehar landed in a dyer's yard full of big tubs of colour: red, yellow and the deepest blue. \"Paint!\" she gasped. \"Lots and lots of paint!\"",
+      "word": { "en": "blue", "de": "blau", "hi": "नीला", "hi_roman": "neela" }
+    },
+    {
+      "image": "02.svg",
+      "text": "A hungry little jackal called Neelu came tiptoeing past, sniffing for food. He leaned over the blue tub, a bit too far... SPLOSH! Head first, all the way in!",
+      "say": { "lang": "en", "text": "SPLOSH!" },
+      "word": { "en": "jackal", "de": "der Schakal", "hi": "सियार", "hi_roman": "siyaar" }
+    },
+    {
+      "image": "03.svg",
+      "text": "Out climbed a bright blue jackal. In the jungle, everyone stared. \"What strange animal is that?\" Neelu puffed up his chest. \"I am King Neelu! The sky sent me to rule you!\"",
+      "word": { "en": "king", "de": "der König", "hi": "राजा", "hi_roman": "raaja" }
+    },
+    {
+      "image": "04.svg",
+      "text": "The animals bowed. They gave him a crown and the juiciest mangoes. \"Fan me!\" ordered Neelu. Even Raja Singh the lion had to fan him with a big banana leaf. Mehar frowned.",
+      "word": { "en": "crown", "de": "die Krone", "hi": "मुकुट", "hi_roman": "mukut" }
+    },
+    {
+      "image": "05.svg",
+      "text": "Mehar whispered, \"Neelu, pretending must be tiring. Why not just be yourself?\" \"Shh!\" hissed Neelu. \"Kings don't listen to little girls.\" But his tail drooped a tiny bit.",
+      "word": { "en": "yourself", "de": "du selbst", "hi": "ख़ुद", "hi_roman": "khud" }
+    },
+    {
+      "image": "06.svg",
+      "text": "That night the full moon rose. Far away, the jackals began to sing: \"Aa-ooo! Aa-ooo!\" Neelu's nose twitched. His ears wiggled. (Can you guess what happened next?)",
+      "word": { "en": "moon", "de": "der Mond", "hi": "चाँद", "hi_roman": "chaand" }
+    },
+    {
+      "image": "07.svg",
+      "text": "He couldn't help it! He threw back his head: \"AAA-OOO!\" Everyone froze. \"A king who howls like a jackal?\" hooted Uhu. \"He is not from the sky at all!\"",
+      "say": { "lang": "en", "text": "Aaa-ooo!" },
+      "word": { "en": "howl", "de": "heulen", "hi": "हुआँ-हुआँ", "hi_roman": "huaan-huaan" }
+    },
+    {
+      "image": "08.svg",
+      "text": "Raja Singh growled. Neelu shook. But Mehar stepped in front of him. \"Wait! He told a big fib, but I think he's sorry.\" Neelu nodded. \"I'm sorry. I'm only Neelu.\"",
+      "word": { "en": "sorry", "de": "Entschuldigung", "hi": "माफ़ करना", "hi_roman": "maaf karna" }
+    },
+    {
+      "image": "09.svg",
+      "text": "Mehar and Neelu splashed in the river until the blue washed away. Out came a fluffy brown jackal, smiling. The animals laughed and said, \"Hello, Neelu! You can sing in our moon choir.\"",
+      "word": { "en": "wash", "de": "waschen", "hi": "धोना", "hi_roman": "dhona" }
+    },
+    {
+      "image": "10.svg",
+      "text": "Whoosh! Mehar was back in bed with blue paint on her fingers. Before sleep, she painted a little brown jackal singing to the moon. \"Aa-ooo,\" she yawned. Good night!",
+      "word": { "en": "good night", "de": "gute Nacht", "hi": "शुभ रात्रि", "hi_roman": "shubh raatri" }
+    }
+  ],
+  "moral": {
+    "en": "Be yourself. A fib can hide who you are for a little while, but the truth always comes out, so it is better to tell it yourself.",
+    "de": "Sei du selbst. Eine Flunkerei kommt immer ans Licht.",
+    "hi": "जैसे हो, वैसे ही रहो। झूठ ज़्यादा देर नहीं छिपता।",
+    "hi_roman": "Jaise ho, vaise hi raho. Jhooth zyaada der nahin chhipta."
+  },
+  "questions": [
+    { "en": "Why did the animals think Neelu was a king?" },
+    { "en": "What gave away Neelu's secret?" },
+    { "en": "What is something you love about being just you?" }
+  ]
+}

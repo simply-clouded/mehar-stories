@@ -1,0 +1,88 @@
+{
+  "id": "2026-11-27-mehar-und-die-klugen-kraehen",
+  "book": "de",
+  "number": 3,
+  "date": "2026-11-27",
+  "title": {
+    "de": "Mehar und die klugen Krähen",
+    "en": "Mehar and the Clever Crows",
+    "hi": "मेहर और चतुर कौवे",
+    "hi_roman": "Mehar aur chatur kauve"
+  },
+  "inspired_by": "Die Krähen und die Schlange, aus dem Panchatantra",
+  "themes": ["animals", "nature", "friends"],
+  "learning": "Mit Köpfchen und Freunden gegen einen Stärkeren",
+  "characters": [
+    { "name": "Kalu und Kali", "who": "zwei Krähen, die ein Nest im großen Baum haben" },
+    { "name": "Sarpu", "who": "eine schlaue Schlange, die unten im Baumloch wohnt" },
+    { "name": "Raja Singh", "who": "der Löwe, jetzt ein guter Freund" },
+    { "name": "Uhu", "who": "eine kluge Eule" }
+  ],
+  "cover": "cover.svg",
+  "pages": [
+    {
+      "image": "01.svg",
+      "text": "Das Panchatantra-Buch leuchtete noch einmal. Schwupps! Mehar stand unter einem riesigen Baum. Oben im Nest saßen zwei Krähen und weinten bitterlich.",
+      "word": { "de": "die Krähe", "en": "crow", "hi": "कौआ", "hi_roman": "kauaa" }
+    },
+    {
+      "image": "02.svg",
+      "text": "„Ich bin Kalu, und das ist Kali“, schniefte die Krähe. „Jedes Mal, wenn wir Eier legen, kriecht Sarpu, die Schlange, aus ihrem Loch und stiehlt sie!“ Zisch!",
+      "say": { "lang": "de", "text": "Zisch, zisch!" },
+      "word": { "de": "das Ei", "en": "egg", "hi": "अंडा", "hi_roman": "anda" }
+    },
+    {
+      "image": "03.svg",
+      "text": "„Gegen eine Schlange können wir nicht kämpfen“, sagte Mehar. „Aber wir können klug sein.“ Sie fragte Uhu. Uhu blinzelte: „Holt euch jemanden, der stärker ist als die Schlange.“",
+      "word": { "de": "klug", "en": "clever", "hi": "चतुर", "hi_roman": "chatur" }
+    },
+    {
+      "image": "04.svg",
+      "text": "Mehar lief zu ihrem Freund Raja Singh. Der Löwe trug ein glänzendes Perlenhalsband. Mehar flüsterte ihm ihren Plan ins Ohr. Raja Singh grinste: „Ich mache mit!“",
+      "word": { "de": "der Plan", "en": "plan", "hi": "योजना", "hi_roman": "yojana" }
+    },
+    {
+      "image": "05.svg",
+      "text": "Am Morgen schnappte Kalu das Halsband. „Krah, krah!“ Raja Singh brüllte und rannte hinterher, nur zum Spaß, aber das wusste ja nur Mehar. Sie kicherte und lief mit.",
+      "say": { "lang": "de", "text": "Krah, krah!" },
+      "word": { "de": "das Halsband", "en": "necklace", "hi": "हार", "hi_roman": "haar" }
+    },
+    {
+      "image": "06.svg",
+      "text": "Kalu flog geradewegs zum großen Baum. Und wohin ließ er das Halsband fallen? Was glaubst du? ... Plopp! Genau in Sarpus Loch!",
+      "word": { "de": "das Loch", "en": "hole", "hi": "बिल", "hi_roman": "bil" }
+    },
+    {
+      "image": "07.svg",
+      "text": "„Mein Halsband!“, brüllte Raja Singh. „Das hole ich mir!“ Er grub und grub mit seinen riesigen Pfoten. Rums! Rums! Der Sand flog in alle Richtungen.",
+      "word": { "de": "graben", "en": "to dig", "hi": "खोदना", "hi_roman": "khodna" }
+    },
+    {
+      "image": "08.svg",
+      "text": "Da schoss Sarpu erschrocken heraus. „Hilfe, ein Löwe!“ Sie schlängelte schnell weit weg über den Hügel. „Und lass die Eier in Ruhe!“, rief Mehar ihr nach. „Versprochen!“, zischte Sarpu.",
+      "say": { "lang": "de", "text": "Hilfe!" },
+      "word": { "de": "schnell", "en": "fast", "hi": "तेज़", "hi_roman": "tez" }
+    },
+    {
+      "image": "09.svg",
+      "text": "Im Frühling piepsten drei kleine Krähenküken im Nest. Raja Singh trug wieder sein Halsband, und alle feierten unter dem großen Baum. „Danke, Mehar!“, krächzten Kalu und Kali.",
+      "word": { "de": "das Küken", "en": "chick", "hi": "चूज़ा", "hi_roman": "choozaa" }
+    },
+    {
+      "image": "10.svg",
+      "text": "Schwupps! Mehar lag wieder in ihrem Bett. Draußen saß eine Krähe auf dem Fensterbrett und nickte ihr zu. „Gute Nacht, Kalu“, flüsterte Mehar und schlief ein.",
+      "word": { "de": "gute Nacht", "en": "good night", "hi": "शुभ रात्रि", "hi_roman": "shubh raatri" }
+    }
+  ],
+  "moral": {
+    "de": "Wer klein ist, braucht keine großen Muskeln. Mit einem klugen Plan und guten Freunden schafft man fast alles.",
+    "en": "You don't need big muscles when you have a clever plan and good friends.",
+    "hi": "छोटे होकर भी, चतुर योजना और अच्छे दोस्तों से जीत सकते हैं।",
+    "hi_roman": "Chhote hokar bhi, chatur yojana aur achchhe doston se jeet sakte hain."
+  },
+  "questions": [
+    { "de": "Warum konnten die Krähen nicht selbst gegen die Schlange kämpfen?" },
+    { "de": "Warum hat Kalu das Halsband in das Loch fallen lassen?" },
+    { "de": "Wen würdest du um Hilfe bitten, wenn du ein Problem hast?" }
+  ]
+}

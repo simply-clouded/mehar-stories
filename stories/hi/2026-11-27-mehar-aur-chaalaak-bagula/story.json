@@ -1,0 +1,96 @@
+{
+  "id": "2026-11-27-mehar-aur-chaalaak-bagula",
+  "book": "hi",
+  "number": 3,
+  "date": "2026-11-27",
+  "title": {
+    "hi": "मेहर और चालाक बगुला",
+    "hi_roman": "Mehar aur chaalaak bagula",
+    "en": "Mehar and the Crafty Heron",
+    "de": "Mehar und der listige Reiher"
+  },
+  "inspired_by": "पंचतंत्र की कहानी: बगुला और केकड़ा",
+  "themes": ["animals", "nature", "friends"],
+  "learning": "मीठी बातों पर आँख मूँदकर भरोसा मत करो",
+  "characters": [
+    { "name": "बगला", "who": "एक लंबा सफ़ेद बगुला, बहुत मीठा बोलने वाला" },
+    { "name": "केकड़ू", "who": "बड़े-बड़े पंजों वाला समझदार केकड़ा" },
+    { "name": "मछलियाँ", "who": "छोटी झील की रंग-बिरंगी मछलियाँ" }
+  ],
+  "cover": "cover.svg",
+  "pages": [
+    {
+      "image": "01.svg",
+      "text": "पंचतंत्र की किताब फिर से चमकी। सर्र! मेहर एक छोटी-सी झील के किनारे पहुँच गई। पानी में रंग-बिरंगी मछलियाँ तैर रही थीं, और एक केकड़ा धूप सेंक रहा था।",
+      "roman": "Panchatantra ki kitaab phir se chamki. Sarr! Mehar ek chhoti-si jheel ke kinaare pahunch gayi. Paani mein rang-birangi machhliyaan tair rahi thin, aur ek kekda dhoop sek raha tha.",
+      "word": { "hi": "मछली", "hi_roman": "machhli", "en": "fish", "de": "der Fisch" }
+    },
+    {
+      "image": "02.svg",
+      "text": "किनारे पर बगला बगुला एक टाँग पर खड़ा था, बड़ा उदास। \"बुरी ख़बर है! यह झील सूखने वाली है। पर पहाड़ी पर एक बड़ी झील है। मैं तुम्हें एक-एक करके वहाँ ले चलूँगा।\"",
+      "roman": "Kinaare par Bagla bagula ek taang par khada tha, bada udaas. \"Buri khabar hai! Yeh jheel sookhne waali hai. Par pahaadi par ek badi jheel hai. Main tumhein ek-ek karke wahaan le chaloonga.\"",
+      "word": { "hi": "बगुला", "hi_roman": "bagula", "en": "heron", "de": "der Reiher" }
+    },
+    {
+      "image": "03.svg",
+      "text": "मछलियाँ ख़ुश हो गईं। रोज़ बगला एक मछली को चोंच में दबाकर उड़ जाता। पर मेहर ने कुछ देखा: बगला रोज़ थोड़ा और मोटा होता जा रहा था!",
+      "roman": "Machhliyaan khush ho gayin. Roz Bagla ek machhli ko chonch mein dabaakar ud jaata. Par Mehar ne kuchh dekha: Bagla roz thoda aur mota hota ja raha tha!",
+      "word": { "hi": "मोटा", "hi_roman": "mota", "en": "fat", "de": "dick" }
+    },
+    {
+      "image": "04.svg",
+      "text": "मेहर ने केकड़ू के कान में कहा, \"कुछ तो गड़बड़ है।\" केकड़ू बोला, \"आज मैं जाऊँगा।\" वह बगले की गर्दन पर कसकर बैठ गया, और मेहर पहाड़ी की ओर दौड़ी।",
+      "roman": "Mehar ne Kekdu ke kaan mein kaha, \"Kuchh to gadbad hai.\" Kekdu bola, \"Aaj main jaaoonga.\" Woh Bagle ki gardan par kaskar baith gaya, aur Mehar pahaadi ki or daudi.",
+      "word": { "hi": "गर्दन", "hi_roman": "gardan", "en": "neck", "de": "der Hals" }
+    },
+    {
+      "image": "05.svg",
+      "text": "पहाड़ी पर कोई बड़ी झील नहीं थी! चट्टानों के पीछे एक छोटा गड्ढा था, जिसमें सारी मछलियाँ बंद थीं। बगला उनसे दावत करने वाला था। बताओ, अब केकड़ू क्या करेगा?",
+      "roman": "Pahaadi par koi badi jheel nahin thi! Chattaanon ke peechhe ek chhota gaddha tha, jismein saari machhliyaan band thin. Bagla unse daawat karne waala tha. Batao, ab Kekdu kya karega?",
+      "word": { "hi": "चट्टान", "hi_roman": "chattaan", "en": "rock", "de": "der Felsen" }
+    },
+    {
+      "image": "06.svg",
+      "text": "कट! केकड़ू ने अपने पंजे से बगले की गर्दन पकड़ ली। \"आँ-आँ!\" बगला चीखा। \"छोड़ो, छोड़ो!\" केकड़ू बोला, \"पहले सच बोलो!\"",
+      "roman": "Kat! Kekdu ne apne panje se Bagle ki gardan pakad li. \"Aan-aan!\" Bagla cheekha. \"Chhodo, chhodo!\" Kekdu bola, \"Pehle sach bolo!\"",
+      "say": { "lang": "hi", "text": "पहले सच बोलो!", "roman": "Pehle sach bolo!" },
+      "word": { "hi": "सच", "hi_roman": "sach", "en": "truth", "de": "die Wahrheit" }
+    },
+    {
+      "image": "07.svg",
+      "text": "मेहर भी पहुँच गई। \"बगला जी, वादा करो कि सारी मछलियों को वापस ले जाओगे, और फिर कभी किसी को धोखा नहीं दोगे।\" बगले ने सिर झुकाया। \"वादा करता हूँ।\"",
+      "roman": "Mehar bhi pahunch gayi. \"Bagla ji, vaada karo ki saari machhliyon ko vaapas le jaaoge, aur phir kabhi kisi ko dhokha nahin doge.\" Bagle ne sir jhukaaya. \"Vaada karta hoon.\"",
+      "word": { "hi": "वादा", "hi_roman": "vaada", "en": "promise", "de": "das Versprechen" }
+    },
+    {
+      "image": "08.svg",
+      "text": "उड़-उड़-उड़! बगला सारी मछलियों को एक-एक करके वापस झील में ले गया। केकड़ू उसकी गर्दन पर बैठा पहरा देता रहा। छपाक! छपाक! मछलियाँ घर पहुँच गईं।",
+      "roman": "Ud-ud-ud! Bagla saari machhliyon ko ek-ek karke vaapas jheel mein le gaya. Kekdu uski gardan par baitha pehra deta raha. Chhapaak! Chhapaak! Machhliyaan ghar pahunch gayin.",
+      "say": { "lang": "hi", "text": "छपाक! छपाक!", "roman": "Chhapaak! Chhapaak!" },
+      "word": { "hi": "घर", "hi_roman": "ghar", "en": "home", "de": "das Zuhause" }
+    },
+    {
+      "image": "09.svg",
+      "text": "मछलियों ने ख़ुशी से पानी में गोल-गोल चक्कर लगाए। \"धन्यवाद, मेहर! धन्यवाद, केकड़ू!\" और बगला? वह अब झूठ नहीं बोलता था। वह झील का पहरेदार बन गया।",
+      "roman": "Machhliyon ne khushi se paani mein gol-gol chakkar lagaaye. \"Dhanyavaad, Mehar! Dhanyavaad, Kekdu!\" Aur Bagla? Woh ab jhooth nahin bolta tha. Woh jheel ka pehredaar ban gaya.",
+      "word": { "hi": "धन्यवाद", "hi_roman": "dhanyavaad", "en": "thank you", "de": "danke" }
+    },
+    {
+      "image": "10.svg",
+      "text": "सर्र! मेहर वापस अपने पलंग पर थी। चाँद खिड़की से मुस्कुरा रहा था। मेहर ने सोचा, \"मीठी बातों के पीछे भी देखना चाहिए।\" फिर उसने आँखें बंद कीं और सो गई।",
+      "roman": "Sarr! Mehar vaapas apne palang par thi. Chaand khidki se muskura raha tha. Mehar ne socha, \"Meethi baaton ke peechhe bhi dekhna chaahiye.\" Phir usne aankhen band keen aur so gayi.",
+      "word": { "hi": "शुभ रात्रि", "hi_roman": "shubh raatri", "en": "good night", "de": "gute Nacht" }
+    }
+  ],
+  "moral": {
+    "hi": "मीठी-मीठी बातों पर आँख मूँदकर भरोसा मत करो। ध्यान से देखो, सवाल पूछो, और हमेशा सच का साथ दो।",
+    "hi_roman": "Meethi-meethi baaton par aankh moondkar bharosa mat karo. Dhyaan se dekho, sawaal poochho, aur hamesha sach ka saath do.",
+    "en": "Don't trust sweet words blindly. Look carefully, ask questions, and always stand by the truth.",
+    "de": "Vertrau süßen Worten nicht blind. Schau genau hin, frag nach und steh zur Wahrheit."
+  },
+  "questions": [
+    { "hi": "मेहर को कैसे पता चला कि कुछ गड़बड़ है?", "hi_roman": "Mehar ko kaise pata chala ki kuchh gadbad hai?", "en": "How did Mehar know something was wrong?" },
+    { "hi": "केकड़ू ने मछलियों को कैसे बचाया?", "hi_roman": "Kekdu ne machhliyon ko kaise bachaaya?", "en": "How did Kekdu save the fish?" },
+    { "hi": "अगर कोई बहुत मीठा बोले, तो तुम क्या करोगी?", "hi_roman": "Agar koi bahut meetha bole, to tum kya karogi?", "en": "What would you do if someone talks very sweetly?" }
+  ]
+}

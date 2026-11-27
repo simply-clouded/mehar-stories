@@ -941,3 +941,194 @@ def rope_heap(x, y, s=1, color="#c8a46a"):
     """Bits of chewed-up net lying on the ground, centred at (x, y)."""
     return g("".join(f'<path d="M{dx},0 q14,-18 28,-4 q10,10 22,-8" fill="none" stroke="{color}" stroke-width="5" stroke-linecap="round"/>' for dx in (-90, -40, 10, 50))
              + '<path d="M-70,-10 l12,-14 M30,-16 l10,10" stroke="#c8a46a" stroke-width="5" stroke-linecap="round"/>', x, y, s)
+
+
+# ---------------------------------------------------------------- more Panchatantra friends
+
+def jackal(x, y, s=1, fur="#c98a4b", mood="happy", crown=False, flip=False, drips=False):
+    """Neelu the jackal, sitting and facing right-ish, feet at (x, y). About 190*s tall.
+    fur: "#c98a4b" (his own colour) or "#3a4fc8" (dyed blue). mood: happy | proud | scared | sorry."""
+    light = "#f3dcb8" if fur == "#c98a4b" else "#8fa0ef"
+    ink = "#2a1b14"
+    p = [f'<path d="M-30,-20 C-80,-20 -90,-60 -70,-80 C-66,-50 -50,-36 -26,-36 Z" fill="{fur}"/>'
+         f'<path d="M-74,-74 C-70,-60 -66,-56 -58,-52" stroke="{light}" stroke-width="8" stroke-linecap="round" fill="none"/>',
+         f'<ellipse cx="0" cy="-50" rx="34" ry="46" fill="{fur}"/><ellipse cx="10" cy="-46" rx="16" ry="30" fill="{light}"/>',
+         f'<rect x="-14" y="-40" width="12" height="40" rx="6" fill="{fur}"/><rect x="14" y="-40" width="12" height="40" rx="6" fill="{fur}"/>',
+         f'<ellipse cx="-6" cy="-2" rx="11" ry="5" fill="{fur}"/><ellipse cx="22" cy="-2" rx="11" ry="5" fill="{fur}"/>',
+         # head
+         f'<path d="M-14,-150 L-6,-196 L12,-160 Z" fill="{fur}"/><path d="M-8,-156 L-5,-182 L6,-160 Z" fill="{light}"/>',
+         f'<path d="M14,-152 L30,-194 L38,-150 Z" fill="{fur}"/><path d="M20,-154 L29,-180 L33,-154 Z" fill="{light}"/>',
+         f'<ellipse cx="12" cy="-124" rx="34" ry="30" fill="{fur}"/>',
+         f'<path d="M30,-132 C50,-128 66,-118 70,-110 C60,-100 40,-100 26,-104 Z" fill="{fur}"/>',
+         f'<path d="M28,-110 C44,-104 58,-104 68,-108 C60,-96 40,-94 26,-100 Z" fill="{light}"/>',
+         f'<circle cx="70" cy="-112" r="5" fill="{ink}"/>',
+         f'<ellipse cx="0" cy="-110" rx="16" ry="12" fill="{light}"/>']
+    if mood == "scared":
+        p.append(f'<circle cx="22" cy="-132" r="6" fill="#fff"/><circle cx="23" cy="-131" r="2.6" fill="{ink}"/>'
+                 f'<ellipse cx="52" cy="-100" rx="4" ry="4" fill="#6a2a1a"/>')
+    elif mood in ("happy", "proud"):
+        if mood == "proud":
+            p.append(f'<path d="M15,-134 Q22,-138 29,-134" fill="none" stroke="{ink}" stroke-width="3" stroke-linecap="round"/>')
+        else:
+            p.append(f'<ellipse cx="22" cy="-133" rx="4" ry="5" fill="{ink}"/><circle cx="23.5" cy="-135" r="1.4" fill="#fff"/>')
+        p.append(f'<path d="M40,-102 Q52,-96 62,-104" fill="none" stroke="{ink}" stroke-width="2.6" stroke-linecap="round"/>')
+    else:  # sorry
+        p.append(f'<path d="M16,-132 q6,5 12,0" fill="none" stroke="{ink}" stroke-width="2.6" stroke-linecap="round"/>'
+                 f'<path d="M14,-144 L28,-140" stroke="{ink}" stroke-width="2.4" stroke-linecap="round"/>'
+                 f'<path d="M44,-100 Q52,-104 60,-100" fill="none" stroke="{ink}" stroke-width="2.4" stroke-linecap="round"/>')
+    p.append(f'<ellipse cx="10" cy="-116" rx="5" ry="3" fill="#ff8a8a" opacity="0.5"/>')
+    if crown:
+        p.append('<path d="M-6,-150 L-6,-174 L5,-162 L14,-180 L23,-162 L34,-174 L34,-150 Z" fill="#ffd23f" stroke="#d49a12" stroke-width="2"/>')
+    if drips:
+        p.append("".join(f'<path d="M{dx},{dy} q-5,8 0,11 q5,-3 0,-11 Z" fill="#6f84ff"/>' for dx, dy in ((-30, -70), (36, -60), (-10, -20), (60, -90), (0, -170))))
+    inner = "".join(p)
+    if flip:
+        inner = f'<g transform="scale(-1 1)">{inner}</g>'
+    return g(inner, x, y, s)
+
+
+def dye_vat(x, y, s=1, color="#3a4fc8", splash=False):
+    """A big clay tub of indigo dye, base centre at (x, y). About 200*s wide."""
+    p = [f'<path d="M-90,-110 L90,-110 L76,0 L-76,0 Z" fill="#b8643a"/>',
+         f'<path d="M-80,-70 H80 M-78,-40 H78" stroke="#9a4f2c" stroke-width="4"/>',
+         f'<ellipse cx="0" cy="-110" rx="96" ry="20" fill="#d07a4a"/><ellipse cx="0" cy="-110" rx="80" ry="13" fill="{color}"/>']
+    if splash:
+        p.append("".join(f'<path d="M{dx},{dy} q-8,14 0,18 q8,-4 0,-18 Z" fill="{color}"/>' for dx, dy in ((-60, -150), (-20, -180), (30, -175), (70, -145), (0, -200))))
+    return g("".join(p), x, y, s)
+
+
+def crow(x, y, s=1, flip=False, holding=None, wings="down", mood="happy"):
+    """Kalu the crow, facing right, feet at (x, y). About 110*s tall.
+    holding: svg drawn at the beak tip (about (58, -78)). wings: down | up."""
+    body, dark, beak, ink = "#3b3f52", "#272a38", "#f2b13a", "#ffffff"
+    p = [f'<path d="M-34,-40 L-66,-30 L-60,-46 Z" fill="{dark}"/>',
+         f'<path d="M-4,-6 v6 M8,-6 v6" stroke="{beak}" stroke-width="4" stroke-linecap="round"/>',
+         f'<path d="M-10,0 h10 M2,0 h12" stroke="{beak}" stroke-width="4" stroke-linecap="round"/>',
+         f'<ellipse cx="0" cy="-38" rx="38" ry="30" fill="{body}"/>',
+         f'<circle cx="26" cy="-72" r="24" fill="{body}"/>',
+         f'<path d="M44,-80 L64,-74 L44,-66 Z" fill="{beak}"/>']
+    if wings == "up":
+        p.append(f'<path d="M-6,-50 C-30,-110 -70,-110 -90,-96 C-60,-80 -40,-60 -14,-30 Z" fill="{dark}"/>')
+    else:
+        p.append(f'<path d="M-30,-48 C-10,-60 20,-50 22,-30 C0,-20 -24,-24 -30,-48 Z" fill="{dark}"/>')
+    if mood == "sad":
+        p.append(f'<circle cx="32" cy="-78" r="7" fill="{ink}"/><circle cx="33" cy="-76" r="3.4" fill="#111"/>'
+                 f'<path d="M24,-90 L38,-86" stroke="#111" stroke-width="2.4" stroke-linecap="round"/>'
+                 f'<path d="M30,-66 q-4,8 0,10 q4,-2 0,-10 Z" fill="#7fb3ff"/>')
+    else:
+        p.append(f'<circle cx="32" cy="-78" r="7" fill="{ink}"/><circle cx="34" cy="-78" r="3.4" fill="#111"/><circle cx="35" cy="-80" r="1.2" fill="#fff"/>')
+    p.append(f'<ellipse cx="30" cy="-62" rx="5" ry="3" fill="#ff8fb1" opacity="0.6"/>')
+    if holding:
+        p.append(g(holding, 60, -74))
+    inner = "".join(p)
+    if flip:
+        inner = f'<g transform="scale(-1 1)">{inner}</g>'
+    return g(inner, x, y, s)
+
+
+def snake(x, y, s=1, mood="sly", flip=False):
+    """Sarpu the snake, coiled, base at (x, y), head up and facing right. About 140*s tall.
+    mood: sly | scared | sorry."""
+    skin, belly, spot, ink = "#5aa84a", "#d6e99a", "#3f8a36", "#1f3a1c"
+    p = [f'<ellipse cx="0" cy="-14" rx="70" ry="18" fill="{skin}"/>',
+         f'<ellipse cx="0" cy="-40" rx="54" ry="16" fill="{skin}"/><ellipse cx="0" cy="-40" rx="54" ry="6" fill="{belly}" opacity="0.5"/>',
+         f'<path d="M30,-44 C50,-70 40,-100 30,-112" fill="none" stroke="{skin}" stroke-width="26" stroke-linecap="round"/>',
+         f'<ellipse cx="34" cy="-124" rx="26" ry="20" fill="{skin}"/>',
+         f'<path d="M-70,-14 q-20,-4 -24,-14" fill="none" stroke="{skin}" stroke-width="10" stroke-linecap="round"/>']
+    p += [f'<circle cx="{dx}" cy="{dy}" r="5" fill="{spot}"/>' for dx, dy in ((-40, -14), (0, -10), (40, -16), (-24, -40), (16, -42), (40, -80))]
+    if mood == "scared":
+        p.append(f'<circle cx="40" cy="-130" r="6.5" fill="#fff"/><circle cx="41" cy="-129" r="2.6" fill="{ink}"/>'
+                 f'<ellipse cx="54" cy="-114" rx="4" ry="5" fill="#7a2a2a"/>')
+    elif mood == "sorry":
+        p.append(f'<path d="M34,-130 q6,5 12,0" fill="none" stroke="{ink}" stroke-width="2.6" stroke-linecap="round"/>'
+                 f'<path d="M48,-114 q6,-4 10,0" fill="none" stroke="{ink}" stroke-width="2.2" stroke-linecap="round"/>')
+    else:
+        p.append(f'<ellipse cx="42" cy="-130" rx="5" ry="6" fill="#fff8c4"/><ellipse cx="43" cy="-130" rx="1.8" ry="5" fill="{ink}"/>'
+                 f'<path d="M35,-138 Q42,-142 50,-136" stroke="{spot}" stroke-width="5" stroke-linecap="round" fill="none"/>'
+                 f'<path d="M46,-114 Q54,-110 60,-118" fill="none" stroke="{ink}" stroke-width="2.4" stroke-linecap="round"/>'
+                 f'<path d="M60,-118 l10,2 m-10,-2 l8,6" stroke="#e5484d" stroke-width="2" stroke-linecap="round"/>')
+    inner = "".join(p)
+    if flip:
+        inner = f'<g transform="scale(-1 1)">{inner}</g>'
+    return g(inner, x, y, s)
+
+
+def necklace(x, y, s=1):
+    """A sparkly pearl necklace with a red jewel, hanging from (x, y)."""
+    pearls = "".join(f'<circle cx="{28*math.sin(a):.1f}" cy="{30 - 30*math.cos(a):.1f}" r="4.5" fill="#fffdf2" stroke="#d8cfae" stroke-width="1"/>'
+                     for a in [i * math.pi / 7 - math.pi / 2 for i in range(8)])
+    return g(pearls + '<path d="M0,54 l-9,10 l9,12 l9,-12 Z" fill="#e5484d"/><path d="M-12,40 l-6,-4 M12,40 l6,-4 M0,82 v6" stroke="#ffe680" stroke-width="2" stroke-linecap="round"/>', x, y, s)
+
+
+def heron(x, y, s=1, mood="sly", flip=False, eyes="open", holding=None):
+    """Bagla the heron, a tall white bird standing on one leg, facing right, foot at (x, y).
+    About 260*s tall. mood: sly | sorry | happy.  holding: svg drawn at the beak tip."""
+    white, grey, beak, leg, ink = "#fbfaf6", "#cfd4dc", "#f2b13a", "#e0912a", "#2a2440"
+    p = [f'<path d="M0,0 V-90 M0,-60 L-16,-76 L-6,-90" fill="none" stroke="{leg}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>',
+         f'<path d="M-6,0 h16" stroke="{leg}" stroke-width="5" stroke-linecap="round"/>',
+         f'<ellipse cx="-10" cy="-120" rx="48" ry="32" fill="{white}"/>',
+         f'<path d="M-50,-126 C-70,-120 -80,-108 -84,-96 C-66,-102 -50,-104 -40,-110 Z" fill="{grey}"/>',
+         f'<path d="M-40,-126 C-10,-140 20,-132 30,-112 C0,-104 -24,-108 -40,-126 Z" fill="{grey}"/>',
+         f'<path d="M24,-136 C34,-170 14,-190 22,-214" fill="none" stroke="{white}" stroke-width="16" stroke-linecap="round"/>',
+         f'<circle cx="28" cy="-222" r="18" fill="{white}"/>',
+         f'<path d="M14,-232 C4,-240 -8,-238 -16,-242" stroke="{grey}" stroke-width="4" stroke-linecap="round" fill="none"/>',
+         f'<path d="M42,-228 L96,-218 L42,-212 Z" fill="{beak}"/>']
+    if eyes == "closed" or mood == "happy":
+        p.append(f'<path d="M26,-226 q5,-5 10,0" fill="none" stroke="{ink}" stroke-width="2.4" stroke-linecap="round"/>')
+    else:
+        p.append(f'<circle cx="32" cy="-226" r="4" fill="{ink}"/><circle cx="33.4" cy="-227.4" r="1.3" fill="#fff"/>')
+    if mood == "sly":
+        p.append(f'<path d="M24,-234 L40,-230" stroke="{ink}" stroke-width="2.6" stroke-linecap="round"/>')
+    elif mood == "sorry":
+        p.append(f'<path d="M24,-230 L38,-236" stroke="{ink}" stroke-width="2.4" stroke-linecap="round"/>'
+                 f'<path d="M28,-212 q-4,8 0,10 q4,-2 0,-10 Z" fill="#7fb3ff"/>')
+    p.append(f'<ellipse cx="22" cy="-216" rx="5" ry="3" fill="#ff9aa8" opacity="0.5"/>')
+    if holding:
+        p.append(g(holding, 96, -218))
+    inner = "".join(p)
+    if flip:
+        inner = f'<g transform="scale(-1 1)">{inner}</g>'
+    return g(inner, x, y, s)
+
+
+def crab(x, y, s=1, mood="happy", claws="down", flip=False):
+    """Kekdu the crab, facing us, feet at (x, y). About 150*s wide. claws: down | up | pinch."""
+    shell, dark, ink = "#ef6a4a", "#c94a30", "#2a1b14"
+    p = [''.join(f'<path d="M{sx*30},-20 l{sx*26},{-6 + i*10} l{sx*8},{14}" fill="none" stroke="{dark}" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>'
+                 for sx in (-1, 1) for i in range(3))]
+    cl = {"down": ((-62, -40), (62, -40)), "up": ((-56, -100), (56, -100)), "pinch": ((-62, -40), (40, -110))}[claws]
+    for sx, (cx, cy) in zip((-1, 1), cl):
+        p.append(f'<path d="M{sx*34},-34 Q{(sx*34 + cx)/2 + sx*10:.0f},{(cy - 34)/2 - 10:.0f} {cx},{cy + 10}" fill="none" stroke="{shell}" stroke-width="9" stroke-linecap="round"/>'
+                 f'<path d="M{cx - 14},{cy + 8} C{cx - 20},{cy - 16} {cx + 20},{cy - 16} {cx + 14},{cy + 8} L{cx},{cy - 2} Z" fill="{shell}"/>')
+    p.append(f'<ellipse cx="0" cy="-30" rx="46" ry="30" fill="{shell}"/><ellipse cx="0" cy="-22" rx="30" ry="12" fill="#ff9a7a" opacity="0.6"/>')
+    p.append(f'<path d="M-12,-56 v-16 M12,-56 v-16" stroke="{shell}" stroke-width="5"/>')
+    p.append(f'<circle cx="-12" cy="-76" r="9" fill="#fff"/><circle cx="12" cy="-76" r="9" fill="#fff"/>'
+             f'<circle cx="-11" cy="-75" r="4" fill="{ink}"/><circle cx="13" cy="-75" r="4" fill="{ink}"/>')
+    if mood == "angry":
+        p.append(f'<path d="M-22,-88 L-4,-82 M22,-88 L4,-82" stroke="{ink}" stroke-width="3" stroke-linecap="round"/>'
+                 f'<path d="M-10,-24 Q0,-30 10,-24" fill="none" stroke="{ink}" stroke-width="2.6" stroke-linecap="round"/>')
+    else:
+        p.append(f'<path d="M-12,-30 Q0,-18 12,-30" fill="none" stroke="{ink}" stroke-width="2.6" stroke-linecap="round"/>')
+    p.append('<ellipse cx="-26" cy="-32" rx="6" ry="3.5" fill="#ffc4b0" opacity="0.7"/><ellipse cx="26" cy="-32" rx="6" ry="3.5" fill="#ffc4b0" opacity="0.7"/>')
+    inner = "".join(p)
+    if flip:
+        inner = f'<g transform="scale(-1 1)">{inner}</g>'
+    return g(inner, x, y, s)
+
+
+def fish(x, y, s=1, color="#ff9a3d", mood="happy", flip=False):
+    """A little fish facing right, centred at (x, y). About 70*s long. mood: happy | scared."""
+    ink = "#2a2440"
+    p = [f'<path d="M-24,0 L-44,-16 L-40,0 L-44,16 Z" fill="{color}"/>',
+         f'<ellipse cx="0" cy="0" rx="28" ry="18" fill="{color}"/>',
+         f'<path d="M-6,-16 Q4,-28 14,-14" fill="{color}"/>',
+         f'<path d="M-4,-14 Q-10,0 -4,14" fill="none" stroke="#ffffff" stroke-width="2.4" opacity="0.6"/>']
+    if mood == "scared":
+        p.append(f'<circle cx="12" cy="-4" r="6" fill="#fff"/><circle cx="13" cy="-4" r="2.4" fill="{ink}"/><ellipse cx="24" cy="6" rx="3" ry="3.5" fill="{ink}"/>')
+    else:
+        p.append(f'<circle cx="12" cy="-4" r="4" fill="{ink}"/><circle cx="13.4" cy="-5.4" r="1.3" fill="#fff"/>'
+                 f'<path d="M18,6 Q22,9 26,5" fill="none" stroke="{ink}" stroke-width="2" stroke-linecap="round"/>')
+    inner = "".join(p)
+    if flip:
+        inner = f'<g transform="scale(-1 1)">{inner}</g>'
+    return g(inner, x, y, s)
