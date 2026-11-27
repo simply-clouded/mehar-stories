@@ -1,0 +1,103 @@
+{
+  "id": "2026-11-27-mehar-aur-chuhon-ki-dosti",
+  "book": "hi",
+  "number": 2,
+  "date": "2026-11-27",
+  "title": {
+    "hi": "मेहर और चूहों की दोस्ती",
+    "hi_roman": "Mehar aur chuhon ki dosti",
+    "en": "Mehar and the Mice Who Saved the Elephants",
+    "de": "Mehar und die Mäuse, die die Elefanten retteten"
+  },
+  "inspired_by": "पंचतंत्र की कहानी: चूहे और हाथी",
+  "themes": ["animals", "nature", "friends"],
+  "learning": "कोई भी छोटा नहीं होता, और भलाई का बदला भलाई",
+  "characters": [
+    { "name": "मोती", "who": "लंबी सूँड वाला प्यारा हाथी, अपने झुंड का सरदार" },
+    { "name": "चूचू", "who": "चूहों का छोटा-सा राजा, जिसके सिर पर नन्हा मुकुट है" },
+    { "name": "चूहों की सेना", "who": "सैकड़ों छोटे चूहे, तेज़ दाँतों वाले" }
+  ],
+  "cover": "cover.svg",
+  "pages": [
+    {
+      "image": "01.svg",
+      "text": "उस रात पंचतंत्र की किताब फिर से चमकी। मेहर ने किताब खोली, और सर्र! वह एक बड़े जंगल में पहुँच गई, जहाँ ज़मीन धम-धम हिल रही थी।",
+      "roman": "Us raat Panchatantra ki kitaab phir se chamki. Mehar ne kitaab kholi, aur sarr! Woh ek bade jangal mein pahunch gayi, jahaan zameen dham-dham hil rahi thi.",
+      "word": { "hi": "जंगल", "hi_roman": "jangal", "en": "jungle", "de": "der Dschungel" }
+    },
+    {
+      "image": "02.svg",
+      "text": "धम! धम! धम! मोती हाथी और उसका पूरा झुंड पानी पीने झील की ओर जा रहे थे। उनके बड़े-बड़े पैर ज़मीन पर पड़ते, तो धूल उड़ती।",
+      "roman": "Dham! Dham! Dham! Moti haathi aur uska poora jhund paani peene jheel ki or ja rahe the. Unke bade-bade pair zameen par padte, to dhool udti.",
+      "say": { "lang": "hi", "text": "धम! धम! धम!", "roman": "Dham! Dham! Dham!" },
+      "word": { "hi": "हाथी", "hi_roman": "haathi", "en": "elephant", "de": "der Elefant" }
+    },
+    {
+      "image": "03.svg",
+      "text": "पर रास्ते में छोटे-छोटे चूहों के घर थे। हाथियों के पैरों से उनके बिल टूट गए। चूहे रोने लगे। मेहर ने देखा, तो उसे बहुत बुरा लगा।",
+      "roman": "Par raaste mein chhote-chhote chuhon ke ghar the. Haathiyon ke pairon se unke bil toot gaye. Chuhe rone lage. Mehar ne dekha, to use bahut bura laga.",
+      "word": { "hi": "घर", "hi_roman": "ghar", "en": "home", "de": "das Zuhause" }
+    },
+    {
+      "image": "04.svg",
+      "text": "मेहर चूहों के राजा चूचू को अपनी हथेली पर बिठाकर मोती के पास गई। चूचू बोला, \"हाथी भैया, कृपया दूसरे रास्ते से जाइए। एक दिन हम भी आपके काम आएँगे।\"",
+      "roman": "Mehar chuhon ke raaja Chuchu ko apni hatheli par bithaakar Moti ke paas gayi. Chuchu bola, \"Haathi bhaiya, kripya doosre raaste se jaaiye. Ek din hum bhi aapke kaam aayenge.\"",
+      "word": { "hi": "कृपया", "hi_roman": "kripya", "en": "please", "de": "bitte" }
+    },
+    {
+      "image": "05.svg",
+      "text": "मोती ज़ोर से हँसा। \"इतने छोटे चूहे, हमारे काम आएँगे?\" पर मेहर बोली, \"छोटा होने से कोई कमज़ोर नहीं होता।\" मोती ने सूँड हिलाई, और झुंड नए रास्ते से चल पड़ा।",
+      "roman": "Moti zor se hansa. \"Itne chhote chuhe, hamaare kaam aayenge?\" Par Mehar boli, \"Chhota hone se koi kamzor nahin hota.\" Moti ne soond hilaayi, aur jhund naye raaste se chal pada.",
+      "word": { "hi": "छोटा", "hi_roman": "chhota", "en": "small", "de": "klein" }
+    },
+    {
+      "image": "06.svg",
+      "text": "कुछ दिन बाद, शिकारियों ने पेड़ों के बीच एक बड़ा जाल बिछाया। धड़ाम! मोती और उसके दोस्त जाल में फँस गए। वे जितना खींचते, जाल उतना ही कसता जाता।",
+      "roman": "Kuchh din baad, shikaariyon ne pedon ke beech ek bada jaal bichhaaya. Dhadaam! Moti aur uske dost jaal mein phans gaye. Ve jitna kheenchte, jaal utna hi kasta jaata.",
+      "say": { "lang": "hi", "text": "धड़ाम!", "roman": "Dhadaam!" },
+      "word": { "hi": "जाल", "hi_roman": "jaal", "en": "net", "de": "das Netz" }
+    },
+    {
+      "image": "07.svg",
+      "text": "\"पूँ-पूँ!\" मोती ने ज़ोर से पुकारा। मेहर दौड़ती हुई आई और रस्सी खींचने लगी। पर रस्सी बहुत मोटी थी। बताओ, अब कौन मदद करेगा?",
+      "roman": "\"Poon-poon!\" Moti ne zor se pukaara. Mehar daudti hui aayi aur rassi kheenchne lagi. Par rassi bahut moti thi. Batao, ab kaun madad karega?",
+      "word": { "hi": "मदद", "hi_roman": "madad", "en": "help", "de": "die Hilfe" }
+    },
+    {
+      "image": "08.svg",
+      "text": "मेहर चूहों के पास भागी। \"चूचू! जल्दी चलो, मोती मुसीबत में है!\" चूचू ने सीटी बजाई, और सैकड़ों चूहे दौड़ पड़े। चूँ-चूँ-चूँ!",
+      "roman": "Mehar chuhon ke paas bhaagi. \"Chuchu! Jaldi chalo, Moti musibat mein hai!\" Chuchu ne seeti bajaayi, aur saikdon chuhe daud pade. Choon-choon-choon!",
+      "say": { "lang": "hi", "text": "चूँ-चूँ-चूँ!", "roman": "Choon-choon-choon!" },
+      "word": { "hi": "जल्दी", "hi_roman": "jaldi", "en": "quick", "de": "schnell" }
+    },
+    {
+      "image": "09.svg",
+      "text": "कुतर, कुतर, कुतर! चूहों ने अपने तेज़ दाँतों से एक-एक रस्सी काट डाली। जाल में छेद हुए, फिर और छेद, और सारे हाथी आज़ाद हो गए!",
+      "roman": "Kutar, kutar, kutar! Chuhon ne apne tez daanton se ek-ek rassi kaat daali. Jaal mein chhed hue, phir aur chhed, aur saare haathi aazaad ho gaye!",
+      "word": { "hi": "दाँत", "hi_roman": "daant", "en": "teeth", "de": "die Zähne" }
+    },
+    {
+      "image": "10.svg",
+      "text": "मोती ने चूचू को अपनी सूँड पर बिठाया। \"माफ़ करना, मैं तुम पर हँसा था। तुम छोटे हो, पर तुम्हारा दिल बहुत बड़ा है!\" फिर सबने मिलकर नाच किया।",
+      "roman": "Moti ne Chuchu ko apni soond par bithaaya. \"Maaf karna, main tum par hansa tha. Tum chhote ho, par tumhaara dil bahut bada hai!\" Phir sabne milkar naach kiya.",
+      "word": { "hi": "दोस्त", "hi_roman": "dost", "en": "friend", "de": "der Freund" }
+    },
+    {
+      "image": "11.svg",
+      "text": "सर्र! मेहर वापस अपने पलंग पर थी। किताब के आख़िरी पन्ने पर एक नई तस्वीर थी: हाथी की सूँड पर बैठा एक नन्हा चूहा। मेहर मुस्कुराई और सो गई।",
+      "roman": "Sarr! Mehar vaapas apne palang par thi. Kitaab ke aakhiri panne par ek nayi tasveer thi: haathi ki soond par baitha ek nanha chuha. Mehar muskuraayi aur so gayi.",
+      "word": { "hi": "शुभ रात्रि", "hi_roman": "shubh raatri", "en": "good night", "de": "gute Nacht" }
+    }
+  ],
+  "moral": {
+    "hi": "कोई भी इतना छोटा नहीं होता कि मदद न कर सके। दूसरों के साथ भलाई करो, तो वे भी तुम्हारे काम आएँगे।",
+    "hi_roman": "Koi bhi itna chhota nahin hota ki madad na kar sake. Doosron ke saath bhalaai karo, to ve bhi tumhaare kaam aayenge.",
+    "en": "Nobody is too small to help. Be kind to others, and one day they will help you too.",
+    "de": "Niemand ist zu klein, um zu helfen. Sei gut zu anderen, dann helfen sie dir auch."
+  },
+  "questions": [
+    { "hi": "चूचू ने हाथियों से क्या माँगा?", "hi_roman": "Chuchu ne haathiyon se kya maanga?", "en": "What did Chuchu ask the elephants?" },
+    { "hi": "जाल से हाथियों को किसने छुड़ाया?", "hi_roman": "Jaal se haathiyon ko kisne chhudaaya?", "en": "Who set the elephants free from the net?" },
+    { "hi": "तुम किसी छोटे दोस्त की मदद कैसे कर सकती हो?", "hi_roman": "Tum kisi chhote dost ki madad kaise kar sakti ho?", "en": "How could you help a small friend?" }
+  ]
+}

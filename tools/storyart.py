@@ -637,3 +637,307 @@ def jungle(time="dusk", gid="jg"):
 def rock(x, y, s=1):
     return g('<path d="M-120,0 C-120,-80 -60,-120 0,-120 C70,-120 120,-70 120,0 Z" fill="#8d8b9a"/>'
              '<path d="M-90,-20 C-80,-70 -40,-95 10,-95" fill="none" stroke="#a9a7b6" stroke-width="10" stroke-linecap="round"/>', x, y, s)
+
+
+# ---------------------------------------------------------------- river, pond and field friends
+
+def river(y=420, color="#3f8fd0", light="#7fc0ee"):
+    """A wide river from the waterline y down to the bottom of the picture."""
+    waves = "".join(f'<path d="M{x},{yy} q15,-6 30,0 q15,6 30,0" fill="none" stroke="{light}" stroke-width="3" '
+                    f'stroke-linecap="round" opacity="0.7"/>' for x, yy in ((60, y + 50), (360, y + 40), (220, y + 100), (480, y + 120), (100, y + 150)))
+    return (f'<rect y="{y}" width="{W}" height="{H - y}" fill="{color}"/>'
+            f'<path d="M0,{y} Q75,{y - 8} 150,{y} T300,{y} T450,{y} T600,{y} V{y + 10} H0 Z" fill="{light}"/>' + waves)
+
+
+def water_over(x1, x2, y, color="#3f8fd0", light="#7fc0ee"):
+    """A strip of river water drawn in front of a swimmer, from y down to the bottom, between x1 and x2."""
+    return (f'<path d="M{x1},{y} Q{(x1 + x2) / 2:.0f},{y - 10} {x2},{y} V600 H{x1} Z" fill="{color}"/>'
+            f'<path d="M{x1 + 10},{y + 2} Q{(x1 + x2) / 2:.0f},{y - 8} {x2 - 10},{y + 2}" fill="none" stroke="{light}" stroke-width="5" stroke-linecap="round"/>')
+
+
+def fruit_tree(x, y, s=1, color="#3f9a55", trunk="#7a5236", fruit="#5b2a86"):
+    """A big jamun tree with purple fruit, trunk base at (x, y). About 300*s tall."""
+    dots = ((-60, -230), (-20, -270), (30, -250), (70, -215), (-80, -180), (10, -200), (50, -170), (-40, -150), (90, -260), (-100, -230))
+    inner = (f'<path d="M-18,0 C-16,-60 -14,-120 -10,-160 L10,-160 C14,-120 16,-60 18,0 Z" fill="{trunk}"/>'
+             f'<circle cx="0" cy="-230" r="80" fill="{color}"/><circle cx="-80" cy="-190" r="60" fill="{color}"/>'
+             f'<circle cx="80" cy="-195" r="62" fill="{color}"/>'
+             + "".join(f'<circle cx="{dx}" cy="{dy}" r="8" fill="{fruit}"/><circle cx="{dx - 2}" cy="{dy - 3}" r="2.4" fill="#fff" opacity="0.5"/>' for dx, dy in dots))
+    return g(inner, x, y, s)
+
+
+def jamun(x, y, s=1, fruit="#5b2a86"):
+    return g(f'<ellipse cx="0" cy="0" rx="8" ry="10" fill="{fruit}"/><circle cx="-2" cy="-4" r="2.6" fill="#fff" opacity="0.5"/>'
+             f'<path d="M0,-10 l3,-6" stroke="#3f7a3a" stroke-width="2" stroke-linecap="round"/>', x, y, s)
+
+
+def monkey(x, y, s=1, mood="happy", arms="down", eyes="open", flip=False):
+    """Chiku the monkey, standing, feet at (x, y). About 170*s tall.
+    mood: happy | scared | laugh;  arms: down | up | hold (right hand out, holding a jamun)."""
+    fur, dark, face = "#8a5a36", "#6e4426", "#f3d3a8"
+    ink = "#2a1b14"
+    p = [f'<path d="M22,-34 C80,-30 80,-100 44,-100 C24,-100 26,-76 42,-78" fill="none" stroke="{fur}" stroke-width="9" stroke-linecap="round"/>',
+         f'<path d="M-12,-40 Q-22,-20 -18,-6 M12,-40 Q22,-20 18,-6" stroke="{fur}" stroke-width="13" stroke-linecap="round" fill="none"/>',
+         f'<ellipse cx="-22" cy="-4" rx="12" ry="6" fill="{face}"/><ellipse cx="22" cy="-4" rx="12" ry="6" fill="{face}"/>',
+         f'<ellipse cx="0" cy="-58" rx="30" ry="34" fill="{fur}"/>',
+         f'<ellipse cx="0" cy="-52" rx="18" ry="22" fill="{face}"/>']
+    hands = {"down": ((-36, -40), (36, -40)), "up": ((-44, -132), (44, -132)), "hold": ((-36, -40), (54, -76))}[arms]
+    for sx, (hx, hy) in zip((-1, 1), hands):
+        p.append(f'<path d="M{sx*22},-80 Q{sx*34 + (hx - sx*22)*0.3:.0f},{(hy - 80)/2:.0f} {hx},{hy}" stroke="{fur}" stroke-width="11" stroke-linecap="round" fill="none"/>'
+                 f'<circle cx="{hx}" cy="{hy}" r="7" fill="{face}"/>')
+    if arms == "hold":
+        p.append(jamun(hands[1][0] + 4, hands[1][1] - 10, 1.1))
+    # head
+    p.append(f'<circle cx="-38" cy="-122" r="14" fill="{fur}"/><circle cx="-38" cy="-122" r="8" fill="{face}"/>'
+             f'<circle cx="38" cy="-122" r="14" fill="{fur}"/><circle cx="38" cy="-122" r="8" fill="{face}"/>'
+             f'<circle cx="0" cy="-120" r="35" fill="{fur}"/>'
+             f'<path d="M-6,-154 q4,-12 10,-4 q4,-10 10,0" fill="none" stroke="{fur}" stroke-width="5" stroke-linecap="round"/>'
+             f'<circle cx="-12" cy="-124" r="14" fill="{face}"/><circle cx="12" cy="-124" r="14" fill="{face}"/>'
+             f'<ellipse cx="0" cy="-104" rx="22" ry="16" fill="{face}"/>')
+    for sx in (-1, 1):
+        ex = sx * 12
+        if eyes == "closed" or mood == "laugh":
+            p.append(f'<path d="M{ex - 6},-124 Q{ex},-131 {ex + 6},-124" fill="none" stroke="{ink}" stroke-width="2.6" stroke-linecap="round"/>')
+        elif mood == "scared":
+            p.append(f'<circle cx="{ex}" cy="-125" r="7" fill="#fff"/><circle cx="{ex}" cy="-124" r="3" fill="{ink}"/>')
+        else:
+            p.append(f'<ellipse cx="{ex}" cy="-125" rx="4.5" ry="5.5" fill="{ink}"/><circle cx="{ex + 1.6}" cy="-127" r="1.6" fill="#fff"/>')
+    if mood == "scared":
+        p.append(f'<path d="M-20,-140 L-6,-136 M20,-140 L6,-136" stroke="{dark}" stroke-width="3" stroke-linecap="round"/>')
+    p.append(f'<circle cx="-3" cy="-110" r="1.8" fill="{ink}"/><circle cx="3" cy="-110" r="1.8" fill="{ink}"/>')
+    if mood == "scared":
+        p.append(f'<ellipse cx="0" cy="-99" rx="5" ry="6" fill="#6a2a1a"/>')
+    elif mood == "laugh":
+        p.append(f'<path d="M-11,-103 Q0,-86 11,-103 Z" fill="#6a2a1a"/><ellipse cx="0" cy="-95" rx="5" ry="3" fill="#ff8d8d"/>')
+    else:
+        p.append(f'<path d="M-10,-102 Q0,-92 10,-102" fill="none" stroke="{ink}" stroke-width="2.6" stroke-linecap="round"/>')
+    p.append(f'<ellipse cx="-22" cy="-108" rx="5" ry="3.5" fill="#ff9a8a" opacity="0.6"/><ellipse cx="22" cy="-108" rx="5" ry="3.5" fill="#ff9a8a" opacity="0.6"/>')
+    inner = "".join(p)
+    if flip:
+        inner = f'<g transform="scale(-1 1)">{inner}</g>'
+    return g(inner, x, y, s)
+
+
+def crocodile(x, y, s=1, mood="sly", mouth="closed", rider=None, flip=False):
+    """Magar the crocodile, facing right; (x, y) is the middle of his belly line (put the
+    waterline here when he swims). About 330*s long.
+    mood: sly | sorry | happy;  mouth: closed | open | smile.
+    rider: svg drawn on his back (stand riders at about (-20, -40) in his space)."""
+    skin, dark, belly = "#4f9a4a", "#3b7c3a", "#cde59a"
+    ink = "#1f3a1c"
+    p = [f'<path d="M-90,-26 C-140,-30 -170,-20 -205,-44 C-180,-4 -130,8 -90,6 Z" fill="{skin}"/>',
+         f'<ellipse cx="-50" cy="8" rx="16" ry="10" fill="{dark}"/><ellipse cx="50" cy="8" rx="16" ry="10" fill="{dark}"/>',
+         f'<ellipse cx="0" cy="-16" rx="104" ry="32" fill="{skin}"/>',
+         f'<path d="M-92,-2 Q0,22 92,-2 Q0,10 -92,-2 Z" fill="{belly}"/>']
+    for i in range(8):
+        bx = -84 + i * 22
+        by = -16 - 32 * math.sqrt(max(0, 1 - (bx / 104) ** 2))
+        p.append(f'<path d="M{bx - 8},{by + 4:.1f} L{bx},{by - 8:.1f} L{bx + 8},{by + 4:.1f} Z" fill="{dark}"/>')
+    for bx in (-150, -125):
+        p.append(f'<path d="M{bx - 6},{-28 + (bx + 150) * 0.1:.1f} l6,-9 l6,9 Z" fill="{dark}"/>')
+    if rider:
+        p.append(rider)
+    # head and snout
+    p.append(f'<ellipse cx="110" cy="-22" rx="38" ry="26" fill="{skin}"/>')
+    if mouth == "open":
+        p.append(f'<g transform="rotate(-18 112 -20)"><rect x="112" y="-44" width="104" height="26" rx="13" fill="{skin}"/>'
+                 + "".join(f'<path d="M{130 + i*14},-18 l5,8 l5,-8 Z" fill="#fff"/>' for i in range(6))
+                 + f'<circle cx="204" cy="-38" r="2.5" fill="{ink}"/></g>'
+                 f'<path d="M112,-14 L214,-6 Q220,8 206,10 L112,6 Z" fill="#c94a4a"/>'
+                 f'<rect x="112" y="-2" width="104" height="18" rx="9" fill="{skin}"/>'
+                 + "".join(f'<path d="M{132 + i*14},-2 l5,-8 l5,8 Z" fill="#fff"/>' for i in range(6)))
+    else:
+        p.append(f'<rect x="112" y="-38" width="104" height="30" rx="15" fill="{skin}"/>'
+                 f'<path d="M120,-12 L210,-12" stroke="{ink}" stroke-width="2.5" stroke-linecap="round"/>'
+                 + "".join(f'<path d="M{132 + i*15},-12 l5,7 l5,-7 Z" fill="#fff"/>' for i in range(5))
+                 + f'<circle cx="204" cy="-30" r="2.5" fill="{ink}"/><circle cx="196" cy="-31" r="2.5" fill="{ink}"/>')
+        if mouth == "smile":
+            p.append(f'<path d="M180,-12 Q200,-12 212,-24" fill="none" stroke="{ink}" stroke-width="2.5" stroke-linecap="round"/>')
+    # eye bump
+    p.append(f'<circle cx="104" cy="-46" r="17" fill="{skin}"/><circle cx="105" cy="-48" r="11" fill="#fffbe6"/>')
+    if mood == "happy":
+        p.append(f'<path d="M97,-48 Q105,-56 113,-48" fill="none" stroke="{ink}" stroke-width="3" stroke-linecap="round"/>')
+    else:
+        p.append(f'<ellipse cx="107" cy="-47" rx="3.2" ry="7" fill="{ink}"/>')
+    if mood == "sly":
+        p.append(f'<path d="M93,-52 Q105,-62 117,-52 L117,-49 Q105,-57 93,-49 Z" fill="{dark}"/>')
+    if mood == "sorry":
+        p.append(f'<path d="M94,-62 L114,-58" stroke="{ink}" stroke-width="3" stroke-linecap="round"/>'
+                 f'<path d="M100,-34 q-5,9 0,12 q5,-3 0,-12 Z" fill="#7fb3ff"/>')
+    p.append(f'<ellipse cx="136" cy="-18" rx="9" ry="5" fill="#ff9aa8" opacity="0.45"/>')
+    inner = "".join(p)
+    if flip:
+        inner = f'<g transform="scale(-1 1)">{inner}</g>'
+    return g(inner, x, y, s)
+
+
+def _hexes(cx, cy, rx, ry, color):
+    out = []
+    for hx, hy in ((0, 0), (-0.5, 0.25), (0.5, 0.25), (-0.28, -0.45), (0.28, -0.45)):
+        px, py, r = cx + hx * rx, cy + hy * ry, min(rx, ry) * 0.24
+        pts = " ".join(f"{px + r*math.cos(a*math.pi/3):.1f},{py + r*math.sin(a*math.pi/3):.1f}" for a in range(6))
+        out.append(f'<polygon points="{pts}" fill="none" stroke="{color}" stroke-width="3" stroke-linejoin="round"/>')
+    return "".join(out)
+
+
+def tortoise(x, y, s=1, mouth="closed", pose="walk", eyes="open", blush=False):
+    """Plappi the tortoise, a chatterbox.
+    pose="walk": side view facing right, feet at (x, y). About 160*s long.
+    pose="hang": hanging from a stick by her mouth; (x, y) is where her mouth holds
+    the stick (draw the stick after her). mouth: closed | open | talk."""
+    shell, shell2, rim, skin, ink = "#7cb342", "#5d8f30", "#c9a64a", "#b9d68a", "#2a3a1a"
+    p = []
+    if pose == "hang":
+        p.append(f'<path d="M-30,96 l-16,22 M30,96 l16,22 M-36,52 l-22,8 M36,52 l22,8" stroke="{skin}" stroke-width="15" stroke-linecap="round"/>')
+        p.append(f'<path d="M0,110 l-6,14 l12,0 Z" fill="{skin}"/>')
+        p.append(f'<rect x="-9" y="8" width="18" height="34" rx="8" fill="{skin}"/>')
+        p.append(f'<ellipse cx="0" cy="76" rx="48" ry="44" fill="{shell}"/>' + _hexes(0, 76, 48, 44, shell2)
+                 + f'<ellipse cx="0" cy="76" rx="48" ry="44" fill="none" stroke="{rim}" stroke-width="6"/>')
+        p.append(f'<circle cx="0" cy="14" r="18" fill="{skin}"/>')
+        for sx in (-1, 1):
+            if eyes == "closed":
+                p.append(f'<path d="M{sx*7 - 4},14 q4,4 8,0" fill="none" stroke="{ink}" stroke-width="2.2" stroke-linecap="round"/>')
+            else:
+                p.append(f'<circle cx="{sx*7}" cy="13" r="3.4" fill="{ink}"/><circle cx="{sx*7 + 1}" cy="12" r="1.1" fill="#fff"/>')
+        if mouth == "open":
+            p.append(f'<ellipse cx="0" cy="26" rx="7" ry="6" fill="#7a2a2a"/>')
+        else:
+            p.append(f'<path d="M-6,3 Q0,7 6,3" fill="none" stroke="{ink}" stroke-width="2" stroke-linecap="round"/>')
+        if blush:
+            p.append(f'<ellipse cx="-12" cy="20" rx="4" ry="2.6" fill="#ff8a8a" opacity="0.7"/><ellipse cx="12" cy="20" rx="4" ry="2.6" fill="#ff8a8a" opacity="0.7"/>')
+        return g("".join(p), x, y, s)
+    p.append(f'<path d="M-62,-14 l-16,6 l14,6 Z" fill="{skin}"/>')
+    for lx in (-44, -20, 20, 44):
+        p.append(f'<rect x="{lx - 9}" y="-26" width="18" height="26" rx="8" fill="{skin}"/>')
+    p.append(f'<path d="M46,-30 C58,-44 66,-50 78,-50" fill="none" stroke="{skin}" stroke-width="18" stroke-linecap="round"/>')
+    p.append(f'<circle cx="84" cy="-52" r="18" fill="{skin}"/>')
+    if eyes == "closed":
+        p.append(f'<path d="M84,-58 q5,4 10,0" fill="none" stroke="{ink}" stroke-width="2.2" stroke-linecap="round"/>')
+    else:
+        p.append(f'<circle cx="89" cy="-58" r="3.6" fill="{ink}"/><circle cx="90.4" cy="-59.4" r="1.2" fill="#fff"/>')
+    if mouth in ("open", "talk"):
+        p.append(f'<path d="M88,-44 Q96,-46 102,-50 Q98,-38 88,-40 Z" fill="#7a2a2a"/>')
+    else:
+        p.append(f'<path d="M88,-44 Q96,-44 101,-49" fill="none" stroke="{ink}" stroke-width="2" stroke-linecap="round"/>')
+    p.append(f'<ellipse cx="80" cy="-46" rx="4" ry="2.6" fill="#ff8a8a" opacity="{0.8 if blush else 0.4}"/>')
+    p.append(f'<path d="M-64,-20 C-64,-96 64,-96 64,-20 Z" fill="{shell}"/>' + _hexes(0, -50, 56, 36, shell2)
+             + f'<rect x="-68" y="-26" width="136" height="12" rx="6" fill="{rim}"/>')
+    if mouth == "talk":
+        p.append(''.join(f'<path d="M{110 + i*8},{-64 - i*6} q6,4 0,10" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>' for i in range(2)))
+    return g("".join(p), x, y, s)
+
+
+def goose(x, y, s=1, pose="fly", flip=False, eyes="open", feet=False):
+    """A wild goose (Gisi or Gusti), facing right. (x, y) is the tip of her beak.
+    pose: fly | stand (standing feet at about (-90, 80) from the beak).
+    feet=True (flying): her feet hang down and grip at (-96, 62) from the beak, so two
+    geese can carry the two ends of a stick between them."""
+    white, grey, beak, ink = "#fbfaf6", "#d9d6cc", "#ff9a3d", "#2a2440"
+    p = []
+    if pose == "fly" and feet:
+        p.append(f'<path d="M-100,44 L-98,60 M-90,44 L-94,60" stroke="{beak}" stroke-width="5" stroke-linecap="round"/>'
+                 f'<path d="M-106,58 q10,10 20,0" fill="none" stroke="{beak}" stroke-width="5" stroke-linecap="round"/>')
+    if pose == "fly":
+        p.append(f'<path d="M-100,18 C-120,-30 -150,-60 -196,-70 C-168,-34 -146,-4 -116,24 Z" fill="{grey}"/>')
+    else:
+        p.append(f'<path d="M-96,44 v34 M-84,44 v34" stroke="{beak}" stroke-width="5" stroke-linecap="round"/>'
+                 f'<path d="M-104,80 h14 M-92,80 h14" stroke="{beak}" stroke-width="6" stroke-linecap="round"/>')
+    p.append(f'<path d="M-24,-2 C-40,4 -54,10 -66,24" fill="none" stroke="{white}" stroke-width="18" stroke-linecap="round"/>')
+    p.append(f'<ellipse cx="-96" cy="30" rx="44" ry="22" fill="{white}"/>'
+             f'<path d="M-136,26 l-18,-6 l6,14 Z" fill="{white}"/>')
+    if pose == "fly":
+        p.append(f'<path d="M-70,24 C-80,-24 -100,-70 -150,-96 C-130,-50 -116,-6 -112,28 Z" fill="{white}" stroke="{grey}" stroke-width="2"/>')
+    else:
+        p.append(f'<path d="M-120,28 Q-96,6 -70,26 Q-96,44 -120,28 Z" fill="{grey}"/>')
+    p.append(f'<circle cx="-24" cy="-6" r="15" fill="{white}"/>')
+    p.append(f'<path d="M-12,-12 L0,0 L-12,4 Z" fill="{beak}"/>')
+    if eyes == "closed":
+        p.append(f'<path d="M-30,-10 q4,3 8,0" fill="none" stroke="{ink}" stroke-width="2" stroke-linecap="round"/>')
+    else:
+        p.append(f'<circle cx="-25" cy="-10" r="3" fill="{ink}"/><circle cx="-24" cy="-11" r="1" fill="#fff"/>')
+    p.append(f'<ellipse cx="-30" cy="-1" rx="4" ry="2.4" fill="#ff9aa8" opacity="0.6"/>')
+    inner = "".join(p)
+    if flip:
+        inner = f'<g transform="scale(-1 1)">{inner}</g>'
+    return g(inner, x, y, s)
+
+
+def stick(x1, y1, x2, y2, w=8):
+    return (f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="#8a5a2c" stroke-width="{w}" stroke-linecap="round"/>'
+            f'<line x1="{x1}" y1="{y1 - w*0.2:.1f}" x2="{x2}" y2="{y2 - w*0.2:.1f}" stroke="#b07a42" stroke-width="{w*0.3:.1f}" stroke-linecap="round"/>')
+
+
+def pond(x, y, rx=160, ry=40, dry=False):
+    """A pond centred at (x, y). dry=True draws cracked, dried-up mud."""
+    if dry:
+        cracks = "".join(f'<path d="M{x + dx},{y + dy} l{a},{b} l{c},{d}" fill="none" stroke="#7a5a3a" stroke-width="3" stroke-linecap="round"/>'
+                         for dx, dy, a, b, c, d in ((-90, -10, 20, 8, 14, -6), (-20, -20, 10, 14, 18, 4), (40, -6, 22, 10, 10, 12), (-60, 14, 16, -8, 20, 6), (90, 10, -14, -10, -10, 8)))
+        return (f'<ellipse cx="{x}" cy="{y}" rx="{rx}" ry="{ry}" fill="#b98a5a"/>'
+                f'<ellipse cx="{x}" cy="{y + 2}" rx="{rx * 0.82:.0f}" ry="{ry * 0.7:.0f}" fill="#a87a4a"/>'
+                f'<ellipse cx="{x + 20}" cy="{y + 4}" rx="{rx * 0.18:.0f}" ry="{ry * 0.16:.0f}" fill="#6fa0c8"/>' + cracks)
+    return (f'<ellipse cx="{x}" cy="{y}" rx="{rx}" ry="{ry}" fill="#3f8fd0"/>'
+            f'<ellipse cx="{x - rx*0.2:.0f}" cy="{y - ry*0.25:.0f}" rx="{rx * 0.5:.0f}" ry="{ry * 0.25:.0f}" fill="#7fc0ee" opacity="0.6"/>'
+            f'<ellipse cx="{x + rx*0.5:.0f}" cy="{y + ry*0.2:.0f}" rx="22" ry="8" fill="#4cbf6b"/>'
+            f'<circle cx="{x + rx*0.5 + 6:.0f}" cy="{y + ry*0.2 - 6:.0f}" r="6" fill="#ff8fb1"/>')
+
+
+def haystack(x, y, s=1):
+    """A soft golden haystack, base centre at (x, y). About 200*s wide."""
+    return g('<path d="M-100,0 C-100,-90 -50,-130 0,-130 C50,-130 100,-90 100,0 Z" fill="#f2c94c"/>'
+             '<path d="M-70,-20 q10,-50 30,-80 M-30,-10 q4,-60 14,-100 M20,-10 q-2,-60 -6,-104 M60,-16 q-8,-50 -24,-86" fill="none" stroke="#d9a92a" stroke-width="5" stroke-linecap="round"/>'
+             '<path d="M-100,0 l-10,-10 M-80,0 l-6,-16 M90,0 l12,-12 M100,0 l8,-6" stroke="#d9a92a" stroke-width="4" stroke-linecap="round"/>', x, y, s)
+
+
+def mouse(x, y, s=1, mood="happy", flip=False, crown=False, eyes="open"):
+    """A little mouse, facing right, feet at (x, y). About 110*s long (draw them big
+    enough to see). mood: happy | sad | chew (teeth out).  crown=True for Chuchu, the mouse king."""
+    fur, belly, pink, ink = "#a9a4b8", "#d8d4e2", "#ffb3c7", "#2a2440"
+    p = [f'<path d="M-30,-14 C-60,-10 -64,-40 -86,-34" fill="none" stroke="{pink}" stroke-width="4" stroke-linecap="round"/>',
+         f'<ellipse cx="-14" cy="-2" rx="9" ry="5" fill="{pink}"/><ellipse cx="14" cy="-2" rx="9" ry="5" fill="{pink}"/>',
+         f'<ellipse cx="-2" cy="-24" rx="34" ry="24" fill="{fur}"/><ellipse cx="2" cy="-18" rx="20" ry="13" fill="{belly}"/>',
+         f'<circle cx="16" cy="-62" r="16" fill="{fur}"/><circle cx="16" cy="-62" r="9" fill="{pink}"/>',
+         f'<path d="M14,-50 C30,-58 46,-46 56,-38 C44,-28 26,-24 14,-28 Z" fill="{fur}"/>',
+         f'<circle cx="26" cy="-40" r="20" fill="{fur}"/>',
+         f'<circle cx="57" cy="-38" r="4.5" fill="#ff7fa0"/>',
+         f'<path d="M48,-34 l16,-4 M48,-32 l16,4 M46,-30 l12,8" stroke="{ink}" stroke-width="1.2" opacity="0.6"/>']
+    if eyes == "closed" or mood == "happy" and eyes == "happy":
+        p.append(f'<path d="M30,-46 q4,-4 8,0" fill="none" stroke="{ink}" stroke-width="2.2" stroke-linecap="round"/>')
+    else:
+        p.append(f'<circle cx="34" cy="-46" r="4" fill="{ink}"/><circle cx="35.4" cy="-47.4" r="1.4" fill="#fff"/>')
+    if mood == "sad":
+        p.append(f'<path d="M28,-54 l10,3" stroke="{ink}" stroke-width="2" stroke-linecap="round"/>'
+                 f'<path d="M36,-38 q-4,7 0,9 q4,-2 0,-9 Z" fill="#7fb3ff"/>'
+                 f'<path d="M40,-28 Q46,-31 50,-28" fill="none" stroke="{ink}" stroke-width="1.8" stroke-linecap="round"/>')
+    elif mood == "chew":
+        p.append(f'<rect x="46" y="-31" width="5" height="8" rx="1.5" fill="#fff" stroke="{ink}" stroke-width="0.8"/>'
+                 f'<rect x="51" y="-31" width="5" height="8" rx="1.5" fill="#fff" stroke="{ink}" stroke-width="0.8"/>')
+    else:
+        p.append(f'<path d="M40,-30 Q46,-25 52,-30" fill="none" stroke="{ink}" stroke-width="1.8" stroke-linecap="round"/>')
+    p.append(f'<ellipse cx="30" cy="-34" rx="4" ry="2.6" fill="#ff8a8a" opacity="0.6"/>')
+    p.append(f'<path d="M4,-26 q8,10 18,8" fill="none" stroke="{fur}" stroke-width="7" stroke-linecap="round"/>')
+    if crown:
+        p.append('<path d="M14,-58 L14,-72 L21,-65 L28,-76 L35,-65 L42,-72 L42,-58 Z" fill="#ffd23f" stroke="#d49a12" stroke-width="1.5"/>')
+    inner = "".join(p)
+    if flip:
+        inner = f'<g transform="scale(-1 1)">{inner}</g>'
+    return g(inner, x, y, s)
+
+
+def net(x, y, w, h, pid="net", torn=False, color="#c8a46a"):
+    """A hunter's rope net thrown over something: a dome, base centre at (x, y),
+    w wide and h tall. torn=True cuts holes in it (the mice have been chewing)."""
+    pat = (f'<defs><pattern id="{pid}" width="26" height="26" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">'
+           f'<path d="M0,0 H26 M0,0 V26" stroke="{color}" stroke-width="4" fill="none"/></pattern></defs>')
+    dome = f'M{x - w/2},{y} C{x - w/2},{y - h*1.3:.0f} {x + w/2},{y - h*1.3:.0f} {x + w/2},{y} Z'
+    holes = ""
+    if torn:
+        holes = "".join(f' M{x + dx - r},{y + dy} a{r},{r*0.8:.0f} 0 1,0 {2*r},0 a{r},{r*0.8:.0f} 0 1,0 {-2*r},0 Z'
+                        for dx, dy, r in ((-w*0.2, -h*0.5, 34), (w*0.22, -h*0.35, 30), (0, -h*0.8, 26)))
+    knots = "".join(f'<circle cx="{x - w/2 + i * w/8:.0f}" cy="{y}" r="5" fill="{color}"/>' for i in range(9))
+    return (pat + f'<path d="{dome}{holes}" fill="url(#{pid})" fill-rule="evenodd"/>'
+            f'<path d="{dome}" fill="none" stroke="{color}" stroke-width="6"/>' + knots)
+
+
+def rope_heap(x, y, s=1, color="#c8a46a"):
+    """Bits of chewed-up net lying on the ground, centred at (x, y)."""
+    return g("".join(f'<path d="M{dx},0 q14,-18 28,-4 q10,10 22,-8" fill="none" stroke="{color}" stroke-width="5" stroke-linecap="round"/>' for dx in (-90, -40, 10, 50))
+             + '<path d="M-70,-10 l12,-14 M30,-16 l10,10" stroke="#c8a46a" stroke-width="5" stroke-linecap="round"/>', x, y, s)

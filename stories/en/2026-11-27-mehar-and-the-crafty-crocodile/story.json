@@ -1,0 +1,90 @@
+{
+  "id": "2026-11-27-mehar-and-the-crafty-crocodile",
+  "book": "en",
+  "number": 2,
+  "date": "2026-11-27",
+  "title": {
+    "en": "Mehar and the Crafty Crocodile",
+    "de": "Mehar und das listige Krokodil",
+    "hi": "मेहर और चालाक मगरमच्छ",
+    "hi_roman": "Mehar aur chaalaak magarmachh"
+  },
+  "inspired_by": "The Monkey and the Crocodile, from the Panchatantra",
+  "themes": ["animals", "nature", "friends", "food"],
+  "learning": "Staying calm and thinking when you are in trouble, and never tricking a friend",
+  "characters": [
+    { "name": "Chiku", "who": "a cheerful monkey with a curly tail who lives in a jamun tree" },
+    { "name": "Magar", "who": "a crocodile with a big grin and a bigger appetite" }
+  ],
+  "cover": "cover.svg",
+  "pages": [
+    {
+      "image": "01.svg",
+      "text": "That night, the old Panchatantra book glowed again. Mehar opened it, and whoosh! She tumbled into a tall jamun tree, right next to a monkey with a curly tail.",
+      "word": { "en": "tree", "de": "der Baum", "hi": "पेड़", "hi_roman": "ped" }
+    },
+    {
+      "image": "02.svg",
+      "text": "\"Hello! I'm Chiku,\" said the monkey. \"These are the sweetest jamuns in the whole jungle. Try one!\" Mehar took a big bite. Yum! Now her lips were purple.",
+      "word": { "en": "sweet", "de": "süß", "hi": "मीठा", "hi_roman": "meetha" }
+    },
+    {
+      "image": "03.svg",
+      "text": "Below the tree, a crocodile called Magar floated in the river. Chiku threw him jamuns: plop, plop, PLOP! \"Thank you, best friend!\" grinned Magar, with a lot of very pointy teeth.",
+      "say": { "lang": "en", "text": "Plop, plop, PLOP!" },
+      "word": { "en": "river", "de": "der Fluss", "hi": "नदी", "hi_roman": "nadi" }
+    },
+    {
+      "image": "04.svg",
+      "text": "\"Come to my island for dinner!\" said Magar. \"Hop on my back.\" Chiku clapped. But Mehar noticed something: Magar's eyes kept sliding away, and he would not look at them.",
+      "word": { "en": "dinner", "de": "das Abendessen", "hi": "खाना", "hi_roman": "khaana" }
+    },
+    {
+      "image": "05.svg",
+      "text": "Splish, splosh! In the very middle of the river, Magar stopped. \"Sorry,\" he said. \"My wife wants a monkey's heart for dinner. She says yours must be extra sweet!\"",
+      "word": { "en": "heart", "de": "das Herz", "hi": "दिल", "hi_roman": "dil" }
+    },
+    {
+      "image": "06.svg",
+      "text": "Chiku shook like a leaf. They couldn't swim, and the shore was far away. Mehar's heart went thump, thump. But she didn't cry. She took a deep breath... and thought. (Can you guess her plan?)",
+      "word": { "en": "think", "de": "denken", "hi": "सोचना", "hi_roman": "sochna" }
+    },
+    {
+      "image": "07.svg",
+      "text": "\"Oh no!\" cried Mehar. \"Didn't you know? Monkeys never take their hearts swimming! Chiku's heart is hanging in the jamun tree. Quick, swim back and we'll fetch it!\"",
+      "word": { "en": "quick", "de": "schnell", "hi": "जल्दी", "hi_roman": "jaldi" }
+    },
+    {
+      "image": "08.svg",
+      "text": "Silly Magar believed her! He raced back, splash, splash, SPLASH. The moment they reached the bank, Mehar and Chiku jumped up, up, UP, to the very top of the tree.",
+      "say": { "lang": "en", "text": "Up, up, UP!" },
+      "word": { "en": "jump", "de": "springen", "hi": "कूदना", "hi_roman": "koodna" }
+    },
+    {
+      "image": "09.svg",
+      "text": "\"Where is the heart?\" called Magar. Chiku laughed. \"Right here inside me, where it always was! A friend who tricks a friend is no friend at all.\"",
+      "word": { "en": "friend", "de": "der Freund", "hi": "दोस्त", "hi_roman": "dost" }
+    },
+    {
+      "image": "10.svg",
+      "text": "Magar hung his head. Mehar felt a little sorry for him. She lowered a basket of jamuns. \"Take these to your wife instead. Sharing is sweeter than tricking.\"",
+      "word": { "en": "share", "de": "teilen", "hi": "बाँटना", "hi_roman": "baantna" }
+    },
+    {
+      "image": "11.svg",
+      "text": "Whoosh! Mehar was back in bed, her lips still a little purple. On the last page of the book was a new picture: a monkey and a crocodile, sharing a jar of jamun jam.",
+      "word": { "en": "good night", "de": "gute Nacht", "hi": "शुभ रात्रि", "hi_roman": "shubh raatri" }
+    }
+  ],
+  "moral": {
+    "en": "When you are in trouble, stay calm and think: a clever idea can save you. And a true friend never tricks a friend.",
+    "de": "Wenn du in Not bist, bleib ruhig und denk nach. Und ein echter Freund trickst keinen Freund aus.",
+    "hi": "मुसीबत में घबराओ मत, सोचो। और सच्चा दोस्त कभी धोखा नहीं देता।",
+    "hi_roman": "Musibat mein ghabraao mat, socho. Aur sachcha dost kabhi dhokha nahin deta."
+  },
+  "questions": [
+    { "en": "Why did Magar stop in the middle of the river?" },
+    { "en": "How did Mehar get them back to the tree?" },
+    { "en": "What would you do if a friend tried to trick you?" }
+  ]
+}

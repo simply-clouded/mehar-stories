@@ -1,0 +1,94 @@
+{
+  "id": "2026-11-27-mehar-und-die-plappernde-schildkroete",
+  "book": "de",
+  "number": 2,
+  "date": "2026-11-27",
+  "title": {
+    "de": "Mehar und die plappernde Schildkröte",
+    "en": "Mehar and the Chattering Tortoise",
+    "hi": "मेहर और बातूनी कछुआ",
+    "hi_roman": "Mehar aur baatooni kachhua"
+  },
+  "inspired_by": "Die geschwätzige Schildkröte, aus dem Panchatantra",
+  "themes": ["animals", "nature", "friends", "weather"],
+  "learning": "Erst denken, dann reden",
+  "characters": [
+    { "name": "Plappi", "who": "eine Schildkröte, die vom Morgen bis zum Abend plappert" },
+    { "name": "Gisi und Gusti", "who": "zwei freundliche Wildgänse, Plappis beste Freunde" },
+    { "name": "Hasi", "who": "ein kleines Häschen mit langen Ohren" },
+    { "name": "Uhu", "who": "eine kluge Eule" }
+  ],
+  "cover": "cover.svg",
+  "pages": [
+    {
+      "image": "01.svg",
+      "text": "Am Abend leuchtete das alte Panchatantra-Buch wieder. Mehar schlug es auf, und schwupps! Sie stand an einem kleinen Teich, mitten in einem heißen, heißen Sommer.",
+      "word": { "de": "der Sommer", "en": "summer", "hi": "गर्मी", "hi_roman": "garmi" }
+    },
+    {
+      "image": "02.svg",
+      "text": "Am Teich wohnte Plappi, die Schildkröte. Sie plapperte und plapperte, vom Morgen bis zum Abend. Ihre besten Freunde waren zwei Wildgänse: Gisi und Gusti.",
+      "say": { "lang": "de", "text": "Bla, bla, bla!" },
+      "word": { "de": "die Schildkröte", "en": "tortoise", "hi": "कछुआ", "hi_roman": "kachhua" }
+    },
+    {
+      "image": "03.svg",
+      "text": "Aber es regnete nicht. Der Teich wurde kleiner und kleiner, bis nur noch Schlamm übrig war. „Wir müssen zum großen See fliegen“, sagten die Gänse. „Aber Plappi kann ja nicht fliegen!“",
+      "word": { "de": "der Teich", "en": "pond", "hi": "तालाब", "hi_roman": "taalaab" }
+    },
+    {
+      "image": "04.svg",
+      "text": "Mehar dachte nach. Dann hob sie einen langen Stock auf. „Ihr haltet die Enden fest, und Plappi beißt in die Mitte. So fliegt sie mit!“",
+      "word": { "de": "der Stock", "en": "stick", "hi": "डंडा", "hi_roman": "danda" }
+    },
+    {
+      "image": "05.svg",
+      "text": "„Aber pass gut auf“, sagte Mehar. „Du darfst den Mund nicht aufmachen. Kein einziges Wort!“ Plappi nickte. „Versprochen! Ich sage nichts, gar nichts, überhaupt nichts, nie ...“ „Psst!“, riefen alle.",
+      "say": { "lang": "de", "text": "Psst!" },
+      "word": { "de": "leise", "en": "quiet", "hi": "चुप", "hi_roman": "chup" }
+    },
+    {
+      "image": "06.svg",
+      "text": "Flatter, flatter! Die Gänse flogen hoch in den blauen Himmel, und Plappi hing in der Mitte. Mehar rannte unten über die Wiese hinterher und winkte.",
+      "word": { "de": "fliegen", "en": "to fly", "hi": "उड़ना", "hi_roman": "udna" }
+    },
+    {
+      "image": "07.svg",
+      "text": "Unten zeigten Hasi und Uhu nach oben. „Schaut mal, eine fliegende Schildkröte! Ha, ha, wie komisch!“ Plappi wurde ganz rot vor Ärger. Was glaubst du, was jetzt passiert?",
+      "word": { "de": "lachen", "en": "to laugh", "hi": "हँसना", "hi_roman": "hansna" }
+    },
+    {
+      "image": "08.svg",
+      "text": "„Ich bin gar nicht komisch!“, rief Plappi. Oh nein! Sie hatte den Mund aufgemacht! Plappi fiel hinunter, tiefer und tiefer ...",
+      "say": { "lang": "de", "text": "Oh nein!" },
+      "word": { "de": "fallen", "en": "to fall", "hi": "गिरना", "hi_roman": "girna" }
+    },
+    {
+      "image": "09.svg",
+      "text": "PLUMPS! Zum Glück landete sie mitten in einem weichen Heuhaufen. Mehar rannte hin. Plappi krabbelte heraus, voller Heu, aber heil. „Ich hätte still sein sollen“, flüsterte sie.",
+      "word": { "de": "das Heu", "en": "hay", "hi": "भूसा", "hi_roman": "bhoosa" }
+    },
+    {
+      "image": "10.svg",
+      "text": "„Erst denken, dann reden“, sagte Mehar. „Wenn du etwas sagen willst, summ einfach: Mmmm!“ Beim zweiten Flug summte Plappi den ganzen Weg, bis zum großen blauen See. PLATSCH!",
+      "say": { "lang": "de", "text": "Mmmm!" },
+      "word": { "de": "der See", "en": "lake", "hi": "झील", "hi_roman": "jheel" }
+    },
+    {
+      "image": "11.svg",
+      "text": "Schwupps! Mehar lag wieder in ihrem Bett. Sie machte die Lippen zu und summte ganz leise: Mmmm. Gute Nacht, Plappi. Gute Nacht, Mehar.",
+      "word": { "de": "gute Nacht", "en": "good night", "hi": "शुभ रात्रि", "hi_roman": "shubh raatri" }
+    }
+  ],
+  "moral": {
+    "de": "Erst denken, dann reden. Manchmal ist es klüger, still zu sein, auch wenn andere lachen.",
+    "en": "Think before you speak. Sometimes it is wiser to stay quiet, even when others laugh.",
+    "hi": "बोलने से पहले सोचो। कभी-कभी चुप रहना ही समझदारी है।",
+    "hi_roman": "Bolne se pehle socho. Kabhi-kabhi chup rehna hi samajhdaari hai."
+  },
+  "questions": [
+    { "de": "Warum durfte Plappi den Mund nicht aufmachen?" },
+    { "de": "Warum hat Plappi dann doch geredet?" },
+    { "de": "Was kannst du tun, wenn jemand über dich lacht?" }
+  ]
+}

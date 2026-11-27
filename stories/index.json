@@ -13,7 +13,8 @@
       "subtitle": "Stories in English",
       "color": "#3f7be8",
       "stories": [
-        "2026-11-26-mehar-and-the-lion-in-the-well"
+        "2026-11-26-mehar-and-the-lion-in-the-well",
+        "2026-11-27-mehar-and-the-crafty-crocodile"
       ]
     },
     {
@@ -23,7 +24,8 @@
       "subtitle": "Geschichten auf Deutsch",
       "color": "#e0912a",
       "stories": [
-        "2026-11-26-mehar-und-der-loewe-im-brunnen"
+        "2026-11-26-mehar-und-der-loewe-im-brunnen",
+        "2026-11-27-mehar-und-die-plappernde-schildkroete"
       ]
     },
     {
@@ -34,7 +36,8 @@
       "subtitle": "हिंदी कहानियाँ",
       "color": "#d8343f",
       "stories": [
-        "2026-11-26-mehar-aur-kuen-wala-sher"
+        "2026-11-26-mehar-aur-kuen-wala-sher",
+        "2026-11-27-mehar-aur-chuhon-ki-dosti"
       ]
     }
   ]
