@@ -1,0 +1,199 @@
+{
+  "id": "2026-11-28-mehar-aur-chaar-dost",
+  "book": "hi",
+  "number": 4,
+  "date": "2026-11-28",
+  "title": {
+    "hi": "मेहर और चार दोस्त",
+    "hi_roman": "Mehar aur chaar dost",
+    "en": "Mehar and the Four Friends",
+    "de": "Mehar und die vier Freunde"
+  },
+  "inspired_by": "पंचतंत्र की कहानी: कौआ, चूहा, कछुआ और हिरण (मित्र-लाभ)",
+  "themes": [
+    "animals",
+    "nature",
+    "friends"
+  ],
+  "learning": "सच्चे दोस्त मुसीबत में साथ देते हैं",
+  "characters": [
+    {
+      "name": "काकू",
+      "who": "एक कौआ, जो ऊँचा उड़कर सब कुछ देख लेता है"
+    },
+    {
+      "name": "चिंटू",
+      "who": "एक नन्हा चूहा, जिसके दाँत बहुत तेज़ हैं"
+    },
+    {
+      "name": "धीमू",
+      "who": "एक धीमा पर समझदार कछुआ"
+    },
+    {
+      "name": "चित्रू",
+      "who": "एक चित्तीदार हिरण, जो सबसे तेज़ दौड़ता है"
+    }
+  ],
+  "cover": "cover.svg",
+  "pages": [
+    {
+      "image": "01.svg",
+      "text": "पंचतंत्र की किताब फिर से चमकी। सर्र! मेहर एक नीली झील के किनारे पहुँच गई। वहाँ चार पक्के दोस्त रहते थे: काकू कौआ, चिंटू चूहा, धीमू कछुआ और चित्रू हिरण।",
+      "roman": "Panchatantra ki kitaab phir se chamki. Sarr! Mehar ek neeli jheel ke kinaare pahunch gayi. Wahaan chaar pakke dost rehte the: Kaaku kauaa, Chintu chuha, Dheemu kachhua aur Chitru hiran.",
+      "word": {
+        "hi": "कछुआ",
+        "hi_roman": "kachhua",
+        "en": "tortoise",
+        "de": "die Schildkröte"
+      }
+    },
+    {
+      "image": "02.svg",
+      "text": "रोज़ शाम चारों दोस्त झील पर मिलते थे। पर आज चित्रू नहीं आया। काकू ऊँचा उड़ा और चिल्लाया, \"काँव! काँव! चित्रू शिकारी के जाल में फँस गया है!\"",
+      "roman": "Roz shaam chaaron dost jheel par milte the. Par aaj Chitru nahin aaya. Kaaku ooncha uda aur chillaaya, \"Kaanv! Kaanv! Chitru shikaari ke jaal mein phans gaya hai!\"",
+      "word": {
+        "hi": "जाल",
+        "hi_roman": "jaal",
+        "en": "net",
+        "de": "das Netz"
+      },
+      "say": {
+        "lang": "hi",
+        "text": "काँव! काँव!",
+        "roman": "Kaanv! Kaanv!"
+      }
+    },
+    {
+      "image": "03.svg",
+      "text": "मेहर ने चिंटू को अपनी हथेली पर बिठाया और दौड़ पड़ी। काकू ऊपर से रास्ता दिखाता रहा। धीमू भी पीछे-पीछे चल पड़ा, धीरे-धीरे, बहुत धीरे-धीरे।",
+      "roman": "Mehar ne Chintu ko apni hatheli par bithaaya aur daud padi. Kaaku upar se raasta dikhaata raha. Dheemu bhi peechhe-peechhe chal pada, dheere-dheere, bahut dheere-dheere.",
+      "word": {
+        "hi": "धीरे-धीरे",
+        "hi_roman": "dheere-dheere",
+        "en": "slowly",
+        "de": "langsam"
+      }
+    },
+    {
+      "image": "04.svg",
+      "text": "कुतर, कुतर, कुतर! चिंटू ने जाल की रस्सियाँ काट डालीं, और चित्रू आज़ाद हो गया। पर तभी पेड़ों के पीछे से आवाज़ आई: धप! धप! धप! शिकारी लौट रहा था!",
+      "roman": "Kutar, kutar, kutar! Chintu ne jaal ki rassiyaan kaat daalin, aur Chitru aazaad ho gaya. Par tabhi pedon ke peechhe se aawaaz aayi: Dhap! Dhap! Dhap! Shikaari laut raha tha!",
+      "word": {
+        "hi": "शिकारी",
+        "hi_roman": "shikaari",
+        "en": "hunter",
+        "de": "der Jäger"
+      },
+      "say": {
+        "lang": "hi",
+        "text": "धप! धप! धप!",
+        "roman": "Dhap! Dhap! Dhap!"
+      }
+    },
+    {
+      "image": "05.svg",
+      "text": "चित्रू छलाँग मारकर भागा। काकू उड़ गया। चिंटू बिल में घुस गया, और मेहर झाड़ी के पीछे छिप गई। पर बेचारा धीमू इतनी जल्दी कहाँ भागता! शिकारी ने उसे थैले में डाल लिया।",
+      "roman": "Chitru chhalaang maarkar bhaaga. Kaaku ud gaya. Chintu bil mein ghus gaya, aur Mehar jhaadi ke peechhe chhip gayi. Par bechaara Dheemu itni jaldi kahaan bhaagta! Shikaari ne use thaile mein daal liya.",
+      "word": {
+        "hi": "थैला",
+        "hi_roman": "thaila",
+        "en": "bag",
+        "de": "der Sack"
+      }
+    },
+    {
+      "image": "06.svg",
+      "text": "सब दोस्त उदास हो गए। मेहर ने आँखें बंद करके सोचा, फिर मुस्कुराई। \"मेरे पास एक तरकीब है!\" बताओ, मेहर ने क्या तरकीब सोची होगी?",
+      "roman": "Sab dost udaas ho gaye. Mehar ne aankhen band karke socha, phir muskuraayi. \"Mere paas ek tarkeeb hai!\" Batao, Mehar ne kya tarkeeb sochi hogi?",
+      "word": {
+        "hi": "तरकीब",
+        "hi_roman": "tarkeeb",
+        "en": "clever idea",
+        "de": "die Idee"
+      }
+    },
+    {
+      "image": "07.svg",
+      "text": "चित्रू शिकारी के रास्ते में ऐसे लेट गया, जैसे बहुत बीमार हो। आँखें बंद, टाँगें ढीली। काकू उसके ऊपर बैठकर बोला, \"काँव! काँव!\" कितना बढ़िया नाटक!",
+      "roman": "Chitru shikaari ke raaste mein aise let gaya, jaise bahut beemaar ho. Aankhen band, taangen dheeli. Kaaku uske upar baithkar bola, \"Kaanv! Kaanv!\" Kitna badhiya naatak!",
+      "word": {
+        "hi": "नाटक",
+        "hi_roman": "naatak",
+        "en": "pretend play",
+        "de": "so tun als ob"
+      }
+    },
+    {
+      "image": "08.svg",
+      "text": "शिकारी ने हिरण को देखा। \"अरे वाह! एक हिरण!\" उसने थैला ज़मीन पर रखा और चुपके-चुपके चित्रू की ओर बढ़ा। झाड़ी के पीछे मेहर ने साँस रोक ली।",
+      "roman": "Shikaari ne hiran ko dekha. \"Are waah! Ek hiran!\" Usne thaila zameen par rakha aur chupke-chupke Chitru ki or badha. Jhaadi ke peechhe Mehar ne saans rok li.",
+      "word": {
+        "hi": "हिरण",
+        "hi_roman": "hiran",
+        "en": "deer",
+        "de": "der Hirsch"
+      }
+    },
+    {
+      "image": "09.svg",
+      "text": "यही मौका था! चिंटू ने थैले की रस्सी कुतर डाली। धीमू बाहर निकला और... छपाक! सीधा झील में। मेहर ने ताली बजाई, और चित्रू उछलकर जंगल में भाग गया!",
+      "roman": "Yahi mauka tha! Chintu ne thaile ki rassi kutar daali. Dheemu baahar nikla aur... chhapaak! Seedha jheel mein. Mehar ne taali bajaayi, aur Chitru uchhalkar jangal mein bhaag gaya!",
+      "word": {
+        "hi": "मौका",
+        "hi_roman": "mauka",
+        "en": "chance",
+        "de": "die Gelegenheit"
+      },
+      "say": {
+        "lang": "hi",
+        "text": "छपाक!",
+        "roman": "Chhapaak!"
+      }
+    },
+    {
+      "image": "10.svg",
+      "text": "शिकारी ने पीछे मुड़कर देखा। हिरण ग़ायब, कछुआ भी ग़ायब! उसने सिर खुजलाया और ख़ाली हाथ घर लौट गया। चारों दोस्त और मेहर गले मिले और ख़ूब हँसे।",
+      "roman": "Shikaari ne peechhe mudkar dekha. Hiran gaayab, kachhua bhi gaayab! Usne sir khujlaaya aur khaali haath ghar laut gaya. Chaaron dost aur Mehar gale mile aur khoob hanse.",
+      "word": {
+        "hi": "गले मिलना",
+        "hi_roman": "gale milna",
+        "en": "to hug",
+        "de": "umarmen"
+      }
+    },
+    {
+      "image": "11.svg",
+      "text": "सर्र! मेहर वापस अपने पलंग पर थी। उसने सोचा, \"सच्चे दोस्त मुसीबत में कभी साथ नहीं छोड़ते।\" फिर उसकी आँखें धीरे-धीरे बंद हो गईं। शुभ रात्रि!",
+      "roman": "Sarr! Mehar vaapas apne palang par thi. Usne socha, \"Sachche dost musibat mein kabhi saath nahin chhodte.\" Phir uski aankhen dheere-dheere band ho gayin. Shubh raatri!",
+      "word": {
+        "hi": "शुभ रात्रि",
+        "hi_roman": "shubh raatri",
+        "en": "good night",
+        "de": "gute Nacht"
+      }
+    }
+  ],
+  "moral": {
+    "hi": "सच्चे दोस्त मुसीबत में एक-दूसरे का साथ नहीं छोड़ते। हर दोस्त में कोई ख़ूबी होती है, और मिलकर हम हर मुश्किल हल कर सकते हैं।",
+    "hi_roman": "Sachche dost musibat mein ek-doosre ka saath nahin chhodte. Har dost mein koi khoobi hoti hai, aur milkar hum har mushkil hal kar sakte hain.",
+    "en": "True friends never leave each other in trouble. Every friend is good at something, and together we can solve any problem.",
+    "de": "Echte Freunde lassen einander nie im Stich. Jeder kann etwas, und zusammen schaffen wir alles."
+  },
+  "questions": [
+    {
+      "hi": "चित्रू को जाल से किसने छुड़ाया?",
+      "hi_roman": "Chitru ko jaal se kisne chhudaaya?",
+      "en": "Who freed Chitru from the net?"
+    },
+    {
+      "hi": "शिकारी ने थैला ज़मीन पर क्यों रखा?",
+      "hi_roman": "Shikaari ne thaila zameen par kyon rakha?",
+      "en": "Why did the hunter put the bag down?"
+    },
+    {
+      "hi": "तुम अपने दोस्तों की मदद कैसे करती हो?",
+      "hi_roman": "Tum apne doston ki madad kaise karti ho?",
+      "en": "How do you help your friends?"
+    }
+  ]
+}

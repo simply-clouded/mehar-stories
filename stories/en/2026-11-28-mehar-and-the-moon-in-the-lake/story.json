@@ -1,0 +1,172 @@
+{
+  "id": "2026-11-28-mehar-and-the-moon-in-the-lake",
+  "book": "en",
+  "number": 4,
+  "date": "2026-11-28",
+  "title": {
+    "en": "Mehar and the Moon in the Lake",
+    "de": "Mehar und der Mond im See",
+    "hi": "मेहर और झील में चाँद",
+    "hi_roman": "Mehar aur jheel mein chaand"
+  },
+  "inspired_by": "The Elephants and the Hares, from the Panchatantra",
+  "themes": [
+    "moon",
+    "animals",
+    "nature",
+    "friends"
+  ],
+  "learning": "Cleverness beats size, and big ones should watch out for small ones",
+  "characters": [
+    {
+      "name": "Gajraj",
+      "who": "the big elephant king, thirsty and in a hurry"
+    },
+    {
+      "name": "Hasi",
+      "who": "a small bunny with long ears and a brave heart"
+    },
+    {
+      "name": "Chanda Mama",
+      "who": "the moon, who shines on the lake"
+    }
+  ],
+  "cover": "cover.svg",
+  "pages": [
+    {
+      "image": "01.svg",
+      "text": "The Panchatantra book glowed. Whoosh! Mehar landed in a dry, dusty jungle. No rain had fallen for months. The grass was brown, and the elephants were very, very thirsty.",
+      "word": {
+        "en": "thirsty",
+        "de": "durstig",
+        "hi": "प्यासा",
+        "hi_roman": "pyaasa"
+      }
+    },
+    {
+      "image": "02.svg",
+      "text": "Gajraj, the elephant king, found a sparkling lake. \"Water!\" he trumpeted. The whole herd ran. STOMP! STOMP! STOMP! Right over the little bunny burrows on the shore.",
+      "say": {
+        "lang": "en",
+        "text": "STOMP! STOMP! STOMP!"
+      },
+      "word": {
+        "en": "lake",
+        "de": "der See",
+        "hi": "झील",
+        "hi_roman": "jheel"
+      }
+    },
+    {
+      "image": "03.svg",
+      "text": "Hasi the bunny sat by her squashed home. \"They will come back every night,\" she sniffed. \"What can tiny bunnies do against big elephants?\" Mehar hugged her tight.",
+      "word": {
+        "en": "tiny",
+        "de": "winzig",
+        "hi": "नन्हा",
+        "hi_roman": "nanha"
+      }
+    },
+    {
+      "image": "04.svg",
+      "text": "Mehar looked up at the round full moon. Then she looked down at the lake. There was the moon again, floating in the water! \"Hasi, I have an idea!\" Can you guess it?",
+      "word": {
+        "en": "moon",
+        "de": "der Mond",
+        "hi": "चाँद",
+        "hi_roman": "chaand"
+      }
+    },
+    {
+      "image": "05.svg",
+      "text": "Next night, Hasi hopped onto a tall rock. \"Stop, King Gajraj! I bring a message from the Moon. This is the Moon's own lake, and you squashed the Moon's bunnies!\"",
+      "word": {
+        "en": "message",
+        "de": "die Nachricht",
+        "hi": "संदेश",
+        "hi_roman": "sandesh"
+      }
+    },
+    {
+      "image": "06.svg",
+      "text": "Gajraj laughed. \"The Moon? Where?\" \"Look in the lake,\" said Mehar. Gajraj peeked. There she was, round and shining in the water! \"Oh!\" he gulped.",
+      "word": {
+        "en": "look",
+        "de": "schauen",
+        "hi": "देखो",
+        "hi_roman": "dekho"
+      }
+    },
+    {
+      "image": "07.svg",
+      "text": "\"Sorry, Moon!\" Gajraj dipped his trunk to say hello... SPLISH! The water rippled, and the moon wobbled and shook into pieces. \"She's shaking! She's cross with me!\"",
+      "say": {
+        "lang": "en",
+        "text": "SPLISH!"
+      },
+      "word": {
+        "en": "wobble",
+        "de": "wackeln",
+        "hi": "हिलना",
+        "hi_roman": "hilna"
+      }
+    },
+    {
+      "image": "08.svg",
+      "text": "Gajraj's big knees trembled. \"What shall I do?\" Mehar stepped forward. \"Walk softly. Go around the burrows, and drink only from the far side of the lake.\"",
+      "word": {
+        "en": "softly",
+        "de": "leise",
+        "hi": "धीरे से",
+        "hi_roman": "dheere se"
+      }
+    },
+    {
+      "image": "09.svg",
+      "text": "Tiptoe, tiptoe! The whole herd walked carefully around the bunny homes. Gajraj even helped Hasi pat her burrow back into shape with his trunk.",
+      "word": {
+        "en": "carefully",
+        "de": "vorsichtig",
+        "hi": "सँभलकर",
+        "hi_roman": "sambhalkar"
+      }
+    },
+    {
+      "image": "10.svg",
+      "text": "Then Hasi giggled and told him the truth. \"The moon in the lake is only a reflection!\" Gajraj blinked. Then he laughed. \"Clever little ones! You taught me to watch my step.\"",
+      "word": {
+        "en": "truth",
+        "de": "die Wahrheit",
+        "hi": "सच",
+        "hi_roman": "sach"
+      }
+    },
+    {
+      "image": "11.svg",
+      "text": "Whoosh! Mehar was back in bed. In her glass of water by the window, a tiny moon was shining. \"Good night, Moon,\" she whispered. \"Good night, Hasi.\"",
+      "word": {
+        "en": "good night",
+        "de": "gute Nacht",
+        "hi": "शुभ रात्रि",
+        "hi_roman": "shubh raatri"
+      }
+    }
+  ],
+  "moral": {
+    "en": "Being clever is stronger than being big. And the biggest ones should always watch where they step, and look out for the small.",
+    "de": "Klugheit ist stärker als Größe. Und die Großen sollen auf die Kleinen achten.",
+    "hi": "चतुराई ताक़त से बड़ी होती है। और बड़ों को छोटों का ध्यान रखना चाहिए।",
+    "hi_roman": "Chaturaai taakat se badi hoti hai. Aur badon ko chhoton ka dhyaan rakhna chahiye."
+  },
+  "questions": [
+    {
+      "en": "Why were the bunnies sad?"
+    },
+    {
+      "en": "What did Gajraj see when he looked into the lake?"
+    },
+    {
+      "en": "Have you ever seen the moon in water? Where?"
+    }
+  ]
+}

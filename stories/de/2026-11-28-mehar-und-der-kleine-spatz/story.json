@@ -1,0 +1,208 @@
+{
+  "id": "2026-11-28-mehar-und-der-kleine-spatz",
+  "book": "de",
+  "number": 4,
+  "date": "2026-11-28",
+  "title": {
+    "de": "Mehar und der kleine Spatz",
+    "en": "Mehar and the Little Sparrow",
+    "hi": "मेहर और नन्ही गौरैया",
+    "hi_roman": "Mehar aur nanhi gauraiya"
+  },
+  "inspired_by": "Der Spatz und der Elefant, aus dem Panchatantra",
+  "themes": [
+    "animals",
+    "nature",
+    "friends"
+  ],
+  "learning": "Zusammen sind auch die Kleinen stark",
+  "characters": [
+    {
+      "name": "Piepsi",
+      "who": "eine kleine Spatzenmama mit drei Eiern im Nest"
+    },
+    {
+      "name": "Rumpel",
+      "who": "ein großer, wilder Elefant, der gern an Bäumen rüttelt"
+    },
+    {
+      "name": "Klopf",
+      "who": "ein Specht mit roter Mütze"
+    },
+    {
+      "name": "Summi",
+      "who": "eine Biene, die schöne Schlaflieder summt"
+    },
+    {
+      "name": "Quaki",
+      "who": "ein lustiger Frosch"
+    }
+  ],
+  "cover": "cover.svg",
+  "pages": [
+    {
+      "image": "01.svg",
+      "text": "Das Panchatantra-Buch leuchtete. Schwupps! Mehar stand in einem grünen Wald. Oben im Baum saß Piepsi, die Spatzenmama, auf drei kleinen blauen Eiern. „Bald schlüpfen meine Kinder!“, piepste sie.",
+      "word": {
+        "de": "das Nest",
+        "en": "nest",
+        "hi": "घोंसला",
+        "hi_roman": "ghonsla"
+      }
+    },
+    {
+      "image": "02.svg",
+      "text": "Da kam Rumpel, der Elefant. Rumms! Rumms! Ihm war langweilig, also rüttelte er am Baum. Die Äste wackelten. Das Nest wackelte. Und dann ... fiel es herunter!",
+      "say": {
+        "lang": "de",
+        "text": "Rumms! Rumms!"
+      },
+      "word": {
+        "de": "der Elefant",
+        "en": "elephant",
+        "hi": "हाथी",
+        "hi_roman": "haathi"
+      }
+    },
+    {
+      "image": "03.svg",
+      "text": "Mehar sprang los und fing das Nest mit beiden Händen. Puh! Alle drei Eier waren heil. Aber Rumpel lachte nur: „Was kümmert mich so ein kleiner Spatz?“",
+      "word": {
+        "de": "fangen",
+        "en": "to catch",
+        "hi": "पकड़ना",
+        "hi_roman": "pakadna"
+      }
+    },
+    {
+      "image": "04.svg",
+      "text": "Piepsi weinte. „Er ist so groß, und ich bin so klein.“ Mehar setzte das Nest zurück und sagte: „Allein bist du klein. Aber zusammen sind wir groß! Komm, wir holen Freunde.“",
+      "word": {
+        "de": "zusammen",
+        "en": "together",
+        "hi": "साथ मिलकर",
+        "hi_roman": "saath milkar"
+      }
+    },
+    {
+      "image": "05.svg",
+      "text": "Sie fanden Klopf, den Specht, Summi, die Biene, und Quaki, den Frosch. Mehar flüsterte ihnen einen Plan zu. Alle nickten. „Wir machen mit!“",
+      "word": {
+        "de": "der Freund",
+        "en": "friend",
+        "hi": "दोस्त",
+        "hi_roman": "dost"
+      }
+    },
+    {
+      "image": "06.svg",
+      "text": "Zuerst flog Summi zu Rumpel und summte ihm ein Schlaflied ins Ohr: „Summ, summ, summ ...“ Rumpel gähnte. Seine Augen wurden ganz schwer.",
+      "say": {
+        "lang": "de",
+        "text": "Summ, summ, summ ..."
+      },
+      "word": {
+        "de": "die Biene",
+        "en": "bee",
+        "hi": "मधुमक्खी",
+        "hi_roman": "madhumakkhi"
+      }
+    },
+    {
+      "image": "07.svg",
+      "text": "Dann klopfte Klopf an jeden Baum: Tock-tock-tock! Hier und da und dort. Rumpel drehte sich im Kreis. „Wer klopft da? Wo bin ich?“ Jetzt war er ganz durcheinander.",
+      "say": {
+        "lang": "de",
+        "text": "Tock-tock-tock!"
+      },
+      "word": {
+        "de": "der Specht",
+        "en": "woodpecker",
+        "hi": "कठफोड़वा",
+        "hi_roman": "kathphodva"
+      }
+    },
+    {
+      "image": "08.svg",
+      "text": "Rumpel hatte Durst. Da hörte er: „Quak! Quak!“ „Ein Frosch! Da muss Wasser sein!“ Er stapfte los. Was glaubst du, wohin Quaki ihn gelockt hat?",
+      "say": {
+        "lang": "de",
+        "text": "Quak! Quak!"
+      },
+      "word": {
+        "de": "der Frosch",
+        "en": "frog",
+        "hi": "मेंढक",
+        "hi_roman": "mendhak"
+      }
+    },
+    {
+      "image": "09.svg",
+      "text": "PLATSCH! Kein Teich, sondern ein tiefes Schlammloch! Rumpel steckte fest, bis zum Bauch. „Hilfe! Ich komme nicht raus!“ Er trötete laut.",
+      "say": {
+        "lang": "de",
+        "text": "PLATSCH!"
+      },
+      "word": {
+        "de": "der Schlamm",
+        "en": "mud",
+        "hi": "कीचड़",
+        "hi_roman": "keechad"
+      }
+    },
+    {
+      "image": "10.svg",
+      "text": "Mehar und Piepsi kamen zu ihm. Rumpel ließ den Rüssel hängen. „Es tut mir leid, Piepsi. Ich war gemein zu dir. Ich rüttle nie wieder an deinem Baum.“",
+      "word": {
+        "de": "leidtun",
+        "en": "to be sorry",
+        "hi": "माफ़ी",
+        "hi_roman": "maafi"
+      }
+    },
+    {
+      "image": "11.svg",
+      "text": "Da halfen alle mit. Mehar holte eine lange Liane, und alle zogen zusammen: „Hau-ruck! Hau-ruck!“ PLOPP! Rumpel war frei. Er bedankte sich bei jedem, sogar bei der kleinen Summi.",
+      "say": {
+        "lang": "de",
+        "text": "Hau-ruck!"
+      },
+      "word": {
+        "de": "ziehen",
+        "en": "to pull",
+        "hi": "खींचना",
+        "hi_roman": "kheenchna"
+      }
+    },
+    {
+      "image": "12.svg",
+      "text": "Schwupps! Mehar lag wieder in ihrem Bett. Draußen piepste leise ein Spatz. Mehar lächelte: „Klein, aber zusammen stark.“ Dann schlief sie ein. Gute Nacht!",
+      "word": {
+        "de": "gute Nacht",
+        "en": "good night",
+        "hi": "शुभ रात्रि",
+        "hi_roman": "shubh raatri"
+      }
+    }
+  ],
+  "moral": {
+    "de": "Auch die Kleinen sind stark, wenn sie zusammenhalten. Und wer groß ist, soll auf die Kleinen aufpassen, nicht sie ärgern.",
+    "en": "Small ones are strong when they stick together. And big ones should look after the small, not bully them.",
+    "hi": "छोटे भी मिलकर बहुत ताक़तवर होते हैं। बड़ों को छोटों को सताना नहीं, बचाना चाहिए।",
+    "hi_roman": "Chhote bhi milkar bahut taakatvar hote hain. Badon ko chhoton ko sataana nahin, bachaana chahiye."
+  },
+  "questions": [
+    {
+      "de": "Wer hat Piepsis Nest aufgefangen?",
+      "en": "Who caught Piepsi's nest?"
+    },
+    {
+      "de": "Wie haben die kleinen Tiere zusammen Rumpel überlistet?",
+      "en": "How did the little animals trick Rumpel together?"
+    },
+    {
+      "de": "Was machst du, wenn jemand Größeres gemein zu dir ist?",
+      "en": "What do you do when someone bigger is mean to you?"
+    }
+  ]
+}
